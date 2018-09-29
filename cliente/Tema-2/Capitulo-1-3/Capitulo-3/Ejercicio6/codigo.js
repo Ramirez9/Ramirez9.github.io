@@ -4,7 +4,7 @@
     //Almacenos con la funcion prompt
     let numero = prompt("Introduzca el número");
     if (numero < 0 || numero > 99999999) {
-        alert("El número es inválido")
+        console.log("El número es inválido")
     } else {
         let letra = prompt("Introduzca la letra");
         //Convertimos la letra en mayúscula
@@ -13,9 +13,9 @@
             let letraNueva = letras[numero2];
 
             if (letra == letraNueva) {
-                alert("El DNI es correcto");
+                console.log("El DNI es correcto");
             } else {
-                alert("El DNI no es correcto");
+                console.log("El DNI no es correcto");
             }
         }
     }

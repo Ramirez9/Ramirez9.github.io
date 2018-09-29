@@ -1,6 +1,6 @@
 {
     //Array proporcionado.
-    var valores = [true, 5, false, "hola","adios", 2];
+    let valores = [true, 5, false, "hola","adios", 2];
 
     //Condición If, para ver si es mayor Hola o Adios
     if (valores[3].length > valores[4].length) {
