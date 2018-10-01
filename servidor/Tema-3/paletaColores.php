@@ -13,13 +13,34 @@
 <body>
     <noscript><h1>Se requiere javascript</h1></noscript>
 
+    <h2>Paleta de colores</h2>
+
     <?php
     /**
      * User: Francisco Ramírez Ruiz
      * File:paletaColores.php
-     * Description: Muestra la paleta de colores
+     * Description: Paleta de colores
      */
 
+    //Creamos una tabla para almacenarlos
+    //los colores tienen 3 combinaciones con RGB
+    $color = "";
+    echo "<table style='margin: 0 auto;  border-spacing: 4px'>";
+    for ($i = 0; $i < 300; $i += 100) {
+        for ($j = 0; $j < 300; $j += 100) {
+
+            echo "<tr>";
+
+            for ($k = 0; $k < 300; $k += 10) {
+                $color = "rgb($i,$j,$k)";
+               
+                echo "<td style=\"background-color:$color\"; ><p style= \"color:$color\";>color</p></td>";
+            }
+    echo "</tr>";
+        }
+    }
+
+    echo "</table>";
     
     ?>
 </body>

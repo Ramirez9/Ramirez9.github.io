@@ -12,7 +12,7 @@
 <body>
     <noscript><h1>Se requiere javascript</h1></noscript>
 
-    <h2>Estación del año</h2>T
+    <h2>Estación del año</h2>
     <?php
     /**
      * User: Francisco Ramírez Ruiz
