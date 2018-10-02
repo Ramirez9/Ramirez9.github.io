@@ -1,3 +1,13 @@
+<?php
+    /**
+     * User: Francisco Ramírez Ruiz
+     * File: diaDelMes.php
+     * Description: Carga en variables mes y año e indicar el número de días del mes.
+     */
+    if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+
+    
+?>
 <!DOCTYPE html>
 <html lang=es>
 <head> 
@@ -14,21 +24,17 @@
 
     <h2>Días del mes</h2>
     <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File: diaDelMes.php
-     * Description: Carga en variables mes y año e indicar el número de días del mes.
-     */
-    $mes = "Febrero";
+
+    $mes = "Mayo";
     $anio = 2018;
 
     $bisiesto = false;
-    if (($anio % 4 == 0  && anio %100 != 0) || $anio % 400 == 0){
+    if (($anio%  4 == 0  && anio %100 != 0) || $anio % 400 == 0){
         $bisiesto = true;
     }
 
     switch($mes){
-         case "Enero":
+    case "Enero":
     case "Marzo":
     case "Mayo":
     case "Julio":
@@ -53,5 +59,7 @@
         echo "Mes inválido";
     }
     ?>
+
+    <a href="../../servidor/Tema-2/diaDelMes.php?codigo" target ="_blank">Ver código</a>
 </body>
 </html>

@@ -1,3 +1,11 @@
+<?php
+    /**
+     * User: Francisco Ramírez Ruiz
+     * File: perfilUsuario.php
+     * Description: Lista de enlaces en función del perfil de usuario
+     */
+    if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+?>
 <!DOCTYPE html>
 <html lang=es>
 <head> 
@@ -27,11 +35,6 @@
     </form>
 
     <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File: perfilUsuario.php
-     * Description: Lista de enlaces en función del perfil de usuario
-     */
 
     // Recibimos los datos del formulario 
 
@@ -75,5 +78,7 @@
 
     }
     ?>
+
+    <a href="../../servidor/Tema-2/perfilUsuario.php?codigo" target ="_blank">Ver código</a>
 </body>
 </html>

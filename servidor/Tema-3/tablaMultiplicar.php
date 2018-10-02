@@ -1,3 +1,11 @@
+<?php
+    /**
+     * User: Francisco Ramírez Ruiz
+     * File: tablaMultiplicar.php
+     * Description: Genera la tabla de multiplicar del 1 al 10.
+     */
+    if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+?>
 <!DOCTYPE html>
 <html lang=es>
 <head> 
@@ -13,11 +21,7 @@
 <body>
     <noscript><h1>Se requiere javascript</h1></noscript>
     <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File: tablaMultiplicar.php
-     * Description: Genera la tabla de multiplicar del 1 al 10.
-     */
+
 
     //generamos para las 10 tablas.
     for ($tabla=1; $tabla<=10 ; $tabla++) { 
@@ -28,6 +32,8 @@
         }
     }
     ?>
+
+    <a href="../../servidor/Tema-3/tablaMultiplicar.php?codigo" target ="_blank">Ver código</a>
    
 </body>
 </html>

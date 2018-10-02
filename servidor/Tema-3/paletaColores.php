@@ -1,3 +1,11 @@
+<?php
+    /**
+     * User: Francisco Ramírez Ruiz
+     * File:paletaColores.php
+     * Description: Paleta de colores
+     */
+    if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+?>
 <!DOCTYPE html>
 <html lang=es>
 <head> 
@@ -7,20 +15,17 @@
     <title>Paleta de colores</title>
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Francisco Ramírez Ruiz">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
     <script src="codigo.js" type ="text/javascript"></script>
     </head>
 <body>
     <noscript><h1>Se requiere javascript</h1></noscript>
 
-    <h2>Paleta de colores</h2>
+    <h1>PaletaColores</h1>
+    <h2>Francisco Ramírez</h2>
 
     <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File:paletaColores.php
-     * Description: Paleta de colores
-     */
+
 
     //Creamos una tabla para almacenarlos
     //los colores tienen 3 combinaciones con RGB
@@ -33,8 +38,12 @@
 
             for ($k = 0; $k < 300; $k += 10) {
                 $color = "rgb($i,$j,$k)";
+                $hex = "#";
+                $hex .= dechex($i);
+                $hex .= dechex($j);
+                $hex .= dechex($k);
+                echo "<td style=\"background-color:$color\">$hex</td>";
                
-                echo "<td style=\"background-color:$color\"; ><p style= \"color:$color\";>color</p></td>";
             }
     echo "</tr>";
         }
@@ -43,5 +52,7 @@
     echo "</table>";
     
     ?>
+
+    <a href="../../servidor/Tema-3/paletaColores.php?codigo" target ="_blank">Ver código</a>
 </body>
 </html>

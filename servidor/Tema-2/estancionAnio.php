@@ -1,3 +1,11 @@
+<?php
+    /**
+     * User: Francisco Ramírez Ruiz
+     * File: estacionAnio.php
+     * Description: Cabecera en funcion de la estacion del año
+     */
+if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+?>
 <!DOCTYPE html>
 <html lang=es>
 <head> 
@@ -14,11 +22,7 @@
 
     <h2>Estación del año</h2>
     <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File: estacionAnio.php
-     * Description: Cabecera en funcion de la estacion del año
-     */
+  
     $mes = date("n");
     $dia = date("j");
 
@@ -71,13 +75,14 @@
                 $estacion = "invierno";
             break;
     }
-    echo "Estamos en: $estacion";
  
     $fileDir = "../../servidor/Tema-2/" . $estacion . ".jpg";
 
     echo "<img src=\"$fileDir\" style='width: 1200px; height: 500px; margin: 10px auto; display: block'>";
 
     ?>
+
+    <a href="../../servidor/Tema-2/estancionAnio.php?codigo" target ="_blank">Ver código</a>
  
 </body>
 </html>

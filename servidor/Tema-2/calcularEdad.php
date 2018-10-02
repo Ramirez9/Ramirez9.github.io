@@ -1,3 +1,12 @@
+<?php
+    /**
+     * User: Francisco Ramírez Ruiz
+     * File: calcularEdad.php
+     * Description: Cargar fecha de nacimiento en una variable y calcular la edad.
+     */
+    
+    if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+?>
 <!DOCTYPE html>
 <html lang=es>
 <head> 
@@ -15,12 +24,7 @@
 
     <h2>Ejercicio sobre mi edad!</h2>
     <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File: calcularEdad.php
-     * Description: Cargar fecha de nacimiento en una variable y calcular la edad.
-     */
-    
+
     //La fecha actual del sistema
     $diaAcutal = date("j");
     $mesActual = date("n");
@@ -47,5 +51,7 @@
 
     echo "<h2> Mi edad es: ". $edad . "</h2>";
     ?>
+
+    <a href="../../servidor/Tema-2/calcularEdad.php?codigo" target ="_blank">Ver código</a>
 </body>
 </html>
