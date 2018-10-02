@@ -39,7 +39,7 @@ A partir de la página web proporcionada y utilizando las funciones DOM, mostrar
     //Egestas URL 
     crearElemento("Dirección del penúltimo enlace: " + numeroEnlaces[numeroEnlaces.length - 2].href);
     crearElemento("El número de enlaces que apuntan a http://prueba es: " + contador);
-    crearElemento("Número de enlaces del tercer nodo: " + numeroEnlacesParrafo.length);
+    crearElemento("Número de enlaces del tercer párrafo: " + numeroEnlacesParrafo.length);
 
 
 
