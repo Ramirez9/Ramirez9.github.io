@@ -7,9 +7,7 @@ horizontales cuando se haya llegado al máximo número de caracteres.
  */
 
 {
-
-    let texto, info;
-
+    let texto, info, codigo;
     const maximo = 100;
 
     function init() {
@@ -17,16 +15,31 @@ horizontales cuando se haya llegado al máximo número de caracteres.
         texto = document.getElementById("texto");
         info = document.getElementById("info");
 
-        texto.addEventListener('keypress', function(){
+        texto.addEventListener("keypress", tecladoLimitado);
+        texto.addEventListener('keypress', msgMaximo);
 
-            actualizaInfo(maximo);
-
-        });
-
-
+        
     }
 
-    function actualizaInfo(maximo) {
+    let tecladoLimitado = function(ev){
+
+        codigo = ev.key;
+
+        console.log(codigo);
+        
+        if(codigo == 'ArrowUp' || codigo == 'ArrowDown' || codigo == 'ArrowLeft' || codigo == 'ArrowRight' ||
+        codigo == 'Delete' || codigo == 'Backspace'){
+
+            return true;
+        }else if(texto.value.length >= maximo){
+
+            ev.preventDefault();
+        }
+
+        }
+      
+
+    let msgMaximo = function () {
 
         if (texto.value.length >= maximo){
             info.innerHTML = "Ha introducido más de  " + maximo + " caracteres";
@@ -35,9 +48,7 @@ horizontales cuando se haya llegado al máximo número de caracteres.
         }else
             info.innerHTML = "Puedes escribir hasta " + (maximo - texto.value.length -1) + " caracteres adicionales";
            
-
     }
-
     window.addEventListener('load', init);
 
 }
