@@ -1,9 +1,9 @@
-<?php
+﻿<?php
     /**
      * User: Francisco Ramírez Ruiz
      * File:restaurante.php
      * Description: Un restaurante dispone de una carta de 3 primero, 5 segundos y 3 postres. Almacenar
-     * información incluyendo url y mostrar los menús disponibles. Mostrar el precio del menú
+     * información incluyendo img y mostrar los menús disponibles. Mostrar el precio del menú
      * suponiendo que éste se calcula sumando el precio de cada uno de los platos incluidos y con un
      * descuento del 20 %.
      */
@@ -24,7 +24,7 @@
     </head>
 <body>
 
-    <h1>Restaurantey: 3 primero, 5 segundos y 3 postres.</h1>
+    <h1>Restaurante: 3 primero, 5 segundos y 3 postres.</h1>
     <h2>Francisco Ramírez </h2>
 
     <noscript><h1>Se requiere javascript</h1></noscript>
@@ -35,23 +35,23 @@
 
     $menu = array(
         "primero" => array(
-            array("nombre" => "Crema de champiñones y pollo al romero", "url" => "https://static.hogarmania.com/archivos/201810/crema-champinones-xl-125x125x80xX.jpg", "precio" => 15),
-            array("nombre" => "Tortilla de la huerta", "url" => "https://static.hogarmania.com/archivos/201809/tortilla-huerta-xl-125x125x80xX.jpg", "precio" => 16),
-            array("nombre" => "Pasta fresca carbonara", "url" => "https://static.hogarmania.com/archivos/201806/pasta-carbonara-xl-125x125x80xX.jpg", "precio" => 15.5),
+            array("nombre" => "Crema de champiñones y pollo al romero", "img" => "img/plato1.jpg", "precio" => 15),
+            array("nombre" => "Tortilla de la huerta", "img" => "img/plato2.jpg", "precio" => 16),
+            array("nombre" => "Pasta fresca carbonara", "img" => "img/plato3.jpg", "precio" => 15.5),
         ),
 
         "segundo" => array(
-            array("nombre" => "Pollo con setas y ajos frescos", "url" => "https://static.hogarmania.com/archivos/201809/pollo-setas-xl-125x125x80xX.jpg", "precio" => 13.5),
-            array("nombre" => "Bacalao al pil-pil con puerro crujiente", "url" => "https://static.hogarmania.com/archivos/201809/bacalao-pipil-xl-125x125x80xX.jpg", "precio" => 15.5),
-            array("nombre" => "Empanadillas de pollos", "url" => "https://static.hogarmania.com/archivos/201808/empanadillas-pollo-xl-125x125x80xX.jpg", "precio" => 14),
-            array("nombre" => "Merluza con alioli de azafrán", "url" => "https://static.hogarmania.com/archivos/201806/merluza-alioli-xl-125x125x80xX.jpg", "precio" => 13),
-            array("nombre" => "Crepes con gambas y pollo", "url" => "https://static.hogarmania.com/archivos/201803/hctu0356-crepes-de-gambas-y-pollo-xl-125x125x80xX.jpg", "precio" => 18),
+            array("nombre" => "Pollo con setas y ajos frescos", "img" => "img/segundo1.jpg", "precio" => 13.5),
+            array("nombre" => "Bacalao al pil-pil con puerro crujiente", "img" => "img/segundo2.jpg", "precio" => 15.5),
+            array("nombre" => "Empanadillas de pollos", "img" => "img/segundo3.jpg", "precio" => 14),
+            array("nombre" => "Merluza con alioli de azafrán", "img" => "img/segundo4.jpg", "precio" => 13),
+            array("nombre" => "Crepes con gambas y pollo", "img" => "img/segundo5.jpg", "precio" => 18),
         ),
 
         "postre" => array(
-            array("nombre" => "Mousse de chocolate y nata", "url" => "https://www.hogarmania.com/archivos/201104/mousse-de-chocolate-y-nata-xl-156x125x80xX.jpg", "precio" => 7),
-            array("nombre" => "Pastelitos de mora", "url" => "https://static.hogarmania.com/archivos/201809/6218-pastelitos-de-mora-xl-125x125x80xX.jpg", "precio" => 6),
-            array("nombre" => "Flan de huevo", "url" => "https://static.hogarmania.com/archivos/201808/esec0016nv17-flan-125x125x80xX.jpg", "precio" => 6.5),
+            array("nombre" => "Mousse de chocolate y nata", "img" => "img/postre1.jpg", "precio" => 7),
+            array("nombre" => "Pastelitos de mora", "img" => "img/postre2.jpg", "precio" => 6),
+            array("nombre" => "Flan de huevo", "img" => "img/postre3.jpg", "precio" => 6.5),
         )
     );
 
@@ -73,9 +73,9 @@
                 $precioS = $menu["segundo"][$j]["precio"];
                 $precioL = $menu["postre"][$k]["precio"];
 
-                $rutaP = $menu["primero"][$i]["url"];
-                $rutaS = $menu["segundo"][$j]["url"];
-                $rutaL = $menu["primero"][$k]["url"];
+                $rutaP = $menu["primero"][$i]["img"];
+                $rutaS = $menu["segundo"][$j]["img"];
+                $rutaL = $menu["primero"][$k]["img"];
 
                 $total = ($precioP + $precioS + $precioL) - ((($precioP + $precioS + $precioL) * 20) / 100);
 
