@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".MainActivity">
+
+    <!--Equipo local del mercador-->
+    <TextView
+        android:id="@+id/textoLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="46dp"
+        android:text="LOCAL"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+    <TextView
+        android:id="@+id/contadorLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textoLocal"
+        android:layout_alignStart="@+id/textoLocal"
+        android:layout_below="@+id/textoLocal"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/contadorLocalFaltas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/contadorLocal"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/textoLocal"
+        android:layout_weight="0.5"
+        android:text="0"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button4Local"
+        android:layout_width="52dp"
+        android:layout_height="47dp"
+        android:text="F"
+        android:background="@color/red"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonRestarVisitante"
+        android:layout_marginStart="-36dp"
+        android:layout_marginBottom="-2dp"
+        android:layout_toEndOf="@+id/button3Local"
+        android:text="Reiniciar partido" />
+
+
+    <Button
+        android:id="@+id/button1Local"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/contadorLocal"
+        android:layout_toStartOf="@+id/contadorLocal"
+        android:text="+1"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button2Local"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/contadorLocal"
+        android:layout_marginEnd="36dp"
+        android:layout_toStartOf="@+id/button3Local"
+        android:text="+2"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button3Local"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/contadorLocal"
+        android:layout_marginStart="-38dp"
+        android:layout_toEndOf="@+id/contadorLocal"
+        android:text="+3"
+        android:textSize="30dp" />
+
+    <!--VISITANTE-->
+
+    <Button
+        android:id="@+id/buttonRestarLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textoLocal"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="17dp"
+        android:layout_toStartOf="@+id/contadorLocal"
+        android:text="-1"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textoVisitante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textoLocal"
+        android:layout_alignBottom="@+id/textoLocal"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="1dp"
+        android:text="Visitante"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/contadorVisitante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textoVisitante"
+        android:layout_alignStart="@+id/textoVisitante"
+        android:layout_below="@+id/textoVisitante"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/contadorVisitanteFaltas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/contadorLocal"
+        android:layout_marginStart="193dp"
+        android:layout_toEndOf="@+id/textoLocal"
+        android:layout_weight="0.5"
+        android:text="0"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button4Visitante"
+        android:layout_width="52dp"
+        android:layout_height="47dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="F"
+        android:background="@color/red"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button1Visitante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contadorVisitante"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="-46dp"
+        android:layout_toStartOf="@+id/contadorVisitante"
+        android:text="+1"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button2Visitante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contadorVisitante"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="18dp"
+        android:layout_toStartOf="@+id/button3Visitante"
+        android:text="+2"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/button3Visitante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contadorVisitante"
+        android:layout_marginStart="-12dp"
+        android:layout_marginTop="-2dp"
+        android:layout_toEndOf="@+id/contadorVisitante"
+        android:text="+3"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/buttonRestarVisitante"
+        android:layout_width="69dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textoVisitante"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/contadorVisitante"
+        android:text="-1"
+        android:textSize="30dp" />
+
+
+
+</RelativeLayout>
