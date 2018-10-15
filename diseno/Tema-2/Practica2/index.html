@@ -1,0 +1,120 @@
+<!-- Entregar un fichero .html que contenga todas las nuevas etiquetas de html5 vistas en clase. No olvides la etiqueta main
+Poned vuestro nombre en la etiqueta <title> -->
+
+<!-- Etiqueta doctype para indicar que es html5 -->
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Ramírez Ruiz</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+
+</head>
+
+<body>
+    <!-- Etiqueta header, indica la cabecera -->
+    <header>
+        <h1>Práctica 2 - Etiquetas de clase Francisco Ramirez Ruiz</h1>
+    </header>
+    <!-- Etiqueta nav, botonera de navegación -->
+    <nav>
+        <ul>
+            <li>Botón 1</li>
+            <li>Botón 2</li>
+            <li>Botón 3</li>
+        </ul>
+    </nav>
+
+    <!-- Etiqueta main, contenido principal -->
+    <main>
+        <!-- Etiqueta section, define un área de contenido -->
+        <section>
+            <!-- Etiqueta article, contenido independiente -->
+            <article>Artículo dentro del section 1</article>
+            <article>
+                <!-- Etiqueta video, permite añadir videos -->
+                <video width="300" controls>
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+            </article>
+        </section>
+
+        <section>
+            <article>Artículo dentro del section 2</article>
+            <article>
+                <!-- Etiqueta audio, permite añadir sonido -->
+                <audio controls>
+                    <source src="cancion.mp3" type="audio/mpeg">
+                </audio>
+            </article>
+        </section>
+
+        <section>
+            <article>Artículo dentro del section 3</article>
+            <article>
+                <!-- Etiquetas con input, algunos ejemplos -->
+                Nombre:<br>
+                <input type="text" name="nombre"><br>
+                Contraseña:<br>
+                <input type="password" name="password"><br>
+
+                Select a week:<br>
+                <input type="week" name="semana"><br>
+
+                <input type="radio" name="hombre" value="male" checked> Male<br>
+                <input type="radio" name="mujer" value="female"> Female<br>
+
+                <input type="checkbox" name="bici" value="Bike"> I have a bike<br>
+                <input type="checkbox" name="coche" value="Car"> I have a car<br>
+
+                Select your favorite color:<br>
+                <input type="color" name="colorfavorito"><br>
+
+                Birthday:<br>
+                <input type="date" name="cumpleanios"><br>
+
+                E-mail:<br>
+                <input type="email" name="email" ><br>
+
+                Quantity:<br>
+                <input type="number" name="points" min="0" max="100" step="10" value="0"><br>
+                <input type="range" name="points" min="0" max="10"><br>
+
+                Buscador:<br>
+                <input type="search" name="buscador"><br>
+
+                Teléfono:<br>
+                <input type="tel" name="telefono" value="+34 "><br>
+
+            </article>
+        </section>
+    </main>
+
+    <!-- Etiqueta aside, objetivo no principal -->
+    <aside>
+        <h4>¡Soy un aside fuera del main con un cuadrado y un círculo! :)</h4>
+
+        <!-- Etiqueta canvas, permite dibujar vectorialmente -->
+        <canvas width="30" height="30" style="border:3px solid">
+        </canvas>
+
+        <!-- Etiqueta svg, permite insertar dibujos y animaciones vectoriales -->
+        <svg width="50" height="50">
+            <circle cx="25" cy="25" r="20"/>
+        </svg>
+    </aside>
+
+    <!-- Etiqueta footer, pie de página -->
+    <footer>
+        <p>
+            <h3>Estás en el pie de página!!</h3>
+        </p>
+    </footer>
+
+</body>
+
+</html>
