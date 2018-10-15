@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginRight="25dp"
+        android:textAlignment="viewEnd"
+        android:textSize="50dp" />
+
+    <GridLayout
+        android:layout_width="598dp"
+        android:layout_height="197dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+
+        android:columnCount="7">
+
+        <!-- Primera fila de la calculadora-->
+
+        <Button
+            android:id="@+id/btnSin"
+            android:textAllCaps="false"
+            android:text="sin" />
+
+        <Button
+            android:id="@+id/btnCos"
+            android:textAllCaps="false"
+            android:layout_row="0"
+            android:text="cos" />
+
+        <Button
+            android:id="@+id/btnTan"
+            android:textAllCaps="false"
+            android:layout_row="0"
+            android:text="tan" />
+
+        <Button
+            android:id="@+id/btn7"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/btn8"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/btn9"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/btnDiv"
+            android:layout_width="65dp"
+            android:text="/" />
+
+        <!-- Fin primera fila-->
+
+        <!--Segunda fila-->
+        <Button
+            android:id="@+id/btnLn"
+            android:textAllCaps="false"
+            android:text="ln" />
+
+        <Button
+            android:id="@+id/btnLog"
+            android:layout_row="0"
+            android:textAllCaps="false"
+            android:text="log" />
+
+        <Button
+            android:id="@+id/btnMultDiv"
+            android:layout_row="0"
+            android:textAllCaps="false"
+            android:text="1/x" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/btn5"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/btn6"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/btnMult"
+            android:layout_width="65dp"
+            android:text="*" />
+
+        <!--Fin Segunda fila-->
+
+        <!--Tercera fila-->
+        <Button
+            android:id="@+id/btnE"
+            android:textAllCaps="false"
+            android:text="e^x" />
+
+        <Button
+            android:id="@+id/btnX2"
+            android:layout_row="0"
+            android:text="x^2" />
+
+        <Button
+            android:id="@+id/btnRaiz"
+            android:layout_row="0"
+            android:text="√" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/btnResta"
+            android:layout_width="65dp"
+            android:text="-" />
+
+        <!--Tercera fila-->
+
+        <!--Cuarta fila-->
+        <Button
+            android:id="@+id/btnPI"
+            android:text="π" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:text="C" />
+
+        <Button
+            android:id="@+id/btnSigno"
+            android:text="+/-" />
+
+        <Button
+            android:id="@+id/btnIgual"
+            android:layout_width="174dp"
+            android:layout_columnSpan="2"
+            android:text="=" />
+
+        <Button
+            android:id="@+id/btnComa"
+            android:text="," />
+
+        <Button
+            android:id="@+id/btnSuma"
+            android:layout_width="65dp"
+            android:text="+" />
+        <!--Fin de Cuarta fila-->
+    </GridLayout>
+</LinearLayout>
