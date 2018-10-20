@@ -58,8 +58,6 @@
             //Cerramos la ventana
         }
 
-        top = 0;
-        left = 0;
     }
     window.addEventListener("load", init);
  }
