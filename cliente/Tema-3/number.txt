@@ -1,0 +1,60 @@
+$CATEGORY: $course$/top/Tema3/Number
+
+::Pregunta 1::Seleccione la correcta, Number.isInteger{
+~Determina si es un carácter
+~Determina si es de tipo decimal
+=Determina si es de tipo entero
+~Determina si es undefined
+}
+
+::Pregunta 2::Seleccione la opción correcta teniendo en cuenta - let numero = new Number(5.4778){
+~numero.toFixed(8);  "5.4778000"
+~numero.toPrecision(2); "5.4"
+=numero.toString(); "5.4558"
+~numero.toLocaleString('es'); 5,478
+}
+
+::Pregunta 3::Selecciona la opción falsa{
+=MAX_VALUE es un método de Number
+~prototype permite añadir nuevas propiedades
+~Number permite modificar otros objetos a valor numérico
+~Number permite transformar cadenas en números
+
+}
+
+::Pregunta 4::Selecciona la opción correcta para que devuelva NaN{
+~Number('120');
+~Number(120);
+~Number('');
+=Number('foo');
+}
+
+::Pregunta 5::Number.prototype.valueOf() Devuelve{
+~Una cadena del objeto
+~Una cadena con el número en una notación de de precisión
+=Un valor primitivo del objeto
+~Un valor redondeado
+}
+
+::Pregunta 6::Selecciona cual devolverá false{
+~Number.isNaN(Number.NaN);
+=Number.isNan({});
+~Number.isNaN(NaN);
+~Number.isNaN(0/0);
+}
+
+::Pregunta 7::Selecciona la correcta para que devuelva true Number.isInteger(x / y);{
+~Con valor x:10 e y:9 
+~Con valor x:9 e y:10
+=Con valor x:10 e y:10
+~Con valor x:10 e y:0 
+}
+
+::Pregunta 8::Number.isFinite(){
+~Determina si el valor es infinito
+=Determina si el valor es finito
+~Determina si el valor pasado es NaN
+~Determina si el valor es undefined
+}
+
+
