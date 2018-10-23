@@ -1,5 +1,5 @@
 /**
- * 1.-Usando la Api Canvas, combina el uso para dibujar rectángulos con caminos desarrollada por ti. Se valorará la original.
+ * 2.-Usando la Api Canvas, combina el uso para dibujar rectángulos con caminos desarrollada por ti. Se valorará la original.
  *
  * @author Francisco Ramírez Ruiz
  */

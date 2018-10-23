@@ -43,7 +43,7 @@ window.onload = function () {
                 contexto.strokeRect(i += 2, i += 2, j -= 4, j -= 4);
             
             }
-            if (j <= 0) {
+            if (j <= 10) {
                 flag = false;
             }
 

@@ -30,16 +30,21 @@ window.onload = function () {
     if (contexto) {
         
         //Playa
-        contexto.fillStyle = "#E8C072";
         contexto.beginPath();
         contexto.moveTo(10,500);
         contexto.lineTo(700,500);
         contexto.lineTo(700,280);
         contexto.lineTo(10,280);
-        contexto.fill();
         contexto.closePath();
         contexto.stroke();
- 
+        
+        let lineGrad = contexto.createLinearGradient(300,160,300,500);
+        lineGrad.addColorStop(0, '#AA4507');
+        lineGrad.addColorStop(0.05, '#D0692A');
+        lineGrad.addColorStop(0.6, '#924B20');
+        lineGrad.addColorStop(1, '#E6884E');
+        contexto.fillStyle = lineGrad;
+        contexto.fill();
         //Agua
         //puntos de inicio y final del degradado (x1,y1,x2,y2)
         var gradiente = contexto.createLinearGradient(0, 120, 0, 300);
@@ -135,7 +140,7 @@ window.onload = function () {
         contexto.stroke();
 
         //Nubes
-        contexto.fillStyle = "rgba(127, 227, 221,0.3)";
+        contexto.fillStyle = "rgba(127, 227, 221,0.6)";
         contexto.beginPath();
         contexto.arc(88, 20, 56, 0, Math.PI * 2, true);
         contexto.arc(154, 20, 30, 0, Math.PI * 2, true);
