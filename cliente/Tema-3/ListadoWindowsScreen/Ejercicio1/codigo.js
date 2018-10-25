@@ -29,7 +29,7 @@
 
         //Lista2
         let lista2 = document.createElement("li");
-        lista2.textContent = "window.outerHeight: Altura del documento = " + window.innerHeight;
+        lista2.textContent = "window.innerHeight: Altura del documento = " + window.innerHeight;
 
         //Lista3
         let lista3 = document.createElement("li");
@@ -38,12 +38,12 @@
 
         //Lista4
         let lista4 = document.createElement("li");
-        lista4.textContent = "window.screen.availHeight: Altura de la pantalla del usuario ( total ) = "
+        lista4.textContent = "window.screen.height: Altura de la pantalla del usuario ( total ) = "
          + window.screen.height;
 
         //Lista5
         let lista5 = document.createElement("li");
-        lista5.textContent = "window.screen.availHeight: Altura del elemento seleccionado, he puesto body = "
+        lista5.textContent = "window.document.clientHeight(body): Altura del elemento seleccionado, he puesto body = "
          +  window.document.body.clientHeight;
 
         appends();
