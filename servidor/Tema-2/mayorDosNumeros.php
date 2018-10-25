@@ -6,26 +6,12 @@
      */
     if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
 ?>
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayor de dos números</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <noscript><h1>Se requiere javascript</h1></noscript>
-
-    <h2>Mayor de dos números</h2>
+<?php include 'top.php'?>
     <?php
 
     $num1 = 6;
     $num2 = 9;
-    echo "<h3> Los dos números elegidos son: $num1 y $num2 </h3>";
+    echo "<h2> Los dos números elegidos son: $num1 y $num2 </h2>";
     if($num1 >$num2){
         echo " El número mayor es $num1";
     }else if ($num1 < $num2){
@@ -34,8 +20,5 @@
         echo "Son iguales.";
     }
     ?>
-
-    <a href="../../servidor/Tema-2/mayorDosNumeros.php?codigo" target ="_blank">Ver código</a>
-
-</body>
-</html>
+    <h1><a href="../../servidor/Tema-2/mayorDosNumeros.php?codigo" target ="_blank">Ver código</a></h1>
+<?php include 'bot.php'?>

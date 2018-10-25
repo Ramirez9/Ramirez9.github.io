@@ -1,39 +1,30 @@
 <?php
-    /**
-     * User: Francisco Ramírez Ruiz
-     * File:suma3pares.php
-     * Description: Sumas los 3 primeros números pares.
-     */
-    if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
+
+/**
+ * User: Francisco Ramírez Ruiz
+ * File:suma3pares.php
+ * Description: Sumas los 3 primeros números pares.
+ */
+if (isset($_GET['codigo'])) {
+    highlight_file(__FILE__);
+    exit;
+}
 ?>
 
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Números hasta el 10</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <noscript><h1>Se requiere javascript</h1></noscript>
+<?php include 'top.php' ?>
 
+<div><h2>3 Números</h2></div>
     <?php
 
     $par = 0;
-    for ($i=0; $i < 5 ; $i++) { 
-       if($i % 2 == 0)
-        $par = $par + $i;
+    for ($i = 0; $i < 5; $i++) {
+        if ($i % 2 == 0)
+            $par = $par + $i;
     }
-    echo "<h1>Considerando 0 como par</h1>";
-    echo "<h2>La súma de los 3 primeros números pares es: " . $par ."</h2>";
-    
+    echo "Considerando 0 como par";
+    echo " súma de los 3 primeros números pares es: " . $par ;
+
     ?>
-
-    <a href="../../servidor/Tema-3/suma3pares.php?codigo" target ="_blank">Ver código</a>
-
-</body>
-</html>
+    <h1> <a href="../../servidor/Tema-3/suma3pares.php?codigo" target ="_blank">Ver código</a></h1>
+  
+<?php include 'bot.php' ?>

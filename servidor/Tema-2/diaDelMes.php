@@ -8,21 +8,8 @@
 
     
 ?>
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Días del mes</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <noscript><h1>Se requiere javascript</h1></noscript>
-
-    <h2>Días del mes</h2>
+<?php include 'top.php'?>
+    <h2>Dia del mes</h2>
     <?php
 
     $mes = "Mayo";
@@ -59,7 +46,9 @@
         echo "Mes inválido";
     }
     ?>
-
+    <h1>
     <a href="../../servidor/Tema-2/diaDelMes.php?codigo" target ="_blank">Ver código</a>
-</body>
-</html>
+
+    </h1>
+
+<?php include 'bot.php'?>

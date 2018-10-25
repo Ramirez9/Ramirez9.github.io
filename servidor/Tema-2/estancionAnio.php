@@ -6,21 +6,9 @@
      */
 if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
 ?>
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estación del Año</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <noscript><h1>Se requiere javascript</h1></noscript>
+<?php include 'top.php'?>
 
-    <h2>Estación del año</h2>
+<h2>Estación del año</h2>
     <?php
   
     $mes = date("n");
@@ -81,8 +69,7 @@ if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
     echo "<img src=\"$fileDir\" style='width: 1200px; height: 500px; margin: 10px auto; display: block'>";
 
     ?>
-
+    <h1>
     <a href="../../servidor/Tema-2/estancionAnio.php?codigo" target ="_blank">Ver código</a>
- 
-</body>
-</html>
+    </h1>
+<?php  include 'bot.php'?>

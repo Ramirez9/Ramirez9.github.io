@@ -9,30 +9,11 @@
      */
     if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
 ?>
-
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-
-    <h1>Restaurante: 3 primero, 5 segundos y 3 postres.</h1>
-    <h2>Francisco Ramírez </h2>
-
-    <noscript><h1>Se requiere javascript</h1></noscript>
-
-    <a href="../../servidor/Tema-3/restaurante.php?codigo" target ="_blank">Ver código</a>
+<?php include 'top.php'?>
+<h2>Restaurante</h2>
+<h1><a href="../../servidor/Tema-3/restaurante.php?codigo" target ="_blank">Ver código</a></h1>
 
     <?php
-
     $menu = array(
         "primero" => array(
             array("nombre" => "Crema de champiñones y pollo al romero", "img" => "img/plato1.jpg", "precio" => 15),
@@ -104,7 +85,4 @@
 
     echo "</table>";
     ?>
-    
-
-</body>
-</html>
+<?php include 'bot.php'?>

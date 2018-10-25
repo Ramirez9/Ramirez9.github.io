@@ -8,22 +8,7 @@
 
     
 ?>
-
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero de barcos</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <h1>Tablero de barcos: Francisco Ramírez Ruiz</h1>
-
-    <noscript><h1>Se requiere javascript</h1></noscript>
+<?php include 'top.php'?>
     <?php
     $letra = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L" ,"M", "N");
 
@@ -49,6 +34,5 @@
 
     echo "</table>"
     ?>
-    <a href="../../servidor/Tema-3/tableroBarcos.php?codigo" target ="_blank">Ver código</a>
-</body>
-</html>
+     <h1><a href="../../servidor/Tema-3/tableroBarcos.php?codigo" target ="_blank">Ver código</a></h1>
+<?php include 'bot.php'?>

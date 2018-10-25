@@ -7,21 +7,7 @@
     if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}  
 ?>
 
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas 2ºDAW</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <h1>Notas de los alumnos</h1>
-    <h2>Francisco Ramírez </h2>
+<?php include 'top.php'?>
     <?php
     $alumno = array("Jesús Mejias Leiva", "José María Romero Ruiz", "Marcos Gallardo Pérez", "Francisco Ramírez Ruiz", 
     "Mario Navarro Madrid", "Rafael García Zurita", "Guillermo Boquizo Sánchez", "José Manuel Bravo Martínez",
@@ -56,8 +42,6 @@
 
     echo "</table>"
     ?>
-    <noscript><h1>Se requiere javascript</h1></noscript>
+     <h1><a href="../../servidor/Tema-3/notasDaw.php?codigo" target ="_blank">Ver código</a></h1>
 
-    <a href="../../servidor/Tema-3/notasDaw.php?codigo" target ="_blank">Ver código</a>
-</body>
-</html>
+<?php include 'bot.php'?>

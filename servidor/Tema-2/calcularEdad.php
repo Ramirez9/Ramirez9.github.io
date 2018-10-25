@@ -7,22 +7,9 @@
     
     if(isset($_GET['codigo'])){highlight_file(__FILE__); exit;}
 ?>
-<!DOCTYPE html>
-<html lang=es>
-<head> 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcular la Edad.</title>
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <meta name="author" content="Francisco Ramírez Ruiz">
-    
-    <script src="codigo.js" type ="text/javascript"></script>
-    </head>
-<body>
-    <noscript><h1>Se requiere javascript</h1></noscript>
+<?php include 'top.php'?>
 
-    <h2>Ejercicio sobre mi edad!</h2>
+<h2>Edad</h2>
     <?php
 
     //La fecha actual del sistema
@@ -49,9 +36,11 @@
 
     $edad = ($anioActual - $anio);
 
-    echo "<h2> Mi edad es: ". $edad . "</h2>";
+    echo "<h3> Mi edad es: ". $edad . "</h3>";
     ?>
 
+    <h1>
     <a href="../../servidor/Tema-2/calcularEdad.php?codigo" target ="_blank">Ver código</a>
-</body>
-</html>
+
+    </h1>
+<?php include 'bot.php'?>

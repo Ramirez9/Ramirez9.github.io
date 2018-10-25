@@ -2,20 +2,21 @@
 
 /**
  * User: Francisco Ramírez Ruiz
- * File: contienentePaises.php
- * Description: Continentes, países, capitales y banderas.
+ * File:leerContinente.php
+ * Description: Utilizando el array de continentes y países, crea un script que lea en un formulario un continente
+ * y nos muestre sus países con sus capitales y banderas
  */
 if (isset($_GET['codigo'])) {
     highlight_file(__FILE__);
     exit;
 }
 ?>
+
 <?php include 'top.php'?>
+<h2>Leer continentes</h2>
 
-<h2>Continentes y países</h2>
-
+    <!--Array de los continenntes -->
     <?php
-
     $continentes = array(
         "Europa" => (array(
             "España" => array("capital" => "Madrid", "bandera" => "img/Spain.jpg"),
@@ -26,7 +27,7 @@ if (isset($_GET['codigo'])) {
             "Luxemburgo" => array("capital" => "Luxemburgo", "bandera" => "img/Luxemburgo.jpg"),
             "Alemania" => array("capital" => "Berlín", "bandera" => "img/Alemania.jpg"),
         )),
-        "América" => (array(
+        "America" => (array(
             "Barbados" => array("capital" => "Bridgetown", "bandera" => "img/Barbados.jpg"),
             "Costa Rica" => array("capital" => "San José", "bandera" => "img/CostaRica.jpg"),
             "Nicaragua" => array("capital" => "Managua", "bandera" => "img/Nicaragua.jpg"),
@@ -45,7 +46,7 @@ if (isset($_GET['codigo'])) {
             "Japón" => array("capital" => "Tokio", "bandera" => "img/Japon.jpg"),
         )),
 
-        "África" => (array(
+        "Africa" => (array(
             "Botswana" => array("capital" => "Gaborone", "bandera" => "img/Botswana.jpg"),
             "Cabo Verde" => array("capital" => "Praia", "bandera" => "img/CaboVerde.jpg"),
             "Gambia" => array("capital" => "Banjul", "bandera" => "img/Gambia.jpg"),
@@ -55,7 +56,7 @@ if (isset($_GET['codigo'])) {
             "Togo" => array("capital" => "Lomé", "bandera" => "img/Togo.jpg"),
         )),
 
-        "Oceanía" => (array(
+        "Oceania" => (array(
             "Australia" => array("capital" => "Canberra", "bandera" => "img/Australia.jpg"),
             "Kiribati" => array("capital" => "Tarawa Sur", "bandera" => "img/Kiribati.jpg"),
             "Tonga" => array("capital" => "Nukualofa", "bandera" => "img/Tonga.jpg"),
@@ -66,25 +67,50 @@ if (isset($_GET['codigo'])) {
         ))
     );
 
-    echo "<table style='border: 1px solid;'><tr><td>Continente</td> <td>País</td><td>Capital</td> <td>Bandera</td></tr>";
+    //Si no le he dado a submit muestra el formulario
+    if(!isset($_POST['submit'])){
 
-    foreach ($continentes as $continente => $paises) {
-
-        foreach ($paises as $pais => $info) {
-            echo "<td>" . $continente . "</td>";
-            echo "<td>" . $pais . "</td>";
-            echo "<td>" . $info["capital"] . "</td>";
-
-            echo "<td><img src='$info[bandera]' style='width: 100px; height: 100px;'></td>";
-            echo "</tr>";
-        }
+    //Inicio formulario
+    echo "<form action=" .htmlentities($_SERVER["PHP_SELF"]). " method=post>";
+    
+    echo "<select name=continentes display:block>";
+   
+    foreach ($continentes as $continente => $value) {
+        if($_POST['continentes']==$continente)
+            echo "<option name=pais value=$continentes selected>". $continente . "</option>";
+        else
+            echo "<option name=pais value=$continente>". $continente . "</option>";
     }
+    echo "</select>";
+    echo "<input type=submit name=submit value=Enviar>";
+    echo "</form>";
+    //Fin formulario
 
+    }else{
+    //Crea la tabla de los paises
+    echo "<table>";
+    echo "<tr>";
+        echo "<th>País</th>";
+        echo "<th>Capital</th>";
+        echo "<th>Bandera</th>";
+    echo "</tr>";
+    echo "<tr>";
+    foreach ($continentes as $continente => $paises) {
+        if($continente==$_POST['continentes'])
+            foreach ($paises as $pais => $info) {
+                echo "<td>" . $pais . "</td>";
+                    foreach ($info as $continente => $value) {
+                        if($continente=='capital')
+                            echo "<td>". $value. "</td>";
+                        else
+                        echo "<td><img src='$value' style='width: 75px; height: 75px;'></td>";
+                    }
+                echo "</tr>";
+            }
+        }
     echo "</table>";
-
+    }
     ?>
-    <h1>
-    <a href="../../servidor/Tema-3/continentePaises.php?codigo" target ="_blank">Ver código</a>
-    </h1>
+    <h1><a href="../../servidor/Tema-3/leerContinente.php?codigo" target ="_blank">Ver código</a></h1>
 
 <?php include 'bot.php'?>
