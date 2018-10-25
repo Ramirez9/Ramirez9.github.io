@@ -25,7 +25,7 @@
          */
         function crearScrolls() {
             scrollX.innerHTML = "ScrollX: ";
-            scrollY.innerHTML = "<b>ScrollY: ";
+            scrollY.innerHTML = "ScrollY: ";
             scrollbars.innerHTML = "Scrollbars: ";
         }
 
