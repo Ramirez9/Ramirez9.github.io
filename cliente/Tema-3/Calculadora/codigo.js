@@ -32,15 +32,17 @@
 
     let h1 = document.createElement("h1");
     h1.textContent = "Calculadora - Francisco Ramirez";
-
+    h1.style.color = "red";
+    h1.style.textAlign = "center";
     let main = document.createElement("main");
-
+    main.style.textAlign = "center";
     let container = document.createElement("container");
 
     let div = document.createElement("div");
 
     let input = document.createElement("input");
     input.type = "text";
+    input.style.width = '20%';
 
     /**
      * Método con los appendChild
@@ -53,6 +55,10 @@
       for (let j = 0; j < 4; j++) {
         let button = document.createElement("button");
         button.type = "button";
+        button.style.width = '5%';
+        button.style.height = '90%';
+        button.style.fontSize = '20px';
+
         button.textContent = botones[contador++];
 
         containerButton.appendChild(button);
