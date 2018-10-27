@@ -20,7 +20,7 @@
     let contador = 0;
 
     //Creo un array de Ids para obtener un id distinto a cada botón
-    let arrayIds = ["btnCE", "btnC", "btnPorc", "btnSuma", "btn7", "btn8", "btn9", "btnResta", "btn4", "btn5", "btn6", "btnMult", "btn1", "btn2", "btn3", "btnDiv", "btn0", "btnCambSig", "btnComa", "btnIgual"]
+    let botonesId = ["btnCE", "btnC", "btnPorc", "btnSuma", "btn7", "btn8", "btn9", "btnResta", "btn4", "btn5", "btn6", "btnMult", "btn1", "btn2", "btn3", "btnDiv", "btn0", "btnCambSig", "btnComa", "btnIgual"]
     // Array de botones para sus respectivos textos
     let botones = ["CE", "DEL", "%", "+", "7", "8", "9", "-", "4", "5", "6", "x", "1", "2", "3", "/", "0", "+/-", ",", "="];
 
@@ -73,7 +73,7 @@
         input.value = botones[contador];
         //Coloco un className a todos para su estilo.
         input.className = "button";
-        input.id = arrayIds[contador];
+        input.id = botonesId[contador];
 
         contador++;
 
@@ -86,7 +86,7 @@
 
     }
 
-    arrayIds.forEach(function () {
+    botonesId.forEach(function () {
 
 
     });
