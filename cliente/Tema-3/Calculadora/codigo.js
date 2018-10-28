@@ -1,19 +1,21 @@
 /**
  * 
- * Calculadora con pequeña funcionalidad cambiando el valor del número
+ * Calculadora con funcionalidad borrar todo, atrás y añadir números 
  * 
  * @author Francisco Ramírez Ruiz
  */
 {
-  
+
   //Creo un array de Ids para obtener un id distinto a cada botón
-  let botonesId = ["btnCE", "btnDEL", "btnPorcentaje", "btnSuma", "btn7", 
-    "btn8", "btn9", "btnResta", "btn4", "btn5", "btn6", "btnMult", "btn1", 
-    "btn2", "btn3", "btnDiv", "btn0", "btnSigno", "btnPunto", "btnIgual"];
+  let botonesId = ["btnCE", "btnDEL", "btnPorcentaje", "btnSuma", "btn7",
+    "btn8", "btn9", "btnResta", "btn4", "btn5", "btn6", "btnMult", "btn1",
+    "btn2", "btn3", "btnDiv", "btn0", "btnSigno", "btnPunto", "btnIgual"
+  ];
 
   // Array de botones para sus respectivos textos
   let botones = ["CE", "DEL", "%", "+",
-  "7", "8", "9", "-", "4", "5", "6", "x", "1", "2", "3", "/", "0", "+/-", ",", "="];
+    "7", "8", "9", "-", "4", "5", "6", "x", "1", "2", "3", "/", "0", "+/-", ",", "="
+  ];
 
   function init() {
     //Creo la calculadora
@@ -97,22 +99,50 @@
   }
 
   /**
-  * Recorremos el array de botonesId
-  * Él método forEach ejecuta la función por cada elemento del array
-  * Con call, llama a la funcion con un valor this
-  */
+   * Recorremos el array de botonesId
+   * Él método forEach ejecuta la función por cada elemento del array
+   * Con call, llama a la funcion con un valor this
+   */
   function arrayBotones() {
     let botonNumeros = document.getElementsByTagName("input");
 
     botonesId.forEach.call(botonNumeros, element => {
-      //Recojo el valor del elemento pulsando, si selecciono parseInt delante escribira solo los Enteros
-      if (element.value)
-      //evento al pulsar una tecla
+      //Coloco !isNaN para que no introduzca los demás caracteres
+      if (!isNaN(element.value))
+        //evento al pulsar una tecla
         element.addEventListener("click", function () {
           console.log(this);
-          //Cambio el valor del texto, por el valor introducido
-          document.getElementById("texto").value = this.value;
+
+          //Si el valor es 0 y el texto solo 0, machaco su valor
+          if (texto.value == 0)
+            texto.value = this.value;
+          else
+            texto.value += this.value;
         });
+      //Si el elemento es cambiar de Signo, multiplico el texto por -1  
+      if (element.value === "+/-")
+        element.addEventListener("click", function () {
+          texto.value *= -1;
+        });
+
+      //Eliminar todo el contenido
+      if (element.value === "CE")
+        element.addEventListener("click", function () {
+          texto.value = 0;
+        });
+
+      //Borra un número 
+      if (element.value === "DEL")
+        element.addEventListener("click", function () {
+          //Si el valor es 1 o menor coloca un 0
+          if (texto.value.length <= 1) {
+            texto.value = 0;
+          } else {
+            //texto.value.substring (valor deseado, lenght -1);
+            texto.value = texto.value.substring(0, texto.value.length - 1);
+          }
+        });
+
     });
   }
 
