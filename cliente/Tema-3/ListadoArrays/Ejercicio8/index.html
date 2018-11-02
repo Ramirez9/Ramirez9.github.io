@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 8 - Francisco Ramírez Ruiz</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <script src="codigo.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <noscript>
+        <h1>Se requiere javascript</h1>
+    </noscript>
+
+    <h2>Ejercicio 8 - Francisco Ramírez</h2>
+    <b>Indica la diferencia entre los siguientes métodos, y demuestra su uso con algunos arrays:
+        Array.prototype.forEach(),
+        Array.prototype.every(),
+        Array.prototype.some()
+        y Array.prototype.filter()
+    </b>
+    <br>
+    <h1>-------------------------------Teoría--------------------------</h1>
+    <h3>Array.prototype.forEach()</h3>
+    Recorre el array elemento a elemento
+    <br>
+    <ol>
+        <li>array = [0,1,2,3, "hola"];
+        </li>
+        <li>Usamos el forEach de la siguiente forma:
+            <br> array.forEach(elemento, indice, array)
+            <br> ("Array[" + indice + "] = " + elemento);
+        </li>
+    </ol>
+
+    <h3>Array.prototype.every()</h3>
+    Comprueba si todos los elementos del array pasando una
+    prueba para devolver true en caso afirmativoo false
+    en caso negativo.
+    <br> Su uso sería el siguiente:
+    <ol>
+        <li>array = [0,1,2,3, "hola"];
+        </li>
+        <li>Usamos el every de la siguiente forma:
+            <br> (array.every(function(numero){return !isNaN(numero);}));
+            <br> false, existe un string
+    </ol>
+
+    <h3>Array.prototype.some()</h3>
+    Es parecido al every, pero comprueba si hay algún elemento que cumpla una condición. 
+    En el momento que haya uno que lo cumpla,
+    ya devuelve true, y false en caso negative. Su uso sería el siguiente:
+    <ol>
+        <li>array = [0,1,2,3 "hola"];
+        </li>
+        <li>Usamos el some de la siguiente forma:
+            <br> (array.some(function(numero){return numero;}));
+            <br> true, hay elementos que si lo son.
+        </li>
+    </ol>
+
+    <h3>Array.prototype.filter()</h3>
+    Filtra elementos de un array y se guardar en un nuevo array.
+    <ol>
+        <li>array = [0,1,2,3, "hola"];
+        </li>
+        <li>Usamos el filter de la siguiente forma:
+            <br> array.filter(function(numero){numero < 4;}));
+    </ol>
+    </p>
+    <br>
+    <h1>-------------------------------Práctica--------------------------</h1>
+
+    <p id="info"></p>
+
+</body>
+
+</html>
