@@ -1,36 +1,79 @@
 /**
- * 
- * Calculadora con funcionalidad borrar todo, atrás y añadir números 
- * 
+ *
+ * Calculadora con funcionalidad acumulada
+ *
+ * @version 2.0
  * @author Francisco Ramírez Ruiz
  */
-{
 
+{
   //Creo un array de Ids para obtener un id distinto a cada botón
-  let botonesId = ["btnCE", "btnDEL", "btnPorcentaje", "btnSuma", "btn7",
-    "btn8", "btn9", "btnResta", "btn4", "btn5", "btn6", "btnMult", "btn1",
-    "btn2", "btn3", "btnDiv", "btn0", "btnSigno", "btnPunto", "btnIgual"
+  let botonesId = [
+    "btnCE",
+    "btnDEL",
+    "btnPorcentaje",
+    "btnSuma",
+    "btn7",
+    "btn8",
+    "btn9",
+    "btnResta",
+    "btn4",
+    "btn5",
+    "btn6",
+    "btnMult",
+    "btn1",
+    "btn2",
+    "btn3",
+    "btnDiv",
+    "btn0",
+    "btnSigno",
+    "btnPunto",
+    "btnIgual"
   ];
 
   // Array de botones para sus respectivos textos
-  let botones = ["CE", "DEL", "%", "+",
-    "7", "8", "9", "-", "4", "5", "6", "x", "1", "2", "3", "/", "0", "+/-", ",", "="
+  let botones = [
+    "CE",
+    "DEL",
+    "%",
+    "+",
+    "7",
+    "8",
+    "9",
+    "-",
+    "4",
+    "5",
+    "6",
+    "x",
+    "1",
+    "2",
+    "3",
+    "/",
+    "0",
+    "+/-",
+    ",",
+    "="
   ];
+
+  //Declaro y asigno las variables para la version 2.0
+  let numero;
+  let texto;
+  let operador = "";
+  let bandera = false;
+  let entrada;
 
   function init() {
     //Creo la calculadora
     crearCalculadora();
 
-    //Acciones de los botones
-    arrayBotones();
-
+    entrada = acciones(entrada, botonesId);
   }
 
   /**
    * Creo el layout de la calculadora
    */
 
-  let crearCalculadora = function () {
+  let crearCalculadora = function() {
     //Contador para recorrer el array
     let contador = 0;
 
@@ -95,56 +138,171 @@
     }
 
     document.body.appendChild(contenido);
+  };
 
+  /**
+   * Funcionalidad de la calculadora.
+   */
+  function funcionalidad() {
+    //Obtengo la clases de texto "texto"
+    texto = document.getElementsByClassName("texto")[0];
+    //Parseo los números enteros y distintos de NaN
+    if (!isNaN(parseInt(this.value))) {
+      //Controlo que la bandera no sea true
+      if (bandera) texto.value = 0;
+      //Si el texto es 0, valor 0
+      if (texto.value == 0) texto.value = parseFloat(this.value);
+      //Concadeno los números
+      else texto.value += parseFloat(this.value);
+      //La colo de nuevo a false, por si estaba true.
+      bandera = false;
+    } else {
+      //Sino pulso ni números ni esos botones, llamo a operacion()
+      if (
+        operador != "" &&
+        this.value != "CE" &&
+        this.value != "+-" &&
+        this.value != "," &&
+        this.value != "DEL" &&
+        this.value != "%"
+      )
+      //Metodo operacion
+      operacion();
+
+      comprobacion(this.value);
+
+      //Control de bandera para que sea true.
+      if (
+        this.value != "+/-" &&
+        this.value != "," &&
+        this.value != "CE" &&
+        this.value != "DEL"
+      )
+        bandera = true;
+    }
   }
 
   /**
-   * Recorremos el array de botonesId
-   * Él método forEach ejecuta la función por cada elemento del array
-   * Con call, llama a la funcion con un valor this
+   * Compruebo el operador para el metodo
+   * operacion
+   * @param {*} value 
    */
-  function arrayBotones() {
-    let botonNumeros = document.getElementsByTagName("input");
-
-    botonesId.forEach.call(botonNumeros, element => {
-      //Coloco !isNaN para que no introduzca los demás caracteres
-      if (!isNaN(element.value))
-        //evento al pulsar una tecla
-        element.addEventListener("click", function () {
-          console.log(this);
-
-          //Si el valor es 0 y el texto solo 0, machaco su valor
-          if (texto.value == 0)
-            texto.value = this.value;
-          else
-            texto.value += this.value;
-        });
-      //Si el elemento es cambiar de Signo, multiplico el texto por -1  
-      if (element.value === "+/-")
-        element.addEventListener("click", function () {
-          texto.value *= -1;
-        });
-
-      //Eliminar todo el contenido
-      if (element.value === "CE")
-        element.addEventListener("click", function () {
+  function comprobacion(value) {
+    numero = operadorBasico(value, numero, texto);
+    switch (value) {
+      //operador +
+      case "+":
+        operador = "+";
+        break;
+      //operador -
+      case "-":
+        operador = "-";
+        break;
+      //operador x
+      case "x":
+        operador = "x";
+        break;
+      //operador /
+      case "/":
+        operador = "/";
+        break;
+      //operador +/-
+      case "+/-":
+        //multiplico el texto por -1
+        texto.value = parseFloat(texto.value) * -1;
+        break;
+      //operador ,
+      case ",":
+        if (!bandera) {
+          //Sino incluye punto se le añade al texto.
+          if (!texto.value.includes(".")) texto.value += ".";
+        }
+        break;
+      //operador DEL
+      case "DEL":
+      texto.value = texto.value.substring(0, texto.value.length - 1);
+        if (texto.value.length < 1 || texto.value === "-")
           texto.value = 0;
-        });
+        break;
+      //operador CE
+      case "CE":
+        //texto vale 0
+        texto.value = 0;
+        break;
+      //operador %
+      case "%":
+        //valor del texto entre 100
+        texto.value = parseFloat(texto.value) / 100;
+        break;
+      //case =
+      case "=":
+        //llamo al metodo operacion
+        operacion();
+        break;
+    }
+  }
 
-      //Borra un número 
-      if (element.value === "DEL")
-        element.addEventListener("click", function () {
-          //Si el valor es 1 o menor coloca un 0
-          if (texto.value.length <= 1) {
-            texto.value = 0;
-          } else {
-            //texto.value.substring (valor deseado, lenght -1);
-            texto.value = texto.value.substring(0, texto.value.length - 1);
-          }
-        });
+  /**
+   * Operador ! vacío
+   * Dependiendo del operador seleccionado
+   * Haho una operación un otra
+   */
+  function operacion() {
+    if (operador != "") {
+      switch (operador) {
+        //Case sumar
+        case "+":
+          texto.value = parseFloat(texto.value) + numero;
+          break;
+        //Case restar
+        case "-":
+          texto.value = numero - parseFloat(texto.value);
+          break;
+        //Case multiplicar  
+        case "x":
+          texto.value = parseFloat(texto.value) * numero;
+          break;
+        //Case dividir  
+        case "/":
+          texto.value = numero / parseFloat(texto.value);
+          break;
+      }
+    }
+    //Asigno valor vacío para que no vuelva a entrar en operacion
+    operador = "";
+  }
 
+  /**
+   * Acciones addEventListener, click
+   * @param {*} entrada 
+   * @param {*} botonesId 
+   */
+  function acciones(entrada, botonesId) {
+    entrada = document.getElementsByTagName("input");
+    botonesId.forEach.call(entrada, element => {
+      element.addEventListener("click", funcionalidad);
     });
+    return entrada;
+  }
+  /**
+   * 
+   * operadores basicos de la calculadora.
+   * @param {*} value 
+   * @param {*} numero 
+   * @param {*} texto 
+   */
+  function operadorBasico(value, numero, texto) {
+    //Si son operaciones básicas guardo el texto en una variable numero
+    //Ambbos 4 hacen lo mismo.
+    if (value == "+" || value == "-" || value == "x" || value == "/")
+      //Contiente el texto en valor numérico Float
+      numero = parseFloat(texto.value);
+    return numero;
   }
 
   window.addEventListener("load", init);
 }
+
+
+
+
