@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang=es>
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejercicio 6 - Francisco Ramírez Ruiz</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <script src="codigo.js" type ="text/javascript"></script>
+    </head>
+<body>
+    <noscript><h1>Se requiere javascript</h1></noscript>
+
+    <h2>Ejercicio 6 - Francisco Ramírez</h2>
+    <b>Mediante ejemplos, indica valores y utilidad de lastMatch en una expresión regular. 
+        ¿Funciona en todos los navegadores?
+    </b>
+
+    <p>let string = "tres tristes tigres comían trigo en un trigal";</p>
+    <p>let expresion = new RegExp("tri","g");</p>
+
+    <p>RegExp.lastMatch + " en el índice: " + expresion.lastIndex</p>
+    <ul>
+        <li>tri en el índice: 8</li>
+        <li>tri en el índice: 30</li>
+        <li>tri en el índice: 40</li>
+    </ul>
+
+    <b>La propiedad lastMatch son los últimos caracteres coincidentes. Todos los navegadores</b>
+</body>
+</html>
