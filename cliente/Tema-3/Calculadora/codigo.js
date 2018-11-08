@@ -1,6 +1,9 @@
 /**
  *
- * Calculadora con funcionalidad acumulada
+ * Ultima versión de la calculadora.
+ * Controlando divisiones infinitas
+ * Decimales
+ * Y acumulador para concatenar operaciones
  *
  * @version 2.0
  * @author Francisco Ramírez Ruiz
