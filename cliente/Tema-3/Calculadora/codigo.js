@@ -58,14 +58,15 @@
   //Declaro y asigno las variables para la version 2.0
   let numero;
   let texto;
-  let operador = "";
-  let bandera = false;
+  let acumulado = "";
+  let operacionBandera = false;
   let entrada;
 
   function init() {
     //Creo la calculadora
     crearCalculadora();
-
+    //Obtengo la clases de texto "texto"
+    texto = document.getElementsByClassName("texto")[0];
     entrada = acciones(entrada, botonesId);
   }
 
@@ -144,112 +145,115 @@
    * Funcionalidad de la calculadora.
    */
   function funcionalidad() {
-    //Obtengo la clases de texto "texto"
-    texto = document.getElementsByClassName("texto")[0];
     //Parseo los números enteros y distintos de NaN
     if (!isNaN(parseInt(this.value))) {
-      //Controlo que la bandera no sea true
-      if (bandera) texto.value = 0;
+      //Controlo que la operacionBandera no sea true
+      if (operacionBandera) 
+      texto.value = 0;
       //Si el texto es 0, valor 0
-      if (texto.value == 0) texto.value = parseFloat(this.value);
+      //Compruebo la coma, para no machacar el 0
+      if (texto.value == 0  && !texto.value.includes(".")) 
+      texto.value = parseFloat(this.value);
       //Concadeno los números
       else texto.value += parseFloat(this.value);
+
       //La colo de nuevo a false, por si estaba true.
-      bandera = false;
+      operacionBandera = false;
     } else {
-      //Sino pulso ni números ni esos botones, llamo a operacion()
+      //Sino pulso ni números ni esos botones, llamo a operacionBandera()
       if (
-        operador != "" &&
+        acumulado != "" &&
         this.value != "CE" &&
-        this.value != "+-" &&
+        this.value != "+/-" &&
         this.value != "," &&
         this.value != "DEL" &&
         this.value != "%"
       )
-      //Metodo operacion
+      //Metodo operacionBandera
       operacion();
 
       comprobacion(this.value);
 
-      //Control de bandera para que sea true.
+      //Control de operacionBandera para que sea true.
       if (
         this.value != "+/-" &&
         this.value != "," &&
         this.value != "CE" &&
         this.value != "DEL"
       )
-        bandera = true;
+        operacionBandera = true;
     }
   }
 
   /**
-   * Compruebo el operador para el metodo
-   * operacion
+   * Compruebo el acumulado para el metodo
+   * operacionBandera
    * @param {*} value 
    */
   function comprobacion(value) {
-    numero = operadorBasico(value, numero, texto);
+    numero = acumuladoBasico(value, numero, texto);
     switch (value) {
-      //operador +
+      //acumulado +
       case "+":
-        operador = "+";
+        acumulado = "+";
         break;
-      //operador -
+      //acumulado -
       case "-":
-        operador = "-";
+        acumulado = "-";
         break;
-      //operador x
+      //acumulado x
       case "x":
-        operador = "x";
+        acumulado = "x";
         break;
-      //operador /
+      //acumulado /
       case "/":
-        operador = "/";
+        acumulado = "/";
         break;
-      //operador +/-
+      //acumulado +/-
       case "+/-":
         //multiplico el texto por -1
         texto.value = parseFloat(texto.value) * -1;
         break;
-      //operador ,
+      //acumulado ,
       case ",":
-        if (!bandera) {
+        if (!operacionBandera) {
           //Sino incluye punto se le añade al texto.
           if (!texto.value.includes(".")) texto.value += ".";
         }
         break;
-      //operador DEL
+      //acumulado DEL
       case "DEL":
       texto.value = texto.value.substring(0, texto.value.length - 1);
-        if (texto.value.length < 1 || texto.value === "-")
+        if (texto.value.length < 1 || texto.value === "-" || texto.value === "-0.")
           texto.value = 0;
         break;
-      //operador CE
+      //acumulado CE
       case "CE":
         //texto vale 0
         texto.value = 0;
+        acumulado = "";
         break;
-      //operador %
+      //acumulado %
       case "%":
         //valor del texto entre 100
         texto.value = parseFloat(texto.value) / 100;
         break;
       //case =
       case "=":
-        //llamo al metodo operacion
+        //llamo al metodo operacionBandera
         operacion();
         break;
     }
   }
 
   /**
-   * Operador ! vacío
-   * Dependiendo del operador seleccionado
+   * acumulado ! vacío
+   * Dependiendo del acumulado seleccionado
    * Haho una operación un otra
    */
   function operacion() {
-    if (operador != "") {
-      switch (operador) {
+    if (acumulado != "") {
+      switch (acumulado) {
         //Case sumar
         case "+":
           texto.value = parseFloat(texto.value) + numero;
@@ -264,12 +268,16 @@
           break;
         //Case dividir  
         case "/":
+        //Compruebo que no se divida entre 0
+          if(texto.value == 0)
+            acumulado == 0
+          else
           texto.value = numero / parseFloat(texto.value);
           break;
       }
     }
-    //Asigno valor vacío para que no vuelva a entrar en operacion
-    operador = "";
+    //Asigno valor vacío para que no vuelva a entrar en operacionBandera
+    acumulado = "";
   }
 
   /**
@@ -286,13 +294,13 @@
   }
   /**
    * 
-   * operadores basicos de la calculadora.
+   * acumuladoes basicos de la calculadora.
    * @param {*} value 
    * @param {*} numero 
    * @param {*} texto 
    */
-  function operadorBasico(value, numero, texto) {
-    //Si son operaciones básicas guardo el texto en una variable numero
+  function acumuladoBasico(value, numero, texto) {
+    //Si son operacionBanderaes básicas guardo el texto en una variable numero
     //Ambbos 4 hacen lo mismo.
     if (value == "+" || value == "-" || value == "x" || value == "/")
       //Contiente el texto en valor numérico Float
