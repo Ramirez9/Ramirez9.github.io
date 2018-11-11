@@ -134,8 +134,9 @@
                     <br>&nbsp;&nbsp;ease-in-out;
                     <br>
                     <br>&nbsp;&nbsp;linear;
-                    <br>&nbsp;&nbsp;step-start;
-                    <br>&nbsp;&nbsp;step-end;
+                    <br>&nbsp;&nbsp;step-start; --> steps (valor, start);
+                    <br>&nbsp;&nbsp;step-end; --> steps (valor, end);
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp; Si el 2º parámetro se omite es end
                     <br>
                     <br>&nbsp;&nbsp;cubic-bezier(P0, P1, P2, P3);
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;Con cubic-bezier podemos representar los demás valores anteriores.Ej:
@@ -159,10 +160,10 @@
                 <div>animation-timing-function: linear;<b>Inicio = Final</b></div>
                 <div id="animation-timing-function-linear"></div>
                 <!-- animation-timing-function-step-start -->
-                <div>animation-timing-function: step-start;<b>Se detiene al final</b></div>
+                <div>animation-timing-function: step (6, start);<b>Comienza antes del intervalo</b></div>
                 <div id="animation-timing-function-step-start"></div>
                 <!-- animation-timing-function-step-end -->
-                <div>animation-timing-function: step-end;<b>Se detiene al principio</b></div>
+                <div>animation-timing-function: step-end (6, end);<b>Comienza después del intervalo</b></div>
                 <div id="animation-timing-function-step-end"></div>
                 <!-- animation-timing-function-cubic-bezier -->
                 <div>animation-timing-function: cubic-bezier(0, 0, 1, 1) = linear;<b>Define una curva</b></div>

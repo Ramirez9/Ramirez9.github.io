@@ -232,15 +232,15 @@ ul{
     background: rgb(70, 221, 78);
     position: relative;
     animation: animation-timing-function 10s infinite;
-    animation-timing-function: step-start;
+    animation-timing-function: steps(6, start);
 }
 #animation-timing-function-step-end{
 	width: 120px;
     height: 50px;
-    background: rgb(175, 253, 179);
+    background: rgb(17, 197, 26);
     position: relative;
     animation: animation-timing-function 10s infinite;
-    animation-timing-function: step-end;
+    animation-timing-function: steps(6, end);
 }
 #animation-timing-function-cubic-bezier{
 	width: 120px;
