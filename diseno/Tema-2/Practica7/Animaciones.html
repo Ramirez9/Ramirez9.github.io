@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Francisco Ramírez Ruiz</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <h1>TUTORIAL CSS3 - 2018/2019</h1>
+    <h2><img src="icon/language-css3.svg"></h2>
+    <nav>
+        <ul>
+            <li><a href="Bordes.html">Bordes</a></li>
+            <li><a href="Fondos.html">Fondos</a></li>
+            <li><a href="Efectos_texto.html">Fuentes y Ef Texto</a></li>
+            <li><a href="Transformaciones.html">Transformac.</a></li>
+            <li><a href="Transiciones.html">Transiciones</a></li>
+            <li><a href="Animaciones.html">Animaciones</a></li>
+            <li><a href="Col_svg_filter.html">Col Mult, Filter y SVG</a></li>
+            <li><a href="Color.html">Color y Degradado</a></li>
+            <li><a href="Pseudos_Css3.html">Pseudos CSS3</a></li>
+
+        </ul>
+    </nav>
+    <main>
+        <h2>Animaciones - Francisco</h2>
+        <h3>Guía sobre las animaciones con CSS3</h3>
+
+
+        <section>
+            <!-- Explicación de las animaciones -->
+            <article>
+                <h3>¿Qué es una animación?</h3>
+                <p>Son movimientos entre los estilos. Ventajas de las nuevas animaciones CSS3:
+                    <br>
+                    <br>1.-Se puede emplear sin JavaScript
+                    <br>2.-No pesan demasiado, los equipos no potentes las pueden soportar.
+                    <br>3.-Permite optimizar el rendimiento y eficiencia de la animación dependiendo el navegador.
+                </p>
+            </article>
+
+            <!-- Declaración de las animaciones -->
+            <article>
+                <h3>Declarar animaciones</h3>
+                <p>Para declarar una animación necesitamos hacer uso de la regla reservada @keyframe</p>
+                <p>Esta regla define los fotogramas de dicha animación. Existen dos formas:</p>
+
+                <p>1.-Forma</p>
+                <div>@keyframe nombreRegla{
+                    <br>from {left: 0px} ----> Primer fotograma
+                    <br>to {left: 900px} ----> Último fotograma
+                </div>
+
+                <p>2.-Forma</p>
+                <div>@keyframe nombreRegla{
+                    <br>0% {left: 0px} ---> Primer fotograma
+                    <br>50% {left: 900px; background:#8080c0} ----> Segundo fotograma
+                    <br>100% {left: 0px} ----> Último fotograma
+                </div>
+
+                <p>La segunda forma es más detallada cuando necesitamos de más selectores.
+                    Realmente from y to se traducen por 0% y 100%
+                </p>
+            </article>
+
+            <!-- Animation Name -->
+            <article>
+                <h3>Animation-name</h3>
+                <p>Se encargar de especificar el nombre para la animación
+                    <br>Obviamente esta propiedad no funciona a menos que hagamos uso de las siguientes propiedas
+                    explicadas
+                </p>
+                <div>animation-name: nombreRegla;</div>
+            </article>
+
+            <!-- Animation Duration -->
+            <article>
+                <h3>Animation-duration</h3>
+                <p>Indica la duración de la animación, se mide en segundos y su efecto por valor es 0s
+                </p>
+
+                <div>animation-duration : tiempo</div>
+                <!-- animation-duration-1 -->
+                <div>animation-duration : 1s</div>
+                <div id="animation-duration-1"></div>
+                <!-- animation-duration-5 -->
+                <div>animation-duration : 5s</div>
+                <div id="animation-duration-5"></div>
+                <!-- animation-duration-10 -->
+                <div>animation-duration : 10s</div>
+                <div id="animation-duration-10"></div>
+
+                <div>#animation-duration-10 {
+                    <br>
+                    width: 100px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    background: rgb(209, 86, 86);
+                    <br>
+                    position: relative;
+                    <br>
+                    animation: animation-duration infinite;
+                    <br>
+                    animation-duration: 10s;
+                    <br>
+                    }
+                    <br><br>
+                    @keyframes animation-duration {
+                    <br>
+                    from {left: 0px;}
+                    <br>
+                    to {left: 800px;}
+                    <br>
+                    }</div>
+            </article>
+
+            <!-- Animation Timing Function -->
+            <article>
+                <h3>Animation-timing-function</h3>
+                <p>Especifica como la animación debe avanzar según la duración del ciclo
+                </p>
+                <p>Valores:
+                    <br>&nbsp;&nbsp;ease;
+                    <br>&nbsp;&nbsp;ease-in;
+                    <br>&nbsp;&nbsp;ease-out;
+                    <br>&nbsp;&nbsp;ease-in-out;
+                    <br>
+                    <br>&nbsp;&nbsp;linear;
+                    <br>&nbsp;&nbsp;step-start;
+                    <br>&nbsp;&nbsp;step-end;
+                    <br>
+                    <br>&nbsp;&nbsp;cubic-bezier(P0, P1, P2, P3);
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;Con cubic-bezier podemos representar los demás valores anteriores.Ej:
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;linear = cubic-bezier(0, 0, 1, 1);
+                </p>
+
+                <div>animation-timing-function: valor;</div>
+                <!-- animation-timing-function-ease -->
+                <div>animation-timing-function: ease;<b>Inicio lento - rápido - acaba lentamente</b></div>
+                <div id="animation-timing-function-ease"></div>
+                <!-- animation-timing-function-ease-in -->
+                <div>animation-timing-function: ease-in;<b>Inicio lento</b></div>
+                <div id="animation-timing-function-ease-in"></div>
+                <!-- animation-timing-function-ease-out -->
+                <div>animation-timing-function: ease-out;<b>Final lento</b></div>
+                <div id="animation-timing-function-ease-out"></div>
+                <!-- animation-timing-function-ease-in-out -->
+                <div>animation-timing-function: ease-in-out;<b>Inicio lento y final rápido</b></div>
+                <div id="animation-timing-function-ease-in-out"></div>
+                <!-- animation-timing-function-linear -->
+                <div>animation-timing-function: linear;<b>Inicio = Final</b></div>
+                <div id="animation-timing-function-linear"></div>
+                <!-- animation-timing-function-step-start -->
+                <div>animation-timing-function: step-start;<b>Se detiene al final</b></div>
+                <div id="animation-timing-function-step-start"></div>
+                <!-- animation-timing-function-step-end -->
+                <div>animation-timing-function: step-end;<b>Se detiene al principio</b></div>
+                <div id="animation-timing-function-step-end"></div>
+                <!-- animation-timing-function-cubic-bezier -->
+                <div>animation-timing-function: cubic-bezier(0, 0, 1, 1) = linear;<b>Define una curva</b></div>
+                <div id="animation-timing-function-cubic-bezier"></div>
+
+                <div>
+                    <br>
+                    #animation-timing-function-cubic-bezier{
+                    <br>
+                    width: 120px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    background: rgb(121, 223, 126);
+                    <br>
+                    position: relative;
+                    <br>
+                    animation: animation-timing-function 10s infinite;
+                    <br>
+                    animation-timing-function: cubic-bezier(0, 0, 1, 1);
+                    <br>
+                    }
+                    <br><br>
+                    @keyframes animation-timing-function {
+                    <br>
+                    from {left: 0px;}
+                    <br>
+                    to {left: 600px;}
+                    <br>
+                    }
+                    <br>
+                </div>
+            </article>
+
+            <!-- Animation-delay -->
+            <article>
+                <h3>Animation-delay</h3>
+                <p>Especifica el tiempo de retardo que debe transcurrir antes de comenzar la animación.
+                    <br>Esto permite que la secuencia de animación no comience nada más ser aplicada a un elemento.
+                    <br>Su valor por defecto es 0, a menos que indiquemos alguno en segundos o milisegundos</p>
+
+                <div>Animation-delay: tiempo</div>
+                <!-- Animation-delay-2 -->
+                <div>Animation-delay: 2s</div>
+                <div id="animation-delay-2"></div>
+                <!-- Animation-delay-3 -->
+                <div>Animation-delay: 3s</div>
+                <div id="animation-delay-3"></div>
+                <!-- Animation-delay-6 -->
+                <div>Animation-delay: 6s</div>
+                <div id="animation-delay-6"></div>
+
+                <div>#animation-delay-15{
+                    <br>
+                    width: 140px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    background: rgb(137, 96, 156);
+                    <br>
+                    position: relative;
+                    <br>
+                    animation: animation-delay 10s infinite;
+                    <br>
+                    animation-delay: 15s;
+                    <br>
+                    }
+                    <br><br>
+                    @keyframes animation-delay {
+                    <br>
+                    0% {left: 0px;}
+                    <br>
+                    50% {left: 50px; background: indigo}
+                    <br>
+                    100% {left: 600px;}
+                    <br>
+                    }
+                </div>
+            </article>
+
+            <!-- Animation-iteration-count -->
+            <article>
+                <h3>Animation-iteration-count</h3>
+                <p>Define el dúmero de veces que un ciclo debe de ejecutarse.
+                    <br>Existen dos valores:
+                    <br>&nbsp;&nbsp;infinite, usado en ejemplos anteriores
+                    <br>&nbsp;&nbsp;Number, valor por defecto 1, no admite -1 y admite decimales en ciclos
+                </p>
+                <div>animation-iteration-count: infinite | number</div>
+                <!-- Animation-iteration-count: infinite -->
+                <div>animation-iteration-count: infinite;<b>Se repite infinitamente</b></div>
+                <div id="animation-iteration-count-infinite"></div>
+                <!-- Animation-iteration-count: 2 -->
+                <div> animation-iteration-count: 2;<b>Se repite 2 veces</b></div>
+                <div id="animation-iteration-count-2"></div>
+                <!-- Animation-iteration-count: 10 -->
+                <div> animation-iteration-count: 10;<b>Se repite 10 veces</b></div>
+                <div id="animation-iteration-count-10"></div>
+
+                <div>#animation-iteration-count-10{
+                    <br>
+                    width: 140px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    background: rgb(235, 200, 87);
+                    <br>
+                    position: relative;
+                    <br>
+                    animation: animation-iteration 5s;
+                    <br>
+                    animation-iteration-count: 10;
+                    <br>
+                    }
+                    <br><br>
+                    @keyframes animation-iteration {
+                    <br>
+                    0% {left: 0px;}
+                    <br>
+                    100% {left: 900px; background: rgb(255, 21, 0)}
+                    <br>
+                    }
+                </div>
+            </article>
+
+            <!-- Animation-direction -->
+            <article>
+                <h3>Animation-direction</h3>
+                <p>Define si una animación se debe reproducir hacia adelante, hacia atrás o en ciclos alternos.
+                    <br>Su valor por defecto es normal.
+                    <br><br>
+                    Existen 4 valores:
+                    <br>&nbsp;&nbsp;normal
+                    <br>&nbsp;&nbsp;alternate
+                    <br>&nbsp;&nbsp;reverse
+                    <br>&nbsp;&nbsp;alternate-reverse
+                </p>
+
+                <div>animation-direction: valor;</div>
+
+                <!-- Animation-direction-normal -->
+                <div>animation-direction: normal;<b>Ciclo normal</b></div>
+                <div id="animation-direction-normal"></div>
+                <!-- Animation-direction-alternate -->
+                <div>animation-direction: alternate;<b>De izquierda a derecha y viceversa</b></div>
+                <div id="animation-direction-alternate"></div>
+                <!-- Animation-direction-reverse -->
+                <div>animation-direction: reverse;<b>De derecha a izquierda</b></div>
+                <div id="animation-direction-reverse"></div>
+                <!-- Animation-direction-alternate-reverse -->
+                <div>animation-direction: alternate-reverse;<b>De derecha a izquierda y viceversa</b></div>
+                <div id="animation-direction-alternate-reverse"></div>
+
+                <div>#animation-direction-alternate-reverse{
+                    <br>
+                    width: 140px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    background: rgb(129, 212, 233);
+                    <br>
+                    position: relative;
+                    <br>
+                    animation: animation-direction 5s infinite;
+                    <br>
+                    animation-direction: alternate-reverse;
+                    <br>
+                    }
+                    <br><br>
+                    @keyframes animation-direction {
+                    <br>
+                    0% {left: 0px;}
+                    <br>
+                    100% {left: 900px; background: rgb(38, 0, 255)}
+                    <br>
+                    }
+                </div>
+            </article>
+
+            <!-- Animation-fill-mode -->
+            <article>
+                <h3>Animation-fill-mode</h3>
+                <p>Especifica un estilo para el elemento cuando la animación no se está reproduciendo.
+                    Su valor por defecto es none.
+                    <br><br>Existen 4 valores:
+                    <br>&nbsp;&nbsp;none
+                    <br>&nbsp;&nbsp;forwards
+                    <br>&nbsp;&nbsp;backwards
+                    <br>&nbsp;&nbsp;both
+                </p>
+                <div>animation-fill-mode: valor;</div>
+
+                <p>Recargar para verlo detalladamente</p>
+
+                <!-- animation-fill-mode-none -->
+                <div>animation-fill-mode: none;</div>
+                <div id="animation-fill-mode-none"></div>
+                <!-- animation-fill-mode-forwards -->
+                <div>animation-fill-mode: forwards;</div>
+                <div id="animation-fill-mode-forwards"></div>
+                <!-- animation-fill-mode-backwards -->
+                <div>animation-fill-mode: backwards;</div>
+                <div id="animation-fill-mode-backwards"></div>
+                <!-- animation-fill-mode-both -->
+                <div>animation-fill-mode: both;</div>
+                <div id="animation-fill-mode-both"></div>
+
+                <div>#animation-fill-mode-both{
+                    <br>
+                    width: 140px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    position: relative;
+                    <br>
+                    animation-delay: 1s;
+                    <br>
+                    animation: animation-fill-mode 5s ;
+                    <br>
+                    animation-fill-mode: both;
+                    <br>
+                    animation-delay: 3s;
+                    <br>
+                    }
+                    <br><br>
+                    @keyframes animation-fill-mode {
+                    <br>
+                    from {left: 0px; background: rgb(17, 0, 0)}
+                    <br>
+                    to {left: 900px; background: rgb(255, 0, 212)}
+                    }
+                </div>
+            </article>
+
+            <!-- Animation-play-state -->
+            <article>
+                <h3>Animation-play-state</h3>
+                <p>Determina si está en ejecución o en pausa
+                    <br><br>Existen 2 valores:
+                    <br>&nbsp;&nbsp;running
+                    <br>&nbsp;&nbsp;paused
+                </p>
+                <div>animation-play-state: valor;</div>
+
+                 <!-- Animation-play-state-running -->
+                <div>animation-play-state: running;<b>Coloca el puntero encima</b></div>
+                <div id="animation-play-state-running"></div>
+                 <!-- Animation-play-state-paused -->
+                <div>animation-play-state: paused;<b>Coloca el puntero encima</b></div>
+                <div id="animation-play-state-paused"></div>
+
+                <div>#animation-play-state-paused{
+                    <br>
+                    width: 300px;
+                    <br>
+                    height: 50px;
+                    <br>
+                    background: #90A4AE;
+                    <br>
+                    position: relative;
+                    <br>
+                    animation: animation-play-state 5s infinite;
+                    <br>
+                    } <br><br>
+                    #animation-play-state-paused:hover{
+                    <br>
+                    animation-play-state: paused;
+                    <br><br>
+                    @keyframes animation-play-state {
+                    <br>
+                    from {left: 0px;}
+                    <br>
+                    to {left: 900px;}
+                    <br>
+                    }
+                </div>
+            </article>
+
+            <!-- Animation -->
+            <article>
+                <h3>Animation</h3>
+                <p>Es una abreviación de las propiedades explicadas.
+                    <br>Sus valores por defecto son:
+                    <br>&nbsp;&nbsp;animation-name: none
+                    <br>&nbsp;&nbsp;animation-duration: 0s
+                    <br>&nbsp;&nbsp;animation-timing-function: ease
+                    <br>&nbsp;&nbsp;animation-delay: 0s
+                    <br>&nbsp;&nbsp;animation-iteration-count: 1
+                    <br>&nbsp;&nbsp;animation-direction: normal
+                    <br>&nbsp;&nbsp;animation-fill-mode: none
+                    <br>&nbsp;&nbsp;animation-play-state: running
+                </p>
+
+                <div>animation : "name" "duration" "timing-function" "delay" "iteration-count" "direction" "fill-mode"</div>
+                <!-- animation : ... -->
+                <div id = "animation-animation"></div>
+                <p>animation: animation-name 10s ease-in-out 5s infinite alternate forwards;</p>
+            </article>
+
+            <!-- Ejemplo de un juego de tennis -->
+            <article>
+                <h3>Ejemplo práctico - Juego de tennis</h3>
+                <p>Utilizando propiedades explicadas anteriormente he realizado un pequeño juego recreativo
+                </p>
+                <div id = "animation-tennis">
+                        <div id = "animation-tennis-pared-1"></div>
+                        <div id = "animation-tennis-bola"></div>
+                        <div id = "animation-tennis-pared-2"></div>
+                </div>
+               
+            </article>
+
+        </section>
+
+    </main>
+    <footer>
+        <div>Animaciones - Francisco Ramírez Ruiz</div>
+        <a href="https://twitter.com/ramiirez100" class="social"><img src="icon/twitter.svg" alt="Twitter"></a>
+        <a href="https://github.com/Ramirez9" class="social"><img src="icon/github.svg" alt="GitHub"></a>
+    </footer>
+</body>
+
+</html>
