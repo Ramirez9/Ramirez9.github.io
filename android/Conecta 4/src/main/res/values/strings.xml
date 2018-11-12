@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Conecta 4</string>
+    <string name="aceptar">Nueva Partida</string>
+    <string name="btnInicio">JUGAR</string>
+    <string name="salir">Salir</string>
+    <string name="mensajeTitulo">Partida Finalizada</string>
+
+    <string name="mensajeGanadorJugador">GANADOR</string>
+    <string name="mensajeGanadorMaquina">PERDEDOR</string>
+
+    <string name="about">Acerca de</string>
+    <string name="sendmessage">Enviar mensaje</string>
+    <string name="settings">Ajustes</string>
+
+
+    <string-array name="players">
+        <item>Persona</item>
+        <item>Máquina</item>
+    </string-array>
+
+    <string-array name="playersValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>
