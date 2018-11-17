@@ -1,0 +1,46 @@
+nav ul{
+    /* Elimino los estilos puntos */
+    list-style: none;
+    padding: 2px;
+}
+
+nav > ul > li{
+    display: inline-block;
+}
+
+nav ul li{
+    position: relative;
+}
+
+nav ul li a{
+    background: #0c3335;
+    color: white;
+    display: block;
+    padding: 14px;
+    margin: 1px;
+    /* Elimino la linea de enlace */
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    /* Selecciono un color al hover */
+    background: #a0f4f7;
+}
+
+nav ul li ul{
+    /* con display none escondo los submenus */
+    display: none;
+    position: absolute;
+    width: 200px;
+}
+
+nav ul li ul li ul{
+    right: -200px;
+    top: -2.7px;
+}
+
+nav ul li:hover > ul{
+    display: block;
+}
+
+

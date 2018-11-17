@@ -87,16 +87,8 @@
                 </p>
 
                 <div>animation-duration : tiempo</div>
-                <!-- animation-duration-1 -->
-                <div>animation-duration : 1s</div>
-                <div id="animation-duration-1"></div>
-                <!-- animation-duration-5 -->
-                <div>animation-duration : 5s</div>
-                <div id="animation-duration-5"></div>
-                <!-- animation-duration-10 -->
-                <div>animation-duration : 10s</div>
-                <div id="animation-duration-10"></div>
 
+                <p>Ejemplo</p>
                 <div>#animation-duration-10 {
                     <br>
                     width: 100px;
@@ -120,6 +112,17 @@
                     to {left: 800px;}
                     <br>
                     }</div>
+
+                <!-- animation-duration-1 -->
+                <div>animation-duration : 1s</div>
+                <div id="animation-duration-1"></div>
+                <!-- animation-duration-5 -->
+                <div>animation-duration : 5s</div>
+                <div id="animation-duration-5"></div>
+                <!-- animation-duration-10 -->
+                <div>animation-duration : 10s</div>
+                <div id="animation-duration-10"></div>
+
             </article>
 
             <!-- Animation Timing Function -->
@@ -128,47 +131,23 @@
                 <p>Especifica como la animación debe avanzar según la duración del ciclo
                 </p>
                 <p>Valores:
-                    <br>&nbsp;&nbsp;ease;
-                    <br>&nbsp;&nbsp;ease-in;
-                    <br>&nbsp;&nbsp;ease-out;
-                    <br>&nbsp;&nbsp;ease-in-out;
-                    <br>
-                    <br>&nbsp;&nbsp;linear;
-                    <br>&nbsp;&nbsp;step-start; --> steps (valor, start);
-                    <br>&nbsp;&nbsp;step-end; --> steps (valor, end);
+                    <br>&nbsp;&nbsp;ease; --> Inicio lento - rápido - acaba lentamente
+                    <br>&nbsp;&nbsp;ease-in; --> Inicio lento
+                    <br>&nbsp;&nbsp;ease-out; --> Final lento
+                    <br>&nbsp;&nbsp;ease-in-out; --> Inicio lento y final rápido
+                    <br>&nbsp;&nbsp;linear; --> Inicio = Final
+                    <br>&nbsp;&nbsp;step-start; --> steps (valor, start); Comienza antes del intervalo
+                    <br>&nbsp;&nbsp;step-end; --> steps (valor, end); Comienza después del intervalo
                     <br>&nbsp;&nbsp;&nbsp;&nbsp; Si el 2º parámetro se omite es end
                     <br>
-                    <br>&nbsp;&nbsp;cubic-bezier(P0, P1, P2, P3);
+                    <br>&nbsp;&nbsp;cubic-bezier(P0, P1, P2, P3); --> Define una curva
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;Con cubic-bezier podemos representar los demás valores anteriores.Ej:
                     <br>&nbsp;&nbsp;&nbsp;&nbsp;linear = cubic-bezier(0, 0, 1, 1);
                 </p>
 
                 <div>animation-timing-function: valor;</div>
-                <!-- animation-timing-function-ease -->
-                <div>animation-timing-function: ease;<b>Inicio lento - rápido - acaba lentamente</b></div>
-                <div id="animation-timing-function-ease"></div>
-                <!-- animation-timing-function-ease-in -->
-                <div>animation-timing-function: ease-in;<b>Inicio lento</b></div>
-                <div id="animation-timing-function-ease-in"></div>
-                <!-- animation-timing-function-ease-out -->
-                <div>animation-timing-function: ease-out;<b>Final lento</b></div>
-                <div id="animation-timing-function-ease-out"></div>
-                <!-- animation-timing-function-ease-in-out -->
-                <div>animation-timing-function: ease-in-out;<b>Inicio lento y final rápido</b></div>
-                <div id="animation-timing-function-ease-in-out"></div>
-                <!-- animation-timing-function-linear -->
-                <div>animation-timing-function: linear;<b>Inicio = Final</b></div>
-                <div id="animation-timing-function-linear"></div>
-                <!-- animation-timing-function-step-start -->
-                <div>animation-timing-function: step (6, start);<b>Comienza antes del intervalo</b></div>
-                <div id="animation-timing-function-step-start"></div>
-                <!-- animation-timing-function-step-end -->
-                <div>animation-timing-function: step-end (6, end);<b>Comienza después del intervalo</b></div>
-                <div id="animation-timing-function-step-end"></div>
-                <!-- animation-timing-function-cubic-bezier -->
-                <div>animation-timing-function: cubic-bezier(0, 0, 1, 1) = linear;<b>Define una curva</b></div>
-                <div id="animation-timing-function-cubic-bezier"></div>
 
+                <p>Ejemplo:</p>
                 <div>
                     <br>
                     #animation-timing-function-cubic-bezier{
@@ -196,6 +175,33 @@
                     }
                     <br>
                 </div>
+
+                <!-- animation-timing-function-ease -->
+                <div>animation-timing-function: ease;</div>
+                <div id="animation-timing-function-ease"></div>
+                <!-- animation-timing-function-ease-in -->
+                <div>animation-timing-function: ease-in;</div>
+                <div id="animation-timing-function-ease-in"></div>
+                <!-- animation-timing-function-ease-out -->
+                <div>animation-timing-function: ease-out;</div>
+                <div id="animation-timing-function-ease-out"></div>
+                <!-- animation-timing-function-ease-in-out -->
+                <div>animation-timing-function: ease-in-out;</div>
+                <div id="animation-timing-function-ease-in-out"></div>
+                <!-- animation-timing-function-linear -->
+                <div>animation-timing-function: linear;</div>
+                <div id="animation-timing-function-linear"></div>
+                <!-- animation-timing-function-step-start -->
+                <div>animation-timing-function: step (6, start);</div>
+                <div id="animation-timing-function-step-start"></div>
+                <!-- animation-timing-function-step-end -->
+                <div>animation-timing-function: step-end (6, end);</div>
+                <div id="animation-timing-function-step-end"></div>
+                <!-- animation-timing-function-cubic-bezier -->
+                <div>animation-timing-function: cubic-bezier(0, 0, 1, 1) = linear;</div>
+                <div id="animation-timing-function-cubic-bezier"></div>
+
+ 
             </article>
 
             <!-- Animation-delay -->
@@ -203,19 +209,13 @@
                 <h3>Animation-delay</h3>
                 <p>Especifica el tiempo de retardo que debe transcurrir antes de comenzar la animación.
                     <br>Esto permite que la secuencia de animación no comience nada más ser aplicada a un elemento.
-                    <br>Su valor por defecto es 0, a menos que indiquemos alguno en segundos o milisegundos</p>
+                    <br>Su valor por defecto es 0, a menos que indiquemos alguno en segundos o milisegundos.
+                <br>Ej.: 20s --> Segundos
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20ms --> Milisegundos</p>
 
                 <div>Animation-delay: tiempo</div>
-                <!-- Animation-delay-2 -->
-                <div>Animation-delay: 2s</div>
-                <div id="animation-delay-2"></div>
-                <!-- Animation-delay-3 -->
-                <div>Animation-delay: 3s</div>
-                <div id="animation-delay-3"></div>
-                <!-- Animation-delay-6 -->
-                <div>Animation-delay: 6s</div>
-                <div id="animation-delay-6"></div>
 
+                <p>Ejemplo:</p>
                 <div>#animation-delay-15{
                     <br>
                     width: 140px;
@@ -228,7 +228,7 @@
                     <br>
                     animation: animation-delay 10s infinite;
                     <br>
-                    animation-delay: 15s;
+                    animation-delay: 2s;
                     <br>
                     }
                     <br><br>
@@ -242,6 +242,18 @@
                     <br>
                     }
                 </div>
+
+                <!-- Animation-delay-2 -->
+                <div>Animation-delay: 2s</div>
+                <div id="animation-delay-2"></div>
+                <!-- Animation-delay-3 -->
+                <div>Animation-delay: 3s</div>
+                <div id="animation-delay-3"></div>
+                <!-- Animation-delay-6 -->
+                <div>Animation-delay: 6s</div>
+                <div id="animation-delay-6"></div>
+
+
             </article>
 
             <!-- Animation-iteration-count -->
@@ -253,16 +265,8 @@
                     <br>&nbsp;&nbsp;Number, valor por defecto 1, no admite -1 y admite decimales en ciclos
                 </p>
                 <div>animation-iteration-count: infinite | number</div>
-                <!-- Animation-iteration-count: infinite -->
-                <div>animation-iteration-count: infinite;<b>Se repite infinitamente</b></div>
-                <div id="animation-iteration-count-infinite"></div>
-                <!-- Animation-iteration-count: 2 -->
-                <div> animation-iteration-count: 2;<b>Se repite 2 veces</b></div>
-                <div id="animation-iteration-count-2"></div>
-                <!-- Animation-iteration-count: 10 -->
-                <div> animation-iteration-count: 10;<b>Se repite 10 veces</b></div>
-                <div id="animation-iteration-count-10"></div>
 
+                <p>Ejemplo: </p>
                 <div>#animation-iteration-count-10{
                     <br>
                     width: 140px;
@@ -287,6 +291,17 @@
                     <br>
                     }
                 </div>
+
+                <!-- Animation-iteration-count: infinite -->
+                <div>animation-iteration-count: infinite;<b>Se repite infinitamente</b></div>
+                <div id="animation-iteration-count-infinite"></div>
+                <!-- Animation-iteration-count: 2 -->
+                <div> animation-iteration-count: 2;<b>Se repite 2 veces</b></div>
+                <div id="animation-iteration-count-2"></div>
+                <!-- Animation-iteration-count: 10 -->
+                <div> animation-iteration-count: 10;<b>Se repite 10 veces</b></div>
+                <div id="animation-iteration-count-10"></div>
+
             </article>
 
             <!-- Animation-direction -->
@@ -296,27 +311,15 @@
                     <br>Su valor por defecto es normal.
                     <br><br>
                     Existen 4 valores:
-                    <br>&nbsp;&nbsp;normal
-                    <br>&nbsp;&nbsp;alternate
-                    <br>&nbsp;&nbsp;reverse
-                    <br>&nbsp;&nbsp;alternate-reverse
+                    <br>&nbsp;&nbsp;normal --> Posee un ciclo normal
+                    <br>&nbsp;&nbsp;alternate --> Se mueve de Inicio a Fin y de Fin a Inicio
+                    <br>&nbsp;&nbsp;reverse --> Se mueve de Fin a Inicio
+                    <br>&nbsp;&nbsp;alternate-reverse --> Se mueve de Fin a Inicio y de Inicio a Fin
                 </p>
 
                 <div>animation-direction: valor;</div>
 
-                <!-- Animation-direction-normal -->
-                <div>animation-direction: normal;<b>Ciclo normal</b></div>
-                <div id="animation-direction-normal"></div>
-                <!-- Animation-direction-alternate -->
-                <div>animation-direction: alternate;<b>De izquierda a derecha y viceversa</b></div>
-                <div id="animation-direction-alternate"></div>
-                <!-- Animation-direction-reverse -->
-                <div>animation-direction: reverse;<b>De derecha a izquierda</b></div>
-                <div id="animation-direction-reverse"></div>
-                <!-- Animation-direction-alternate-reverse -->
-                <div>animation-direction: alternate-reverse;<b>De derecha a izquierda y viceversa</b></div>
-                <div id="animation-direction-alternate-reverse"></div>
-
+                <p>Ejemplo:</p>
                 <div>#animation-direction-alternate-reverse{
                     <br>
                     width: 140px;
@@ -341,6 +344,20 @@
                     <br>
                     }
                 </div>
+
+                <!-- Animation-direction-normal -->
+                <div>animation-direction: normal;<b>Ciclo normal</b></div>
+                <div id="animation-direction-normal"></div>
+                <!-- Animation-direction-alternate -->
+                <div>animation-direction: alternate;<b>De Inicio  a Fin y viceversa</b></div>
+                <div id="animation-direction-alternate"></div>
+                <!-- Animation-direction-reverse -->
+                <div>animation-direction: reverse;<b>De Fin a Inicio</b></div>
+                <div id="animation-direction-reverse"></div>
+                <!-- Animation-direction-alternate-reverse -->
+                <div>animation-direction: alternate-reverse;<b>De Fin a Inicio y viceversa</b></div>
+                <div id="animation-direction-alternate-reverse"></div>
+
             </article>
 
             <!-- Animation-fill-mode -->
@@ -349,28 +366,14 @@
                 <p>Especifica un estilo para el elemento cuando la animación no se está reproduciendo.
                     Su valor por defecto es none.
                     <br><br>Existen 4 valores:
-                    <br>&nbsp;&nbsp;none
-                    <br>&nbsp;&nbsp;forwards
-                    <br>&nbsp;&nbsp;backwards
-                    <br>&nbsp;&nbsp;both
+                    <br>&nbsp;&nbsp;none --> el elemento vuelve al principio
+                    <br>&nbsp;&nbsp;forwards --> El elemento se queda donde acabó la animación
+                    <br>&nbsp;&nbsp;backwards --> Controla el comportamiento incluso con un delay
+                    <br>&nbsp;&nbsp;both --> Controla el comportamiento, antes y después de la animación
                 </p>
                 <div>animation-fill-mode: valor;</div>
 
-                <p>Recargar para verlo detalladamente</p>
-
-                <!-- animation-fill-mode-none -->
-                <div>animation-fill-mode: none;</div>
-                <div id="animation-fill-mode-none"></div>
-                <!-- animation-fill-mode-forwards -->
-                <div>animation-fill-mode: forwards;</div>
-                <div id="animation-fill-mode-forwards"></div>
-                <!-- animation-fill-mode-backwards -->
-                <div>animation-fill-mode: backwards;</div>
-                <div id="animation-fill-mode-backwards"></div>
-                <!-- animation-fill-mode-both -->
-                <div>animation-fill-mode: both;</div>
-                <div id="animation-fill-mode-both"></div>
-
+                <p>Ejemplo: </p>
                 <div>#animation-fill-mode-both{
                     <br>
                     width: 140px;
@@ -396,6 +399,22 @@
                     to {left: 900px; background: rgb(255, 0, 212)}
                     }
                 </div>
+
+                <p>Recargar para verlo detalladamente</p>
+
+                <!-- animation-fill-mode-none -->
+                <div>animation-fill-mode: none;</div>
+                <div id="animation-fill-mode-none"></div>
+                <!-- animation-fill-mode-forwards -->
+                <div>animation-fill-mode: forwards;</div>
+                <div id="animation-fill-mode-forwards"></div>
+                <!-- animation-fill-mode-backwards -->
+                <div>animation-fill-mode: backwards;</div>
+                <div id="animation-fill-mode-backwards"></div>
+                <!-- animation-fill-mode-both -->
+                <div>animation-fill-mode: both;</div>
+                <div id="animation-fill-mode-both"></div>
+
             </article>
 
             <!-- Animation-play-state -->
@@ -403,17 +422,12 @@
                 <h3>Animation-play-state</h3>
                 <p>Determina si está en ejecución o en pausa
                     <br><br>Existen 2 valores:
-                    <br>&nbsp;&nbsp;running
-                    <br>&nbsp;&nbsp;paused
+                    <br>&nbsp;&nbsp;running --> Corriendo
+                    <br>&nbsp;&nbsp;paused --> Parado
                 </p>
                 <div>animation-play-state: valor;</div>
 
-                 <!-- Animation-play-state-running -->
-                <div>animation-play-state: running;<b>Coloca el puntero encima</b></div>
-                <div id="animation-play-state-running"></div>
-                 <!-- Animation-play-state-paused -->
-                <div>animation-play-state: paused;<b>Coloca el puntero encima</b></div>
-                <div id="animation-play-state-paused"></div>
+                <p>Ejemplo: </p>
 
                 <div>#animation-play-state-paused{
                     <br>
@@ -431,6 +445,8 @@
                     #animation-play-state-paused:hover{
                     <br>
                     animation-play-state: paused;
+                    <br>
+                    }
                     <br><br>
                     @keyframes animation-play-state {
                     <br>
@@ -440,6 +456,15 @@
                     <br>
                     }
                 </div>
+
+                 <!-- Animation-play-state-running -->
+                <div>animation-play-state: running;<b>Coloca el puntero encima</b></div>
+                <div id="animation-play-state-running"></div>
+                 <!-- Animation-play-state-paused -->
+                <div>animation-play-state: paused;<b>Coloca el puntero encima</b></div>
+                <div id="animation-play-state-paused"></div>
+
+
             </article>
 
             <!-- Animation -->

@@ -1,0 +1,70 @@
+header{
+    background-color: #788596;
+    padding: 15px;
+    font-size: 30px;
+    /* centro el texto */
+    text-align: center;
+}
+body{
+    background-color: #bdcbdf;
+
+}
+#navegacion{
+    /* centro el texto */
+    text-align: center;
+}
+
+#navegacion ul li{
+    border: 1px solid;
+    padding: 10px;
+    /* Colo de forma horizontal */
+    display: inline-block; 
+}
+
+#navegacion ul li a{  
+    text-decoration: none;
+    font-size: 50px;
+    margin: 2px;
+}
+
+#navegacion ul li a:hover{
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+}
+#tituloNoticia{
+    text-align: center;
+    /* Margin 0 para que se pegue al top */
+    margin: 0;
+}
+
+#noticia{
+    border: 1px solid;
+    margin: 25px;
+    padding: 10px;
+}
+main{
+    display: inline-block;
+    width: 80%;
+    padding-bottom: 40px;
+}
+
+aside{
+    display: inline-block;
+    width: 19%;
+    height: 400px;
+    /* Alinea al top del aside */
+    vertical-align: top;
+}
+
+#redes{
+    border: 1px solid;
+    padding: 10px 10px 90px 10px;
+    margin: 25px;
+    background-color: #558bd1;
+}
+
+footer{
+   text-align: center;
+   padding: 15px;
+   background-color: #1f33a8;
+}
