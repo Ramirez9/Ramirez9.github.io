@@ -1,0 +1,154 @@
+/* Fondo de la página */
+body {
+    background: linear-gradient(to bottom, rgba(145,232,66,1) 0%, rgba(179,244,74,1) 53%, rgba(184,246,76,1) 60%, rgba(210,255,82,1) 100%);
+    font-family: 'Ranga', cursive;
+}
+
+/************************** TOP DE LA PÁGINA **************************/
+/* Título de la página */
+h1 {
+    font-size: 80px;
+    margin: 0;
+    padding: 30px;
+    color: rgb(9, 57, 119);
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(210, 255, 82, 1) 46%,
+        rgba(210, 255, 82, 1) 61%, rgba(210, 255, 82, 1) 63%, rgba(145, 232, 66, 1) 100%);
+
+}
+
+/* Color del menú de navegación */
+nav{
+    background-color: rgba(145, 232, 66, 1);
+}
+
+nav ul{
+    /* Con margin cero obvio el fondo y lo uno con h1 */
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li{
+    border: 1px solid green;
+    padding: 30px;
+    margin-left: 30px;
+    /* Elimino los puntos del li */
+    list-style: none;
+    /* Hago uso del display inline-block; */
+    display: inline-block;
+    
+}
+
+nav ul li a{
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li:hover{
+    background-color:  rgba(210, 255, 82, 1);
+}
+
+/*************************CONTENIDO DE LA PÁGINA************************/
+
+/*Indico un tamaño máximo para el contenido principal*/
+main{
+
+    width: 70%
+}
+p{
+    text-align : justify; 
+}
+h3{
+    color: rgb(8, 28, 54);
+    font-size: 40px;
+}
+
+h4{
+    color: rgb(8, 28, 54);
+    font-size: 20px;
+    padding: 0 30px;
+}
+
+main section article{
+    /* Separo un poco del top */
+    margin: 10px;
+    padding: 5px;
+    width: 280px;
+    height: 320px;
+    /* Selecciono display: inline-block para que se alinen horizontalmente, sino lo harían vertical */
+    display: inline-block;
+    background-color: rgb(162, 238, 92);
+    box-shadow: 8px 8px 10px rgb(100, 117, 84);
+}
+
+/* con el selector básico "," agrupo ambos ya que poseerán lo mismo */
+main, aside{
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* El aside tendrá el 19% restante del contenido */
+aside{
+    width: 29%;
+}
+
+/* Quito los puntos de la lista y le otorgo relleno */
+ul li{
+    list-style: none;
+    padding : 12px;
+}
+
+aside article{
+    border: 1px solid green;
+    margin: 10px;
+    min-height: 400px;
+}
+
+aside article h3{
+    text-align: center;
+}
+
+/* Colo los checks ordenados en columnas */
+aside article div{
+    display: inline-block;
+}
+
+#publi div{
+    width: 40%;
+    padding: 50px 10px;
+    border: 1px solid;
+    margin: 5px;
+}
+
+/**************************FOOTER DE LA PÁGINA******************/
+
+footer{
+    border-top: 1px solid green;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);    
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+footer div{
+    display: inline-block;
+    /* separo los divs del footer */
+    width: 45%;
+}
+
+h2{
+    font-size: 60px;
+}
+
+/* Nombre a la izquierda */
+footer #name{
+    font-size: 50px;
+    text-align: left;
+}
+/* Iconos a la derecha */
+footer #icons{
+    text-align: right;
+    margin: 7px;
+}
+
