@@ -36,6 +36,8 @@
 
     let set;
 
+    let regex = /(\s?[a-zA-Záéíóúñ]+\s?) (\s?[a-zA-Záéíóúñ]+\s?)+,(\s?[a-zA-Záéíóúñ]+\s?)$/g;
+
     function init() {
 
         name = document.getElementById("name");
@@ -56,7 +58,7 @@
     }
 
     function validation() {
-        let regex = /(\s?[a-zA-Záéíóúñ]+\s?) (\s?[a-zA-Záéíóúñ]+\s?)+,(\s?[a-zA-Záéíóúñ]+\s?)$/g;
+        
         let values = regex.exec(text.value);
 
         try {
