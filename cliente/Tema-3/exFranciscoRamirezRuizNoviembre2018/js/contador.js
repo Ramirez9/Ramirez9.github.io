@@ -32,18 +32,21 @@
      */
     function generaMensaje(contador) {
 
-        //Primera vez = primer mensaje
-        if (contador === '1')
-            sentence.textContent = `Bienvenido a mi humilde morada. Esta es la primera vez que entras. Espero que vuelvas`;
-        //Segunda vez = segundo mensaje
-        else if (contador === '2')
-            sentence.textContent = `Hola de nuevo. Ya estas aquí por segunda vez. ¿Volveremos a vernos?. `;
-        //Tercera > mismo mensaje enseñando contador.
-        else
-            sentence.textContent = `Ya empiezas a ser pesado.
-            Esta es la vez número ${parseInt(
-            contador++
-            )} que entras. Sigue con tus cosas.`;
+        //Los devuelvo en formato cadena usando un switch
+        switch (contador) {
+            case 0:
+                return `Bienvenido a mi humilde morada.
+                Esta es la primera vez que entras. 
+                Espero que vuelvas.`
+            case 1:
+                return `Hola de nuevo.
+                Ya estás aquí por segunda vez. ¿Volveremos a vernos?.`
+
+            default:
+                return `Ya empiezas a ser pesado.
+                Esta el la vez número ${contador +1} que entras. Sigue con tus cosas.`
+
+        }
     }
 
     /**
@@ -52,31 +55,28 @@
      * setItem
      */
     function action() {
-        //Si cotnador es null, lo inicializo a 1 con setItem
-        if (localStorage.getItem("contador") === null) {
-            localStorage.setItem("contador", 1);
-            generaMensaje(localStorage.getItem("contador"));
-        } else {
-            //Si ya poseo un contador le sumo + 1 al entrar
-            localStorage.setItem(
-                "contador",
-                parseInt(localStorage.getItem("contador")) + 1
-            );
-            generaMensaje(localStorage.getItem("contador"));
-        }
+
+        /*
+        * Creo un localStorage numero con getItem
+        * Si es null, lo parseo y muestro un mensaje
+        * Dependiendo del número de contador en generaMensaje
+        */
+        let contador = localStorage.getItem("numero");
+        contador = (contador === null) ? 0 : parseInt(contador);
+        sentence.innerHTML = generaMensaje(contador);
+
+        localStorage.setItem("numero", ++contador);
     }
 
     /**
      * Reseteo el la Key contador a un value de 0
      */
     function reset() {
-        //Si contador es distinto de null = está creado.
-        //Le coloco valor 0
-        if (localStorage.getItem("contador") !== null) {
-            localStorage.setItem("contador", 0);
-            sentence.textContent = "RESETEADO";
-        }
+        //Elimino haciendo uso de removeItem
+        localStorage.removeItem("numero");
+        sentence.textContent = "RESETEADO";
     }
+
 
     /**
      * Vuelvo atrás con el método back de history
