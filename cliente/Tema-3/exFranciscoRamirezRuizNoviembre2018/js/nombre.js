@@ -34,13 +34,16 @@
     let back;
     let newMsg;
 
-    let set;
+    //Creo el objteo Set fuera de init
+    let set = new Set();
 
+    //Hago uso de la expresión regular para todas las posibles variables.
     let regex = "^((?:[a-záéíóúñ]{1,})(?:[ ]{1,}(?:[a-záéíóúñ]{1,}))*)"+
     "[ ]*,[ ]*"+
     "([a-záéíóúñ]{1,})$";
 
-    //let regexCadena = new RegExp(regex, 'i');
+    //Insensible a mayúsuclas y minúsculas
+    let regexCadena = new RegExp(regex, 'i');
 
     function init() {
 
@@ -50,46 +53,64 @@
         back = document.getElementById("back");
         newMsg = document.getElementById("newMsg");
 
-        set = new Set();
-
         text.addEventListener("blur", validation)
         back.addEventListener("click", backIndex);
     }
 
-    function ExceptionError(str, name) {
-        this.message = str;
-        this.name = name;
-    }
-
+    /**
+     * Saco la capa de presentacion con la de negocio
+     */
     function validation() {
         
-        let values = regex.exec(text.value);
+        //let values = regex.exec(text.value);
 
-        try {
-            regex.exec(text.value);
-            if (regex.test(text.value)) {
-                if (values !== null) {
-                    //Vacío el span por si salto el mensaje de error.
-                    newMsg.textContent = "";
-                    //Vacío el valor del input text si el formato es correcto
-                    text.value = "";
-                    //Colo unoo vacío sino, repite los apellidos
-                    [ , lstName1, lstName2, xName] = values;
-                    name.textContent = `Nombre: ${xName}`;
-                    lastName.textContent = `Apellido: ${lstName1 +" "+ lstName2}`;
-                }
-            } else {
-                let myException = new ExceptionError("Error. Formato correcto: Cuadrado Perfecto, Anacleto",
-                    "error"
-                );
-                throw myException;
-            }
-            //Ejerc.- 3 Repetidos
-            repets(set, newMsg);
+        /*
+         * Cambios, repetidos doble exec.
+         * Obtengo los valores del metodo obtenerDatos
+         */
+        try{
+            let values = text.value;
+            let[xNombre, xApellidos] = obtenerDatos(values);
 
-        } catch (e) {
+            //Con set compruebo si tengo los datos introducidos.
+            //Hacia uso de  repets(set, newMsg); ya no es necesario
+            if(set.has(xNombre + " " + xApellidos))
+                newMsg.textContent = "REPETIDO";
+            else
+                newMsg.textContent = "";
+            
+            set.add(xNombre + " " + xApellidos);
+            //Escribo el contenido de nuevo con su valores
+            name.textContent = "Nombre: " + xNombre;
+            lastName.textContent = "Apellidos: " + xApellidos;
+            values = "";
+
+        }catch(e){
+            //Elimino mi Exception creada y la capturo en obtenerDatos
+            name.textContent = "Nombre: ";
+            lastName.textContent = "Apellidos: ";
             newMsg.textContent = e.message;
         }
+        // try {
+        //     regex.exec(text.value);
+        //     if (regex.test(text.value)) {
+        //         if (values !== null) {
+        //             newMsg.textContent = "";
+        //             text.value = "";
+        //             [ , lstName1, lstName2, xName] = values;
+        //             name.textContent = `Nombre: ${xName}`;
+        //             lastName.textContent = `Apellido: ${lstName1 +" "+ lstName2}`;
+        //         }
+        //     } else {
+        //         let myException = new ExceptionError("Error. Formato correcto: Cuadrado Perfecto, Anacleto",
+        //             "error"
+        //         );
+        //         throw myException;
+        //     }
+        //     repets(set, newMsg);
+        // } catch (e) {
+        //     newMsg.textContent = e.message;
+        // }
     }
     /**
      * Vuelvo atrás con el método back de history
@@ -99,20 +120,30 @@
     }
 
     /**
-     * Compruebo si la identidad está repetida o no
-     * @param {*} set 
-     * @param {*} newMsg 
+     * Obtengo el nombre y los apellidos 
+     * @param {*} values 
      */
-    function repets(set, newMsg) {
-        if (!set.has(xName.trim()) && !set.has(lstName1.trim()) && !set.has(lstName2.trim())) {
-            set.add(xName.trim());
-            set.add(lstName1.trim());
-            set.add(lstName2.trim());
-        }
-        else {
-            newMsg.textContent += "REPETIDO";
+    function obtenerDatos(values){
+        try {
+            //Realizo el destructuring separando las capas de negocio
+            let [, xApellidos, xNombre] = regexCadena.exec(values.trim());
+            return [xNombre, xApellidos.replace(/[ ]+/g, " ")];
+
+        } catch (e) {
+            throw new Error('Error. Formato correcto: Cuadrado Perfecto, Anacleto');
         }
     }
+
+    // function repets(set, newMsg) {
+    //     if (!set.has(xName.trim()) && !set.has(lstName1.trim()) && !set.has(lstName2.trim())) {
+    //         set.add(xName.trim());
+    //         set.add(lstName1.trim());
+    //         set.add(lstName2.trim());
+    //     }
+    //     else {
+    //         newMsg.textContent += "REPETIDO";
+    //     }
+    // }
 
     window.addEventListener("load", init);
 }
