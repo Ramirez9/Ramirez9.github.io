@@ -58,7 +58,7 @@
      * Añado un elemento a la lista controlado con una expresión regular.
      */
     function anadirElemento(){
-        let regex = /(\s?[Nota]+\s+\d+) (\s+[a-zA-Záéíóúñ]+\s?)+$/g;
+        let regex = /(\s?[Nota]+\s+\d+) (\s?[a-zA-Záéíóúñ]+\s?)+$/g;
         let values = regex.exec(text.value);
         try{
         regex.exec(input.value);
