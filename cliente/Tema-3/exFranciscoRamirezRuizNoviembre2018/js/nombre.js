@@ -36,7 +36,11 @@
 
     let set;
 
-    let regex = /(\s?[a-zA-Záéíóúñ]+\s?) (\s?[a-zA-Záéíóúñ]+\s?)+,(\s?[a-zA-Záéíóúñ]+\s?)$/g;
+    let regex = "^((?:[a-záéíóúñ]{1,})(?:[ ]{1,}(?:[a-záéíóúñ]{1,}))*)"+
+    "[ ]*,[ ]*"+
+    "([a-záéíóúñ]{1,})$";
+
+    //let regexCadena = new RegExp(regex, 'i');
 
     function init() {
 
@@ -109,7 +113,6 @@
             newMsg.textContent += "REPETIDO";
         }
     }
-    
 
     window.addEventListener("load", init);
 }
