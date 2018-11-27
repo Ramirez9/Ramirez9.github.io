@@ -1,0 +1,152 @@
+/* Fondo de la página */
+body {
+
+    background: rgba(252,205,77,1);   
+    font-family: 'Ranga', cursive;
+}
+
+/************************** TOP DE LA PÁGINA **************************/
+/* Título de la página */
+h1 {
+    font-size: 80px;
+    margin: 0;
+    padding: 30px;
+    color: rgb(9, 57, 119);
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(252,234,187,1) 0%, rgba(248,181,0,1) 51%,
+     rgba(252,205,77,1) 87%, rgba(251,223,147,1) 100%);
+
+}
+nav ul{
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+}
+
+nav ul li{
+    border: 1px solid rgb(128, 83, 0);
+    padding: 30px;
+    margin-left: 30px;
+    list-style: none;
+
+}
+
+nav ul li a{
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li:hover{
+    background-color:  rgb(197, 186, 88);
+}
+
+
+/*************************CONTENIDO DE LA PÁGINA************************/
+
+p{
+    text-align : justify; 
+}
+
+h3{
+    color: rgb(8, 28, 54);
+    font-size: 40px;
+}
+
+h4{
+    color: rgb(8, 28, 54);
+    font-size: 20px;
+    padding: 0 30px;
+}
+
+#contenido{
+    /* Colo el contenido en filas */
+    display: flex;
+    flex-flow: row;
+}
+
+main{
+    /* main a la izquierda con 3 huecos */
+    flex: 3;
+    order:1;
+    display: flex;
+    flex-flow: row;
+    /* Con wrap va rellenado hasta tener 3 huecos */
+    flex-wrap: wrap;
+}
+
+aside{
+    margin-left: 20px;
+    flex: 1;
+    /* A la derecha order 2 */
+    order: 2;
+    display: flex;
+    flex-flow: column;
+   
+}
+
+aside h3{
+    text-align: center;
+}
+
+#archivo{
+    height: 200px;
+    display: flex;
+    /* Coloco en forma de columnas */
+    flex-flow: column wrap;
+}
+#publi{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#publi div{
+    border: 1px solid yellow;
+    min-width: 45%;
+    min-height: 150px;
+
+}
+
+article{
+    /* A cada articulo 1 hueco de 30% */
+    flex: 1;
+    min-width: 30%;
+    margin: 5px;
+    background: rgb(240, 200, 89);
+    box-shadow: 8px 8px 10px rgb(100, 117, 84);
+}
+
+/**************************FOOTER DE LA PÁGINA*******************/
+
+h2{
+    font-size: 60px;
+    text-align: center;
+}
+
+footer{
+    border-top: 1px solid yellow;
+    background: linear-gradient(to bottom, rgba(252,234,187,1) 0%, rgba(248,181,0,1) 0%,
+     rgba(252,205,77,1) 90%, rgba(252,205,77,1) 100%);
+}
+
+#contenidoB{
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+    /* Separo dejando hueco al medio */
+    justify-content: space-around;
+}
+
+#name{
+    font-size: 50px;
+}
+
+#icons{
+    font-size: 60px;
+}
+span{
+    color: #4d3902;
+}

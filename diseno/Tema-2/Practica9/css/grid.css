@@ -1,0 +1,148 @@
+/* Fondo de la página */
+body {
+    background: linear-gradient(to bottom, rgba(183,222,237,1) 0%,
+    rgba(113,206,239,1) 0%, rgba(183,222,237,1) 0%, rgba(33,180,226,1) 100%);    
+    font-family: 'Ranga', cursive;
+}
+
+/************************** TOP DE LA PÁGINA **************************/
+/* Título de la página */
+h1 {
+    font-size: 80px;
+    margin: 0;
+    padding: 30px;
+    color: rgb(9, 57, 119);
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(183,222,237,1) 0%,
+     rgba(113,206,239,1) 30%, rgba(33,180,226,1) 80%, rgba(183,222,237,1) 100%);
+
+}
+
+/* Color del menú de navegación */
+nav{
+    background-color: rgba(183,222,237,1);
+}
+
+nav ul{
+    /* Con margin cero obvio el fondo y lo uno con h1 */
+    margin: 0;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: center;
+}
+
+nav ul li{
+    border: 1px solid blue;
+    padding: 25px;
+    margin-left: 1px;    
+}
+
+nav ul li a{
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li:hover{
+    background-color:  rgb(9, 90, 138);
+}
+
+/*************************CONTENIDO DE LA PÁGINA************************/
+
+/*Indico un tamaño máximo para el contenido principal*/
+#contenido{
+    display: grid;
+    grid-template-columns: 70% 29%;
+}
+
+p{
+    text-align : justify; 
+}
+
+h3{
+    color: rgb(8, 28, 54);
+    font-size: 40px;
+}
+
+h4{
+    color: rgb(8, 28, 54);
+    font-size: 20px;
+    padding: 0 30px;
+}
+
+main section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+main article{
+    margin: 10px;
+    padding: 5px;
+    background-color: rgba(33,180,226,1);
+    box-shadow: 8px 8px 10px rgb(75, 153, 163);
+}
+
+aside #archivo ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 13px;
+    list-style: none;
+    justify-content: center;
+}
+/* Quito los puntos de la lista y le otorgo relleno */
+ul li{
+    list-style: none;
+    padding : 12px;
+}
+
+aside article{
+    border: 1px solid blue;
+    margin: 10px;
+    min-height: 400px;
+}
+
+aside article h3{
+    text-align: center;
+}
+
+aside #publi #contenidoPubli{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+aside #publi #contenidoPubli div{
+    text-align: center;
+    padding: 50px;
+    border: 1px solid blue;
+}
+
+/**************************FOOTER DE LA PÁGINA*******************/
+
+h2{
+    font-size: 60px;
+}
+
+footer{
+    display: grid;
+    border-top: 1px solid blue;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(183,222,237,1) 0%,
+    rgba(113,206,239,1) 30%, rgba(33,180,226,1) 80%, rgba(183,222,237,1) 100%)
+}
+
+#contenidoB{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#name{
+    font-size: 50px;
+    text-align: left;
+}
+#icons{
+    color: #b8c0d1;
+    font-size: 60px;
+}

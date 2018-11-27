@@ -1,6 +1,6 @@
 /* Fondo de la página */
 body {
-    background: linear-gradient(to bottom, rgba(145,232,66,1) 0%, rgba(179,244,74,1) 53%, rgba(184,246,76,1) 60%, rgba(210,255,82,1) 100%);
+    background: linear-gradient(to bottom, rgba(145,232,66,1) 0%, rgba(145, 232, 66, 1) 53%, rgba(184,246,76,1) 60%, rgba(210,255,82,1) 100%);
     font-family: 'Ranga', cursive;
 }
 
@@ -25,6 +25,7 @@ nav{
 nav ul{
     /* Con margin cero obvio el fondo y lo uno con h1 */
     margin: 0;
+    padding-left: 0;
     text-align: center;
 }
 
@@ -53,12 +54,13 @@ nav ul li:hover{
 
 /*Indico un tamaño máximo para el contenido principal*/
 main{
-
     width: 70%
 }
+
 p{
     text-align : justify; 
 }
+
 h3{
     color: rgb(8, 28, 54);
     font-size: 40px;
@@ -88,7 +90,7 @@ main, aside{
     vertical-align: top;
 }
 
-/* El aside tendrá el 19% restante del contenido */
+/* El aside tendrá el 29% restante del contenido */
 aside{
     width: 29%;
 }
@@ -121,7 +123,7 @@ aside article div{
     margin: 5px;
 }
 
-/**************************FOOTER DE LA PÁGINA******************/
+/**************************FOOTER DE LA PÁGINA*******************/
 
 footer{
     border-top: 1px solid green;
@@ -142,13 +144,17 @@ h2{
 }
 
 /* Nombre a la izquierda */
-footer #name{
+#name{
     font-size: 50px;
     text-align: left;
 }
 /* Iconos a la derecha */
-footer #icons{
+#icons{
+    font-size: 60px;
     text-align: right;
     margin: 7px;
+}
+span{
+    color: #052b00;
 }
 
