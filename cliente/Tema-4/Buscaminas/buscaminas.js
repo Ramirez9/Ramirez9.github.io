@@ -38,7 +38,7 @@ let buscaminas = {
         buscaminas.filas = filas;
         buscaminas.columnas = columnas;
         buscaminas.minas = minas;
-        buscaminas.cajas = (filas * columnas) - minas;
+        buscaminas.cajas = (filas * columnas);
         buscaminas.partidaFinalizada = false;
         cronometroFinaliza();
         resetear();
@@ -72,18 +72,13 @@ let buscaminas = {
         tabla.setAttribute("id", "layout");
 
         //Creo filas y columnas tr-td
-        for (let i = 0; i < this.filas; i++) {
+        for (let i = 0; i < buscaminas.filas; i++) {
             fila = document.createElement("tr");
 
-            for (let j = 0; j < this.columnas; j++) {
+            for (let j = 0; j < buscaminas.columnas; j++) {
                 caja = document.createElement("td");
                 //Añado un id a cada caja 00 01 02 ...
                 caja.setAttribute("id", i + " " + j);
-                //Color azul
-                caja.style.backgroundColor = "blue";
-                //Tamaños de las cajas
-                caja.width = "35px";
-                caja.height = "35px";
                 //Evento de click en cada caja.
                 caja.addEventListener("click", buscaminas.cajaPulsada);
                 fila.appendChild(caja);
@@ -148,11 +143,10 @@ let buscaminas = {
                     caja.style.backgroundColor = "#97E4E0";
                     caja.textContent = valor;
                     buscaminas.tablero[fila][columna] =-1;
-                    buscaminas.cajas--;
                     break;
                 }
         }
-        if (buscaminas.cajas == 0) {
+        if (buscaminas.cajas === 0) {
             buscaminas.terminarJuego("Ganador.");
         }
     },
@@ -210,9 +204,8 @@ let buscaminas = {
                     buscaminas.tablero[j][k] += 1;
         }
     },
-
     /**
-     * Ab
+     * 
      * @param {*} x 
      * @param {*} y 
      */
@@ -220,7 +213,7 @@ let buscaminas = {
         if (buscaminas.tablero[x][y] == 0) {
             buscaminas.tablero[x][y] = -1;
             for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, buscaminas.filas - 1); j++)
-                for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, buscaminas.columnas - 1); k++) {
+                for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, buscaminas.columnas -1); k++) {
                     buscaminas.cajaPulsada(j, k);
                 }
         }

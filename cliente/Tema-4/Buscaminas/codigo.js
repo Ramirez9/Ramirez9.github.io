@@ -45,7 +45,7 @@
         switch (this.id) {
             //Facil
             case "facil":
-                crearPartida(8, 8, 10);
+                crearPartida(8, 8, 3);
                 break;
             //Medio
             case "medio":
