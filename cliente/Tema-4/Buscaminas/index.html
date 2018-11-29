@@ -8,16 +8,37 @@
     <meta name="keywords" content="HTML,CSS,XML,JavaScript">
     <meta name="author" content="Francisco Ramírez Ruiz">
     <script src="codigo.js" type="text/javascript"></script>
+    <script src="buscaminas.js" type="text/javascript"></script>
+    <script src="cronometro.js" type="text/javascript"></script>
 </head>
+<style>
+    body {
+        text-align: center;
+
+    }
+
+    #layout {
+        margin: 24px auto;
+        text-align: center;
+    }
+</style>
 
 <body>
-    <noscript>
-        <h4>Se requiere javascript</h4>
-    </noscript>
+    <main>
+        <noscript>
+            <h4>Se requiere javascript</h4>
+        </noscript>
 
-    <h1>Buscaminas - Francisco Ramírez</h1>
-    <b>Dependiendo de la dificultad 1, 2 o 3 mostrará un tablero u otro.</b><br>
-    <b>Recarge la página</b>
+        <h1>Buscaminas - Francisco Ramírez</h1>
+
+        <div id="botonesDificultad">
+            <button id="facil">Fácil</button>
+            <button id="medio">Medio</button>
+            <button id="dificil">Difícil</button>
+        </div>
+        <div id="contenedorBuscaminas">
+        </div>
+    </main>
 </body>
 
 </html>

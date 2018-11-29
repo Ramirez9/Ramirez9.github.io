@@ -16,98 +16,95 @@
  * 
  * @author Francisco Ramírez Ruiz
  */
-
 {
-    /*
-     * Declaro las variables necesarias.
+    //Declaro variables
+    let contenedor;
+    let botones;
+    let reloj;
+
+    /**
+     * Init
      */
-    let filas;
-    let columnas;
-    let minas;
-
-    //Nivel de juego
-    let nivel;
-
-    let tablero = [];
-
-    //Posiciones del juego
-    let x, y;
-
     function init() {
+        //Obtengo Tag boton e ids.
+        botones = document.getElementsByTagName("button");
+        contenedor = document.getElementById("contenedorBuscaminas");
+        reloj = document.getElementById("reloj");
 
-        dificultad();
-        crear();
-        rellenarTablero();
-        console.table(tablero);
+        for (let i = 0; i < botones.length; i++) {
+            botones[i].addEventListener("click", niveles);
+        }    
     }
 
     /**
-     * Compruebo el nivel
+     * Niveles en funcion de las opciones seleccionadas
      */
-    function dificultad() {
-        nivel = pedirDificultad();
-        //Comrpruebo que sea válido, sino pregunto de nuevo.
-        if (isNaN(nivel) || nivel < 0 || nivel > 3)
-            return dificultad();
-        //Modificar variables y minas
-        switch (nivel) {
-            case 1:
-                filas = columnas = 8;
-                minas = 5;
+    function niveles() {
+        //Si el tablero existe lo elimino
+        eliminaTablero();
+        switch (this.id) {
+            //Facil
+            case "facil":
+                crearPartida(8, 8, 3);
                 break;
-            case 2:
-                filas = columnas = 16;
-                minas = 10;
+            //Medio
+            case "medio":
+                crearPartida(16, 16, 40);
                 break;
+            //Dificil
             default:
-                filas = 16
-                columnas = 30;
-                minas = 20;
+                crearPartida(16, 30, 99);
                 break;
         }
     }
 
     /**
-     * Pido al usuario con prompt la dificultad 
+     * Elimino el tablero y el mensaje en caso de acabar la partida
      */
-    function pedirDificultad() {
-        return parseInt(prompt("1--> Fácil | 2--> Medio | 3--> Experto"));
+    function eliminaTablero() {
+
+        //Obtengo el tablero y el mensaje
+        let tablero = document.getElementById("layout");
+        let msg = document.getElementById("msg");
+
+        //Hago uso de removeChild
+        if (tablero)
+            contenedor.removeChild(tablero);
+        if (msg)
+            contenedor.removeChild(msg);
     }
 
     /**
-     * Creo el tablero dependiendo de las filas y columnas
+     * Creo la partida de buscaminas
      */
-    function crear() {
-        for (let i = 0; i < filas; i++) {
-            tablero[i] = [];
-            for (let j = 0; j < columnas; j++)
-                tablero[i][j] = 0;
-        }
+    function crearPartida(filas, columnas, minas) {
+        //Sino hay cronometro, creo uno.
+        if(!cronometro)
+            layoutCronometro();
+
+        //Llamo a los metodos de buscaminas.js        
+        buscaminas.inicializar(filas, columnas, minas);
+        buscaminas.layout();
+        buscaminas.crearTablero();
+        buscaminas.colocarValores();
     }
 
     /**
-     * Relleno el tablero con los números dependiendo de las bombas
+     * Muestro el cronometro
      */
-    function rellenarTablero() {
+    function mostrarCronometro() {
+        setInterval(cronometro.mostrarCronometro, 1000);
+    }
 
-        //Recorro el número de minas
-        for (let i = 0; i < minas; i++) {
-            x = Math.floor(Math.random() * minas);
-            y = Math.floor(Math.random() * minas);
-            //Colo coloco en las posiciones los nueves = bombas.
-            tablero[x][y] = 9;
-
-            /*
-             * Recursividad
-             * Buscaminas php
-             */
-            for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, filas - 1); j++)
-                for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, columnas - 1); k++)
-                    if (tablero[j][k] !== 9)
-                        tablero[j][k] += 1;
-        }
+    /**
+     * Creo la aparciencia del cronometro
+     */
+    function layoutCronometro(){
+        let cronometroElement = document.createElement("b");
+        cronometroElement.id = "cronometro";
+        contenedorBuscaminas.appendChild(cronometroElement);
+        cronometro = document.getElementById("cronometro");
     }
 
     window.addEventListener("load", init);
-
 }
