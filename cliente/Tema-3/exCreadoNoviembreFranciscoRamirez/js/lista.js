@@ -40,10 +40,7 @@
         anadir.addEventListener("click", anadirElemento);
         reset.addEventListener("click", reiniciarLista);
 
-        back.addEventListener("click", ev => {
-            ev.preventDefault;
-            history.back();
-          });
+        volverAtras();
 
     }
 
@@ -89,6 +86,13 @@
         while(elementosEliminar.length!=0){
           elementosEliminar[0].parentNode.removeChild(elementosEliminar[0]);   
         }
+    }
+
+    function volverAtras() {
+        back.addEventListener("click", ev => {
+            ev.preventDefault;
+            history.back();
+        });
     }
     window.addEventListener("load", init);
 

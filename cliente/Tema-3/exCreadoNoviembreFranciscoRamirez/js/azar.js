@@ -53,10 +53,7 @@
         jugarArray();
         boton.addEventListener("click", jugarDados);
 
-        back.addEventListener("click", ev => {
-            ev.preventDefault;
-            history.back();
-        });
+        volverAtras();
 
     }
 
@@ -104,7 +101,15 @@
         });
         arrayText.innerHTML = `Compruebo impares: ${array}`;
     }
+    function volverAtras() {
+        back.addEventListener("click", ev => {
+            ev.preventDefault;
+            history.back();
+        });
+    }
 
     window.addEventListener("load", init);
 
 }
+
+

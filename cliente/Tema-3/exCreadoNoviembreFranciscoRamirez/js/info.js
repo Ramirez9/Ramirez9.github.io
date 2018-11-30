@@ -42,10 +42,7 @@
        
         crearElemento("El total de las listas es de : " + lista.length);
 
-        back.addEventListener("click", ev => {
-            ev.preventDefault;
-            history.back();
-          });
+        volverAtras();
 
     }
 
@@ -127,6 +124,13 @@
         }
         document.body.appendChild(titulo);
         document.body.appendChild(listado);
+    }
+
+    function volverAtras() {
+        back.addEventListener("click", ev => {
+            ev.preventDefault;
+            history.back();
+        });
     }
     window.addEventListener("load", init);
 }
