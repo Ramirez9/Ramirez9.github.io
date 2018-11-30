@@ -121,6 +121,7 @@
             this.isMuerto = true;
             //Mensaje de error si el gatito muere
             msgError.innerHTML = "Has matado a tu gato por no darle de comer. :("
+            img.innerHTML = `<img src="img/muertoJ.png">`;
             //Compruebo que no esté muerto
         } else if (!this.isMuerto){
             this.jugarGatito(); //Jugar de
@@ -137,7 +138,8 @@
         if (this.peso >= 15) {
             this.isMuerto = true;
             //Mensaje de error si el gatito muere
-            msgError.innerHTML = "El gatito ha muerto de gordura :("
+            msgError.innerHTML = "El gatito ha muerto de gordura morbida. :("
+            img.innerHTML = `<img src="img/muertoG.png">`;
             //Compruebo que no esté muerto
         } else if (!this.isMuerto){
             this.comerGatito();// Comer de gato.js
