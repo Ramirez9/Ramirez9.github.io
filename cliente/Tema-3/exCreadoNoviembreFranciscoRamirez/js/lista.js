@@ -26,10 +26,12 @@
     let input;
     let back;
 
+    let regex = /(\s?Nota+\s+\d+) (\s?[a-zA-Záéíóúñ]+\s?)+$/g;
+
     /**
      * Init,  añadoElemento y borro de la lista.
      */
-    function init(){
+    function init() {
         input = document.getElementById("text");
         anadir = document.getElementById("anadir");
         reset = document.getElementById("reset");
@@ -54,25 +56,26 @@
     /**
      * Añado un elemento a la lista controlado con una expresión regular.
      */
-    function anadirElemento(){
-        let regex = /(\s?Nota+\s+\d+) (\s?[a-zA-Záéíóúñ]+\s?)+$/g;
-        let values = regex.exec(text.value);
-        try{
-        regex.exec(input.value);
-        if(regex.test(input.value)){
-            if (values !== null){
+    function anadirElemento() {
+
+        //Cambios en el
+        let values = input.value;
+        let valores = regex.exec(values.trim());
+        try {
+            if (valores !== null) {
                 error.textContent = "";
                 let elementoLi = document.createElement("li");
                 elementoLi.innerHTML = input.value;
                 elementoUl.appendChild(elementoLi);
-                input.value="";
-            } 
-        }else{
-            let myException = new ExceptionError("Formato inválido. Ejemplo: Nota 2 Quiero un bocata");
-            throw myException;
-        }
-    }catch(e){
-        error.textContent = e.message;
+                input.value = "";
+            
+            } else {
+                let myException = new ExceptionError("Formato inválido. Ejemplo: Nota 2 Quiero un bocata");
+                throw myException;
+            }
+        
+        } catch (e) {
+            error.textContent = e.message;
         }
     }
 
@@ -80,11 +83,11 @@
      * Reinicio la lista y elimino los mensajes.
      * 
      */
-    function reiniciarLista(){
+    function reiniciarLista() {
         let elementosEliminar = document.getElementsByTagName("li");
-        
-        while(elementosEliminar.length!=0){
-          elementosEliminar[0].parentNode.removeChild(elementosEliminar[0]);   
+
+        while (elementosEliminar.length != 0) {
+            elementosEliminar[0].parentNode.removeChild(elementosEliminar[0]);
         }
     }
 
