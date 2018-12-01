@@ -1,0 +1,80 @@
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francisco Ramírez Ruiz</title>
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript" />
+  <meta name="author" content="Francisco Ramírez Ruiz" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Factura - Francisco</h1>
+  </header>
+
+
+  <div id="contenido">
+    <main>
+      <section>
+        <article>
+          <h3>Empresa</h3>
+            <label for="">Nombre:</label><br>
+            <input type="text" ><br>
+            <label for="">Dirección:</label><br>
+            <input type="text" ><br>
+            <label for="">teléfono:</label><br>
+            <input type="tel"><br>
+            <label for="">Nif:</label><br>
+            <input type="text">
+            <button class = "boton " id = "guardaEmpresa" value = "Enviar">Guardar</button>
+        </article>
+
+        <article>
+            <h3>Cliente</h3>
+            <label for="">Nombre:</label><br>
+            <input type="text" ><br>
+            <label for="">Dirección:</label><br>
+            <input type="text" ><br>
+            <label for="">teléfono:</label><br>
+            <input type="tel"><br>
+            <label for="">Nif:</label><br>
+            <input type="text">
+            <button class = "boton" id = "guardaCliente" value = "Enviar">Guardar</button>
+        </article>
+
+        <article>
+            <h3>Líneas</h3>
+            <label for="">Descripción:</label><br>
+            <input type="text" ><br>
+            <label for="">Cantidad:</label><br>
+            <input type="text" ><br>
+            <label for="">Precio Unidad:</label><br>
+            <input type="tel"><br>
+            <label for="">IVA:</label><br>
+            <input type="text">
+            <button class = "boton " id = "guardaLinea" value = "Enviar">Guardar</button>
+        </article>
+
+        <article>
+            <h3>TOTAL</h3>
+            <label for="">Base imponible:</label><br>
+            <input type="text" ><br>
+            <label for="">IVA:</label><br>
+            <input type="text" ><br>
+        </article>
+      </section>
+
+      <button id = "nueva" class = "b" value = "Enviar">Nueva Factura</button>
+      <button id = "hacer" class = "b"value = "Enviar">Hacer factura</button>
+      <button id = "buscar" class = "b"value = "Enviar">Buscar</button>
+    </main>
+  </div>
+</body>
+
+</html>
