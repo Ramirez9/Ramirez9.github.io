@@ -17,9 +17,9 @@
  * @author Francisco Ramírez Ruiz
  */
 
- /**
-  * Declaro un objeto literal buscaminas
-  */
+/**
+ * Declaro un objeto literal buscaminas
+ */
 let buscaminas = {
     //Inicializo a 0
     minas: 0,
@@ -29,6 +29,7 @@ let buscaminas = {
     tablero: [],
     partidaFinalizada: false,
     cronometro: null,
+    tablero2: [],
 
     /**
      * Inicializo los paramatros del tablero
@@ -52,10 +53,13 @@ let buscaminas = {
         buscaminas.tablero = new Array(buscaminas.filas);
         for (let i = 0; i < buscaminas.filas; i++) {
             //En las filas voy añadiendo columnas
-            buscaminas.tablero[i] = new Array(buscaminas.columnas);
+            //buscaminas.tablero[i] = new Array(buscaminas.columnas);
+            buscaminas.tablero[i] = [];
+            buscaminas.tablero2[i] = [];
             for (let j = 0; j < buscaminas.columnas; j++) {
                 //i-j se completan de 0
                 buscaminas.tablero[i][j] = 0;
+                buscaminas.tablero2[i][j] = 0;
             }
         }
     },
@@ -86,6 +90,7 @@ let buscaminas = {
             tabla.appendChild(fila);
         }
         contenedorBuscaminas.appendChild(tabla);
+
     },
 
     /**
@@ -108,16 +113,15 @@ let buscaminas = {
             return -1;
 
         //Si no tiene cronometro se inicia ,1000 1segundo
-        if (!buscaminas.cronometro) 
+        if (!buscaminas.cronometro)
             buscaminas.cronometro = setInterval(mostrarCronometro, 1000);
 
         //Controlo dependiendo elvalor de los argumentos
-        if (arguments.length == 1) {
+        if (this.id) {
             let array = this.id.split(" ");
             fila = array[0];
             columna = array[1];
         }
-
         //Obtengo la caja y su valor.
         let caja = buscaminas.obtenerCaja(fila, columna);
         let valor = buscaminas.tablero[fila][columna];
@@ -129,27 +133,28 @@ let buscaminas = {
         switch (valor) {
             //Si el valor es 0, cambio de color y abro sus huecos
             case 0:
-                caja.style.backgroundColor = "#97E4E0";
-                buscaminas.cajas--;
-                buscaminas.abrirNumeros(fila, columna);
+                if (buscaminas.tablero2[fila][columna] != -1) {
+                    caja.style.backgroundColor = "#97E4E0";
+                    buscaminas.cajas--;
+                    buscaminas.abrirNumeros(fila, columna);
+                }
                 break;
-            //Si el valor es una x, muestra las minas y el mensaje
+                //Si el valor es una x, muestra las minas y el mensaje
             case "x":
                 buscaminas.mostrarMinas();
                 buscaminas.terminarJuego("Perdedor.");
                 break;
             default:
-                if (valor != -1) {
+                if (buscaminas.tablero2[fila][columna] != -1) {
                     caja.style.backgroundColor = "#97E4E0";
                     caja.textContent = valor;
-                    buscaminas.tablero[fila][columna] =-1;
-                    break;
+                    buscaminas.tablero2[fila][columna] = -1; 
+                        
                 }
-        }
-        if (buscaminas.cajas === 0) {
-            buscaminas.terminarJuego("Ganador.");
+                break;
         }
     },
+
     /**
      * Recorro todo el tablero, si su valor es x la muestro con el color
      */
@@ -166,7 +171,7 @@ let buscaminas = {
     },
 
     /**
-     * Si el juego termina, activo la bandera, finalizo el cronometro
+     * Si el juego termina, finalizo el cronometro
      * y muestro el mensaje
      * @param {cadena de texto} str 
      */
@@ -201,8 +206,9 @@ let buscaminas = {
             for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, buscaminas.filas - 1); j++)
                 for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, buscaminas.columnas - 1); k++)
                     if (buscaminas.tablero[j][k] !== "x")
-                    buscaminas.tablero[j][k] += 1;
+                        buscaminas.tablero[j][k] += 1;
         }
+        console.log(buscaminas.tablero);
     },
     /**
      * 
@@ -210,12 +216,14 @@ let buscaminas = {
      * @param {*} y 
      */
     abrirNumeros(x, y) {
-        if (buscaminas.tablero[x][y] == 0) {
-            buscaminas.tablero[x][y] = -1;
-            for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, buscaminas.filas - 1); j++)
-                for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, buscaminas.columnas -1); k++) {
-                    buscaminas.cajaPulsada(j, k);
-                }
+        if (buscaminas.tablero2[x][y] === 0) {
+            buscaminas.tablero2[x][y] = -1;
+            if (buscaminas.tablero[x][y] == 0)
+                for (let j = Math.max(x - 1, 0); j <= Math.min(x + 1, buscaminas.filas - 1); j++)
+                    for (let k = Math.max(y - 1, 0); k <= Math.min(y + 1, buscaminas.columnas - 1); k++) {
+                        if (buscaminas.tablero[j][k] !== "x")
+                            buscaminas.cajaPulsada(j, k);
+                    }
         }
     },
 }
