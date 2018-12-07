@@ -1,189 +1,66 @@
 /**
+ * Eventos de raton en canvas.
  * 
  * @author Francisco Ramirez Ruiz
  */
+{
 
-let ctx;
-window.onload = function () {
+    //Declaro canvas y sus Colores
+    let canvas;
+    let arrayColores = [
+        "#bbdefb", "#eeffff", "#8aacc8",
+        "#90caf9", "#c3fdff", "#5d99c6",
+        "#1565c0", "#1565c0", "#003c8f"
+    ];
 
-    /*AUXCLICK*/
+    let coloresAleatorios;
+    function init() {
 
-    let auxclick = document.getElementById('auxClick');
-    ctx = auxclick.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
+        //Obtengo el canvas por su target
+        canvas = Array.from(document.getElementsByTagName("canvas"));
 
-    auxclick.addEventListener('auxclick', xauxclick);
+        //Recorro los elementos y obtengo su id
+        canvas.forEach(element => {
+            element.addEventListener(element.getAttribute("id"), ev => {
+                // A cada canvas le añado en su evento colores aleatorios y que se dibuje de nuevo.
+                coloresAleatorios = Math.floor(Math.random() * arrayColores.length);
+                dibujarCanvas(element, coloresAleatorios, ev.offsetX, ev.offsetY, ev.button, ev.buttons);
+            });
+            //Dibujo la primera vez los canvas, sino salen vacíos.
+            dibujarCanvas(element);
+        });
 
-    function xauxclick(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: auxclick")
-        console.log("X,Y=" + cx + ',' + cy);
     }
 
-    /*CLICK*/
-
-    let click = document.getElementById('click');
-    ctx = click.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    click.addEventListener('click', xClick);
-
-    function xClick(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: click")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-
-    /*DBCLICK*/
-
-    let dblclick = document.getElementById('dblclick');
-    ctx = dblclick.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    dblclick.addEventListener('click', xdblclick);
-
-    function xdblclick(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: dblclick")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-
-    /**MOUSEDOWN */
-    let mousedown = document.getElementById('mousedown');
-    ctx = mousedown.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mousedown.addEventListener('mousedown', xMousedown);
-
-    function xMousedown(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mousedown")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-
-    /**MOUSEENTER */
-    let mouseenter = document.getElementById('mouseenter');
-    ctx = mouseenter.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mouseenter.addEventListener('mouseenter', xmouseenter);
-
-    function xmouseenter(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mouseenter")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-
-    /**MOUSELEAVE */
-    let mouseleave = document.getElementById('mouseleave');
-    ctx = mouseleave.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mouseleave.addEventListener('mouseleave', xmouseleave);
-
-    function xmouseleave(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mouseleave")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-
-    /**MOUSEMOVE */
-    let mousemove = document.getElementById('mousemove');
-    ctx = mousemove.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mousemove.addEventListener('mousemove', xmousemove);
-
-    function xmousemove(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mousemove")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-    /**MOUSEOUT */
-    let mouseout = document.getElementById('mouseout');
-    ctx = mouseout.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mouseout.addEventListener('mouseout', xmouseout);
-
-    function xmouseout(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mouseout")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-    /**MOUSEOVER */
-    let mouseover = document.getElementById('mouseover');
-    ctx = mouseover.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mouseover.addEventListener('mouseover', xmouseover);
-
-    function xmouseover(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mouseover")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-    /**MOUSEUP */
-    let mouseup = document.getElementById('mouseup');
-    ctx = mouseup.getContext('2d');
-    ctx.fillStyle = colorAleatorio();
-    ctx.fillRect(0, 0, 300, 300);
-
-    mouseup.addEventListener('mousedown', xmouseup);
-
-    function xmouseup(event) {
-        ctx.fillStyle = colorAleatorio();
-        cx = event.pageX;
-        cy = event.pageY;
-        console.log("Has pulsado el evento: mouseup")
-        console.log("X,Y=" + cx + ',' + cy);
-    }
-
-
-    /*******************************************COLORES************************************* */
     /**
-     * Creo un color aleatorio para las bolas
+     * Dibujo el canvas, escribiendo y cambiando su color.
      */
-    function colorAleatorio() {
-        return "rgb(" + aleatorio(0, 255) + ", " + aleatorio(0, 255) + ", " + aleatorio(0, 255) + ")";
-    }
-    /**
-     * Creamos un número aleatorio
-     * @param {*} inferior 
-     * @param {*} superior 
-     */
-    function aleatorio(inferior, superior) {
-        let numero = superior - inferior;
-        let random = Math.floor(Math.random() * numero);
-        return parseInt(inferior) + random;
+    function dibujarCanvas(canvas, coloresAleatorios, x, y, button, buttons) {
+
+        if (canvas.getContext) {
+            let contexto = canvas.getContext('2d');
+            //Si el número totald de los argumentos es 1, coloco su primer color
+            if (arguments.length === 1)
+                contexto.fillStyle = "#5d99c6";
+             else 
+                contexto.fillStyle = arrayColores[coloresAleatorios];
+            
+            contexto.fillRect(0, 0, 300, 150);
+            contexto.fillStyle = "black";
+            //Escribo el id de cada canvas, su evento en este caso
+            contexto.fillText(canvas.getAttribute("id"), 10, 20);
+
+            //Si sus argumentos son mayores de 1 los muestro, sino salen undefined
+            if (arguments.length > 1) {
+                contexto.fillText("x --> " + x, 100, 40);
+                contexto.fillText("y --> " + y, 100, 70);
+                contexto.fillText("button --> " + button, 100, 100);
+                contexto.fillText("buttons --> " + buttons, 100, 130);
+            }
+
+        }
     }
 
+    window.addEventListener("load", init);
 
 }
