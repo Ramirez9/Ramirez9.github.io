@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SemaforoNuevo</string>
+
+    <string name="btnInicio">¡Semáforo!</string>
+
+
+    <string name="about">Acerca de</string>
+    <string name="sendmessage">Enviar mensaje</string>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/acerca"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Juego del semáforo, transcurrirán secuencias cada vez que desees jugar. Si falla una sencuencia has perdido."
+        />
+
+
+</LinearLayout>
