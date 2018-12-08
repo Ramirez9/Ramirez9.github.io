@@ -73,6 +73,8 @@ main {
 
 p {
     padding: 8px;
+    animation-duration: 3s;
+    animation-name: movimientoLetras;
 }
 
 section {
@@ -278,5 +280,17 @@ figcaption>ul>li:hover {
     to {
         top: 240px;
         color: rgba(14, 1, 1, 0.8)
+    }
+}
+
+@keyframes movimientoLetras {
+    from {
+      margin-left: 20%;
+      width: 200%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
     }
 }
