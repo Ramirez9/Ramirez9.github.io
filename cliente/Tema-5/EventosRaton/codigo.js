@@ -26,12 +26,19 @@
                 coloresAleatorios = Math.floor(Math.random() * arrayColores.length);
                 dibujarCanvas(element, coloresAleatorios, ev.offsetX, ev.offsetY, ev.button, ev.buttons);
             });
+            element.addEventListener("contextmenu", eliminarMenu);
             //Dibujo la primera vez los canvas, sino salen vacíos.
             dibujarCanvas(element);
         });
 
     }
-
+    /**
+     * Elimino el menú contextual
+     * @param {*} ev 
+     */
+    function eliminarMenu(ev) {
+        ev.preventDefault();
+    }
     /**
      * Dibujo el canvas, escribiendo y cambiando su color.
      */
