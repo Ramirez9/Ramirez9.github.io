@@ -1,0 +1,11 @@
+*{
+    text-align: center;
+    font-size: 22px;
+}
+table{
+    margin: 0 auto;
+}
+span{
+    color: red;
+    font-size: 190%;
+}
