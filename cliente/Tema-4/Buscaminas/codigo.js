@@ -33,7 +33,19 @@
 
         for (let i = 0; i < botones.length; i++) {
             botones[i].addEventListener("click", niveles);
-        }    
+        } 
+
+        //Elimino el menú contextual
+        document.addEventListener("contextmenu", eliminarMenu);
+   
+    }
+
+    /**
+     * Elimino el menú
+     * @param {*} ev 
+     */
+    function eliminarMenu(ev) {
+        ev.preventDefault();
     }
 
     /**
@@ -82,7 +94,8 @@
         if(!cronometro)
             layoutCronometro();
 
-        //Llamo a los metodos de buscaminas.js        
+        //Llamo a los metodos de buscaminas.js
+        buscaminas.xMarcadorBanderas();     
         buscaminas.inicializar(filas, columnas, minas);
         buscaminas.layout();
         buscaminas.crearTablero();

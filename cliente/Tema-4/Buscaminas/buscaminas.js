@@ -26,6 +26,8 @@ let buscaminas = {
     cajas: 0,
     filas: 0,
     columnas: 0,
+    banderas: 0,
+    marcadorBanderas: null,
     tablero: [],
     partidaFinalizada: false,
     cronometro: null,
@@ -39,10 +41,16 @@ let buscaminas = {
         buscaminas.filas = filas;
         buscaminas.columnas = columnas;
         buscaminas.minas = minas;
+        buscaminas.banderas = minas;
         buscaminas.cajas = (filas * columnas);
         buscaminas.partidaFinalizada = false;
+        buscaminas.crearReferenciaBanderaSiNoExiste();
+        buscaminas.asignarMarcadorBanderas();
         cronometroFinaliza();
         resetear();
+    },
+    asignarMarcadorBanderas(){
+        this.marcadorBanderas.textContent = "Banderas disponibles: "+this.banderas;
     },
 
     /**
@@ -83,8 +91,21 @@ let buscaminas = {
                 caja = document.createElement("td");
                 //Añado un id a cada caja 00 01 02 ...
                 caja.setAttribute("id", i + " " + j);
-                //Evento de click en cada caja.
-                caja.addEventListener("click", buscaminas.cajaPulsada);
+                //Evento mousedown en cada caja.
+                caja.addEventListener("mousedown", function(event){
+                    if (!buscaminas.cronometro) 
+                        buscaminas.cronometro = setInterval(mostrarCronometro, 1000);
+
+                    event.preventDefault();
+                    switch(event.button){
+                        case 0:
+                            buscaminas.cajaPulsada(false,false,this.id);
+                            break;
+                        case 2:
+                            buscaminas.colocarBandera(this.id);
+                            break;
+                    }
+                });
                 fila.appendChild(caja);
             }
             tabla.appendChild(fila);
@@ -102,31 +123,47 @@ let buscaminas = {
         return document.getElementById(fila + " " + columna);
     },
 
+    colocarBandera(id){
+        let arrayId = id.split(" ");
+        let fila = arrayId[0];
+        let columna = arrayId[1];
+        let caja = buscaminas.obtenerCaja(fila, columna);
+        if(caja.name == "colocado")
+            return;
+        if(caja.name != "bandera"){
+            if(buscaminas.banderas == 0)
+                return;
+            caja.style.backgroundImage = "url(img/bandera.jpg)";
+            caja.name = "bandera";
+            buscaminas.setBanderas(-1);
+        } else {
+            caja.style.backgroundImage = "";
+            caja.style.backgroundColor = "blue";
+            caja.name = "";
+            buscaminas.setBanderas(1);
+        }
+    },
     /**
      * Evento en las cajas al ser pulsado
      * @param {*} fila 
      * @param {*} columna 
      */
-    cajaPulsada(fila, columna) {
+    cajaPulsada(fila, columna, id) {
         //Si la partid estaba acabada no deja pulsar cajas.
         if (buscaminas.partidaFinalizada)
             return -1;
 
-        //Si no tiene cronometro se inicia ,1000 1segundo
-        if (!buscaminas.cronometro)
-            buscaminas.cronometro = setInterval(mostrarCronometro, 1000);
-
-        //Controlo dependiendo elvalor de los argumentos
-        if (this.id) {
-            let array = this.id.split(" ");
-            fila = array[0];
-            columna = array[1];
+        //Controlo dependiendo el valor de los argumentos
+          if (id) {
+            let arrayId = id.split(" ");
+            fila = arrayId[0];
+            columna = arrayId[1];
         }
-        //Obtengo la caja y su valor.
-        let caja = buscaminas.obtenerCaja(fila, columna);
-        let valor = buscaminas.tablero[fila][columna];
 
-        //Una vez pulsada la desactivo.
+        let caja = buscaminas.obtenerCaja(fila, columna);
+        if(caja.name == "bandera")
+            return;
+        let valor = buscaminas.tablero[fila][columna];
         caja.disabled = true;
 
         //Switch con el valor obtenido
@@ -136,6 +173,7 @@ let buscaminas = {
                 if (buscaminas.tablero2[fila][columna] != -1) {
                     caja.style.backgroundColor = "#97E4E0";
                     buscaminas.cajas--;
+                    caja.name = "colocado";
                     buscaminas.abrirNumeros(fila, columna);
                 }
                 break;
@@ -143,16 +181,26 @@ let buscaminas = {
             case "x":
                 buscaminas.mostrarMinas();
                 buscaminas.terminarJuego("Perdedor.");
+                caja.name = "colocado";
                 break;
             default:
                 if (buscaminas.tablero2[fila][columna] != -1) {
                     caja.style.backgroundColor = "#97E4E0";
                     caja.textContent = valor;
                     buscaminas.tablero2[fila][columna] = -1; 
-                        
+                    caja.name = "colocado";
                 }
                 break;
         }
+    },
+
+    /**
+     * 
+     */
+    xMarcadorBanderas(){
+        let marcador =  document.createElement("p");
+        marcador.id = "marcadorBanderas";
+        contenedorBuscaminas.appendChild(marcador);
     },
 
     /**
@@ -210,6 +258,24 @@ let buscaminas = {
         }
         console.log(buscaminas.tablero);
     },
+
+    /**
+     * Asigno banderas
+     * @param {*} valor 
+     */
+    setBanderas(valor){
+        buscaminas.banderas += valor;
+        buscaminas.asignarMarcadorBanderas();
+    },
+
+    /**
+     * Creo la referencia sino existe
+     */
+    crearReferenciaBanderaSiNoExiste(){
+        if(this.marcadorBanderas == null)
+            this.marcadorBanderas = document.getElementById("marcadorBanderas");
+    },
+    
     /**
      * 
      * @param {*} x 
