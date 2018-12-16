@@ -1,0 +1,259 @@
+*{
+    font-size: 16px;
+}
+body{
+    margin: 0px;
+}
+
+/*******************************MOBILE FIRST********************************/
+
+/*CABECERA*/
+header{
+    font-family: 'Cabin Sketch', cursive;
+    padding: 1px;
+    background-color: #0D47A1;
+    color: white;
+    text-align: center;
+}
+
+/*CONTENIDO*/
+main section article{
+    margin: 5px;
+    border: 1px solid  #2196F3; 
+   
+}
+#fechaMovil{
+    margin-left: 20px;
+}
+h3{
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    font-size: 22px;
+    background-color:#0D47A1;
+    padding: 5px;
+    padding-right: 3px;
+    margin-top: 0px;
+    color: white;
+
+}
+main section article p{
+    font-family: 'Mukta', sans-serif;
+    min-height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #0D47A1;
+}
+img{
+    margin: 10px;
+    width: 40px;
+}
+
+#iconsN img{
+    display: inline-block;
+    padding-left: 10%;
+}
+
+#anadirArticulo{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background: rgb(11, 59, 133,0.5);
+    
+}
+
+/*ASIDE,FOOTER*/
+aside,footer{
+   
+    /* Oculto el aside y el footer */
+    display:none
+}
+
+/*********MOBILE-LS****/
+@media only screen and (min-width: 480px){
+    #iconsN img{
+        padding-left: 16%;
+    }
+}
+
+/*********************TABLET*******************/
+@media only screen and (min-width: 728px){
+
+    /*MAIN*/
+    #contenido{
+        display: grid;
+        grid-template-columns: 69% 30%;
+    }
+    main section article{
+        border: 0px  none  white;
+        padding: 10px;
+        box-shadow: 4px 3px 4px #bbdefb;
+    }
+
+    main section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #fechaMovil{
+        display:none;
+    }
+    #iconsN img{
+        padding-left: 5%;
+    }
+    /* Aumenta el margin del boton fijado */
+    #anadirArticulo{
+        margin-bottom: 80px;     
+    }
+
+    /*ASIDE*/
+    aside{
+        margin: 15px;
+        display: block;
+    }
+
+    #asignatura{
+        margin: 10px;
+        margin-bottom: 50px;
+        width: 99%;
+        display: flex;
+        border-bottom: 3px solid #0D47A1;
+    }
+
+    #nombreAsignatura{
+        margin-left: 2px;
+        color:#0D47A1;
+        font-size: 22px;
+        font-weight: bold;
+        flex-grow: 1;
+
+        /*coloco el nombre a la izquierda y fecha a la derecha*/
+    }
+
+    #fecha{
+        font-family: 'Indie Flower', cursive;
+        margin-right: 6px;
+        font-weight: bold;
+        color: black;
+    }
+    /*FORMULARIO*/
+    #barra{
+        font-family: 'Indie Flower', cursive;
+        width:97%;
+        height: 20px;
+        padding: 10px;
+        border: 0;
+        border-bottom: 3px solid #0D47A1;
+    }
+    #boton{
+        border-radius: 25px;
+        font-family: 'Indie Flower', cursive;
+        background-color:  #0D47A1;
+        color: white;
+
+    }
+
+    /*FOOTER*/
+    footer{
+        font-family: 'Cabin Sketch', cursive;
+        display: block;
+        padding: 10px;
+        background-color: #0D47A1;
+        color: white;
+    }
+    #contenidoPie{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #name{
+        font-size: 44px;
+    }
+    #icons span{
+        font-size: 40px;
+        margin: 7px;
+        color: white;
+    }
+}
+/****************LAPTOP*****************/
+@media only screen and (min-width: 1024px){
+    
+    main section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #iconsN img{
+        padding-left: 1%;
+    }
+
+}
+@media only screen and (min-width: 1440px){
+    h1{
+        font-size: 76px;
+        padding: 30px;
+    }
+
+    #anadirArticulo{
+        margin-bottom: 220px;     
+    }
+
+    #iconsN img{
+        padding-left: 10%;
+    }
+    footer{
+        margin-top: 10px;
+        padding: 70px;
+    }
+    #name{
+        font-size: 76px;
+    }
+    #icons{
+        margin-left: 270px;
+    }
+    #icons span{
+        font-size: 60px;
+    }
+}
+
+/******************EFECTOS*******************************/
+img:hover{
+    transform: scale(1.20);
+    transition-duration: 2s;
+    /*Desenfoque de 1 px*/
+    filter: blur(1px);
+    
+}
+p:hover{
+    transition-duration: 2s;
+    border-radius: 10%;
+}
+#asignatura:hover{
+    transition-duration: 2s;
+    padding: 3px;
+  
+}
+#nombreAsignatura:hover{
+    color: black;
+}
+#icons span:hover{
+    transition: 2s;
+    transform: translate(5px, 5px);
+}
+
+#barra:focus{
+    /*Quito el cuadrado al ponerle el foco*/
+    outline:0px;
+}
+
+#barra:focus:required:invalid {
+    border-bottom: 3px solid red;
+}
+
+#barra:focus:required:valid {
+    border-bottom: 3px solid green;
+}
+
+
+
