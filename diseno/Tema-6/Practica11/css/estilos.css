@@ -1,7 +1,9 @@
 *{
+    
     font-size: 16px;
 }
 body{
+    font-family: 'Mukta', sans-serif;
     margin: 0px;
 }
 
@@ -26,7 +28,6 @@ main section article{
     margin-left: 20px;
 }
 h3{
-    font-family: 'Acme', sans-serif;
     text-align: center;
     font-size: 22px;
     background-color:#0D47A1;
@@ -37,7 +38,6 @@ h3{
 
 }
 main section article p{
-    font-family: 'Mukta', sans-serif;
     min-height: 100px;
     margin: 10px;
     padding: 10px;
@@ -128,19 +128,16 @@ aside,footer{
         font-size: 22px;
         font-weight: bold;
         flex-grow: 1;
-
         /*coloco el nombre a la izquierda y fecha a la derecha*/
     }
 
     #fecha{
-        font-family: 'Indie Flower', cursive;
         margin-right: 6px;
         font-weight: bold;
         color: black;
     }
     /*FORMULARIO*/
     #barra{
-        font-family: 'Indie Flower', cursive;
         width:97%;
         height: 20px;
         padding: 10px;
@@ -149,7 +146,6 @@ aside,footer{
     }
     #boton{
         border-radius: 25px;
-        font-family: 'Indie Flower', cursive;
         background-color:  #0D47A1;
         color: white;
 
