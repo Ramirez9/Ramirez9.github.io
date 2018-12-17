@@ -103,9 +103,9 @@ aside,footer{
     #iconsN img{
         padding-left: 5%;
     }
-    /* Aumenta el margin del boton fijado */
+    /* Escondo el botón en tablet y pc */
     #anadirArticulo{
-        margin-bottom: 80px;     
+        display: none;   
     }
 
     /*ASIDE*/
@@ -190,11 +190,7 @@ aside,footer{
         font-size: 76px;
         padding: 30px;
     }
-
-    #anadirArticulo{
-        margin-bottom: 220px;     
-    }
-
+    
     #iconsN img{
         padding-left: 10%;
     }
