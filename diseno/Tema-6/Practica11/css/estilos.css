@@ -190,7 +190,7 @@ aside,footer{
         font-size: 76px;
         padding: 30px;
     }
-    
+
     #iconsN img{
         padding-left: 10%;
     }
@@ -241,6 +241,9 @@ p:hover{
 
 #barra:focus:required:invalid {
     border-bottom: 3px solid red;
+}
+#barra:placeholder-shown{
+    text-overflow: ellipsis;
 }
 
 #barra:focus:required:valid {
