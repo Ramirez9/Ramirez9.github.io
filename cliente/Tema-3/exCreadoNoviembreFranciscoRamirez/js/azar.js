@@ -61,8 +61,7 @@
      * Genero el número aleatorio 1-6
      */
     function tirarDados() {
-        let x = parseInt((Math.random() + 0.2) * 6);
-        return x;
+        return parseInt((Math.random() + 0.2) * 6);
     }
 
     /**
