@@ -1,0 +1,266 @@
+/*CSS - Index.html principal*/
+body{
+    font-size: 16px;
+}
+
+/**********************CABECERA******************************/
+header{
+    background-color: green;
+    margin: 0 auto;
+}
+
+h1{
+    margin: 0 auto;
+}
+
+h1>a{
+    color: white;
+    text-decoration: none;
+   
+}
+a{
+	color:white;
+	text-decoration: none;
+}
+
+/* Título alineado con el icono de menú */
+header > div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*Imagen del icono*/
+header > div > div > img{
+    margin:3%;
+    width: 10%;
+    display: inline-block;
+}
+
+/*Colo el menú con el class name generado del js*/
+nav.abrir{
+    display: block;
+}
+
+/*Escondo el menú para móvil*/
+nav{
+    display: none;
+    height:2%;
+}
+ul{
+	color:white;
+	list-style: none;
+}
+li{
+    padding: 10px;
+    text-align: center;
+}
+
+
+section{
+    background-color: white;
+    
+}
+/*Imágen de banner*/
+section > img{
+    width:100%;
+}
+
+/*******************CONTENEDOR***************/
+
+/**FORMULARIO DE BUSQUEDA**/
+
+#busqueda{
+	width:90%;
+    margin:0 auto;
+    text-align-last: center;
+}
+
+form > div{
+	display: flex;
+    justify-content: space-between;
+}
+
+form > div label{
+	display: block;
+	text-align: center;
+}
+
+form > div > div{
+	width:45%;
+}
+
+select{
+    font-size: 14px;
+	color:white;
+	background-color:green;
+	text-align-last: center;
+    width:35%;
+    margin-bottom: 5px;
+}
+input , button{
+    color:white;
+    background-color: green;
+}
+
+input[type=search], input[type=date]{
+    margin-top: 3%;
+	margin-bottom: 3%;
+	width: 100%;
+	text-align: center;
+}
+
+input[type=search]{
+    font-size: 18px;
+    color: white;
+}
+
+input[type=date]{
+	height:5vh;
+	border:none;
+    box-sizing:border-box;
+}
+
+input[type=submit] ,button{
+    font-size: 19px;
+	border-style: none;
+	border-radius: 10px;
+	color:white;
+	width:100%;
+    height:6vh;
+    margin-bottom: 10px;
+}
+input[type=tel], input[type=email]{
+	width: 100%;
+	height:5vh;
+}
+
+/*Cambio el color a los placeholder*/
+::placeholder {
+     color: white;  
+}
+
+/*********************RECOMENDACIONES*****************************/
+h3 {
+    background-color: green;
+    margin: 0;
+    padding: 4%;
+    color: white;
+    text-align: center;
+}
+
+h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+h6{
+    color: #06470f;
+    margin: 0;
+    text-align: center;
+}
+/*Numero maximo de eprsonas y precio*/
+#info{
+    display: flex;
+    justify-content: space-around; 
+}
+
+article > img{
+    width: 100%;
+    height: 50%;
+}
+
+#reserva{
+    display:block;
+    margin: 5px auto;
+    width: 80%;
+}
+p{
+    padding: 5px;
+    text-align: justify;
+}
+/***********************FOOTER************************/
+
+footer{
+	height: 80px;
+	background-color: green;
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	align-content: center;
+	text-align: center;
+	color:white;
+
+}
+#nombre{
+    font-size: 24px;
+}
+#redes img{
+	width:40px;
+	height:40px;
+    align-content: center;
+}
+
+/**************CSS buscar.html******************/
+
+/* Color de los textos a negro */
+h4{
+    font-size: 18px;
+}
+#listar {
+    height: 30vh;
+    display: flex;
+    margin: 1%;
+}
+
+#listar > img {
+    height: 30vh;
+    width: 50%;
+}
+
+#lista{
+    margin: 0;
+	display: flex;
+	flex-direction: column;
+	color:black;
+}
+
+#lista > div {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+article > div {
+	width:100%;
+	justify-content: space-between;
+}
+
+#btnLista{
+    margin: 5% auto;
+    width:80%;
+}
+
+
+/*************RESERVA***************/
+
+h2{
+    text-align: center;
+}
+#descripcion p{
+    padding: 10px;
+}
+
+#icons > div > span, span#precio{
+	border-radius: 5%;
+	box-shadow: 1px 1px 2px black;
+	padding: 2%;
+	display: inline-block;
+	width: 45%;
+	color:green;
+}
+
+span#precio{
+	color:black;
+	width: 100%;
+}

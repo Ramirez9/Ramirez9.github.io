@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas Rurales | Francisco Ramírez</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
+    <script src="js/menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <noscript>Se requiere javascript</noscript>
+
+    <!-- Cabecera de la página -->
+    <header>
+        <div>
+            <div>
+                <!-- imagen para móvil -->
+                <img src="img/menu.svg" alt="menu" id="menu">
+                <h1><a href="index.html">Chollos</a></h1>
+            </div>
+            <!-- Menú de la página -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Log in</a></li>
+                    <li><a href="#">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <section>
+            <img src="img/casaBanner.jpg" alt="Imagen de la cabecera">
+        </section>
+    </header>
+
+    <div id="contenedor">
+
+        <main>
+            <section id="busqueda">
+                <form action="buscar.html" method="POST">
+                    <input type="search" placeholder="Localidad" pattern="\w{1,}" title="Localdiad de la casa rural"
+                        required />
+
+                    <div>
+                        <div>
+                            <label><b>Llegada</b>
+                                </label>
+                            <input type="date" title="Introduce una fecha" required />
+                        </div>
+                        <div>
+                            <label><b>Salida</b></label>
+                            <input type="date" title="Introduce una fecha" required />
+                        </div>
+                    </div>
+                    <div>
+                        <select>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                        </select>
+                        <select>
+                            <option value="1">1 habitación</option>
+                            <option value="2">2 habitaciones</option>
+                            <option value="3">3 habitaciones</option>
+                            <option value="4">4 habitaciones</option>
+                            <option value="5">5 habitaciones</option>
+                        </select>
+                        <select>
+                            <option value="1">0€ - 55€</option>
+                            <option value="2">55€ - 100€</option>
+                            <option value="3">100€ ++</option>
+                        </select>
+                    </div>
+                    <input type="Submit" value="Buscar" />
+                </form>
+            </section>
+    </div>
+    <h3>Recomendaciones</h3>
+    <div id="recomendaciones">
+        <article id="casas-recomendadas">
+            <img src="img/casa1.jpg" alt="casa recomendada">
+            <h4>Nombre casa</h4>
+            <h6>Distancia del centro</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas omnis placeat ullam, ipsa facilis quas
+                est natus quos dolores neque labore vero quidem in harum adipisci reiciendis, ipsam unde corrupti!</p>
+            <div id="info">
+                <b>5 Personas</b>
+                <b>350€</b>
+            </div>
+            <a href="reserva.html">
+                <input type="Submit" id="reserva" value="Reservar">
+            </a>
+        </article>
+        <article id="casas-recomendadas">
+            <img src="img/casa2.jpg" alt="casa recomendada">
+            <h4>Nombre casa</h4>
+            <h6>Distancia del centro</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas omnis placeat ullam, ipsa facilis quas
+                est natus quos dolores neque labore vero quidem in harum adipisci reiciendis, ipsam unde corrupti!</p>
+            <div id="info">
+                <b>5 Personas</b> <br>
+                <b>350€</b>
+            </div>
+            <a href="reserva.html">
+                <input type="Submit" id="reserva" value="Reservar">
+            </a>
+        </article>
+        <article id="casas-recomendadas">
+            <img src="img/casa3.jpg" alt="casa recomendada">
+            <h4>Nombre casa</h4>
+            <h6>Distancia del centro</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas omnis placeat ullam, ipsa facilis quas
+                est natus quos dolores neque labore vero quidem in harum adipisci reiciendis, ipsam unde corrupti!</p>
+            <div id="info">
+                <b>5 Personas</b> <br>
+                <b>350€</b>
+            </div>
+            <a href="reserva.html">
+                <input type="Submit" id="reserva" value="Reservar">
+            </a>
+        </article>
+    </div>
+    </main>
+
+    <!-- Pie de página -->
+	<footer id="footer">
+            <div id="nombre">
+                <span>Francisco Ramírez Ruiz</span>
+            </div>
+            <div id="redes">
+                <a href="#">
+                    <img src="img/facebook-logo.svg" alt="Facebook" />
+                </a>
+                <a href="#">
+                    <img src="img/twitter-logo-silhouette.svg" alt="Twitter" />
+                </a>
+                <a href="#">
+                    <img src="img/github-logo.svg" alt="Github" />
+                </a>
+            </div>
+        </footer>
+
+</body>
+
+</html>

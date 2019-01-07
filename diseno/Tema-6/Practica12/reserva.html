@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas Rurales | Francisco Ramírez</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
+    <script src="js/menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <noscript>Se requiere javascript</noscript>
+
+    <!-- Cabecera de la página -->
+    <header>
+        <div>
+            <div>
+                <!-- imagen para móvil -->
+                <img src="img/menu.svg" alt="menu" id="menu">
+                <h1><a href="index.html">Chollos</a></h1>
+            </div>
+            <!-- Menú de la página -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Log in</a></li>
+                    <li><a href="#">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div id="slider">
+            <img id="slide" src="img/casa1.jpg" />
+            <img id="slide" src="img/casa2.jpg" />
+            <img id="slide" src="img/casa3.jpg" />
+
+            <button id="btnAtras">&#10094;</button>
+            <button id="btnNext">&#10095;</button>
+        </div>
+        <div id="descripcion">
+
+            <div>
+                <h2> Nombre de la casa </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
+                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
+                    labore hic maiores nemo nihil nulla, odit.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
+                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
+                    labore hic maiores nemo nihil nulla, odit.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
+                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
+                    labore hic maiores nemo nihil nulla, odit.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
+                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
+                    labore hic maiores nemo nihil nulla, odit.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
+                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
+                    labore hic maiores nemo nihil nulla, odit.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
+                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
+                    labore hic maiores nemo nihil nulla, odit.</p>
+
+
+            </div>
+
+            <div id="icons">
+                <div>
+                    <span> <img src="../img/iconos/wifi.svg" alt="wifi" /> Wi-Fi</span>
+                    <span> <img src="../img/iconos/hombre-nadando.svg" alt="wifi" /> Piscina</span>
+                    <span> <img src="../img/iconos/huellas.svg" alt="wifi" /> Mascotas</span>
+                    <span> <img src="../img/iconos/parking.svg" alt="wifi" /> Parking</span>
+                </div>
+
+                <span id="precio"> Desde 99€ </span>
+            </div>
+        </div>
+
+        <!-- Formulario de busqueda -->
+        <section id="busqueda">
+            <form id="reservar" method="POST">
+                <label for="search" id="labelEdit">Introduce tu nombre completo</label>
+                <input type="search" placeholder="Nombre..." pattern="(\w{2,}\s)+(\w{2,})" title="Introduce un nombre"
+                    required />
+
+                <label for="email" id="labelEdit">Introduce tu correo</label>
+                <input type="email" placeholder="example@gmail.com" title="Introduce tu correo" required /><br>
+
+                <label for="telefono" id="labelEdit">Introduce tu número de teléfono</label>
+                <input type="tel" placeholder="Teléfono..." title="Introduce un telefono" required />
+
+                <div>
+                    <div>
+                        <label>Llegada</label>
+                        <input type="date" title="Introduce una fecha" required />
+                    </div>
+                    <div>
+                        <label>Salida</label>
+                        <input type="date" title="Introduce una fecha" required />
+                    </div>
+                </div>
+
+                <div id="opciones">
+                    <select>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                    </select>
+                    <select>
+                        <option value="1">1 habitacion</option>
+                        <option value="2">2 habitaciones</option>
+                        <option value="3">3 habitaciones</option>
+                        <option value="4">4 habitaciones</option>
+                    </select>
+                </div>
+
+                <input type="submit" id="reservar" value="Finalizar" />
+            </form>
+        </section>
+
+
+        <button id=btnReserva id="reservar">Reservar</button>
+        <h3>Comentarios</h3>
+        <article class="coments">
+            <img class="perfil" src="../img/perfil.jpg" />
+            <div class="comentarios">
+                <span><b>Nombre del usuario</b></span>
+                <br />
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
+                    sunt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, quas odit accusantium
+                    ex reiciendis? Iure, ratione incidunt deserunt dicta facere, quas porro voluptas consequatur
+                    praesentium molestiae, totam in molestias!</span>
+                <br />
+                <span>Puntuación: 7.5</span>
+            </div>
+        </article>
+        <article class="coments">
+            <img class="perfil" src="../img/perfil.jpg" />
+            <div class="comentarios">
+                <span><b>Nombre del usuario</b></span>
+                <br />
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
+                    sunt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, quas odit accusantium
+                    ex reiciendis? Iure, ratione incidunt deserunt dicta facere, quas porro voluptas consequatur
+                    praesentium molestiae, totam in molestias!</span>
+                <br />
+                <span>Puntuación: 7.5</span>
+            </div>
+        </article>
+    </main>
+    <!-- Pie de página -->
+    <footer id="footer">
+        <div id="nombre">
+            <span>Francisco Ramírez Ruiz</span>
+        </div>
+        <div id="redes">
+            <a href="#">
+                <img src="img/facebook-logo.svg" alt="Facebook" />
+            </a>
+            <a href="#">
+                <img src="img/twitter-logo-silhouette.svg" alt="Twitter" />
+            </a>
+            <a href="#">
+                <img src="img/github-logo.svg" alt="Github" />
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
