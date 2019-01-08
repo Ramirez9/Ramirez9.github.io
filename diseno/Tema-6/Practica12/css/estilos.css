@@ -450,7 +450,7 @@ span > b{
     }
 
     select {
-        *width: 36.9%;
+        width: 36.9%;
     }
 
     #extras>select:last-child {
@@ -598,7 +598,5 @@ span > b{
         width: 100%;
         
     }
-
-
 
 }
