@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
     <script src="js/menu.js" type="text/javascript"></script>
+   
 </head>
 
 <body>
@@ -33,21 +34,23 @@
                 </ul>
             </nav>
         </div>
-
     </header>
 
     <main>
-
+        <!-- Slider de fotos en la reserva -->
         <div id="slider">
-            <img id="slide" src="img/casa1.jpg" />
-            <img id="slide" src="img/casa2.jpg" />
-            <img id="slide" src="img/casa3.jpg" />
+            <img class="slide" src="img/casa1.jpg" />
+            <img class="slide" src="img/casa2.jpg" />
+            <img class="slide" src="img/casa3.jpg" />
 
-            <button id="btnAtras">&#10094;</button>
-            <button id="btnNext">&#10095;</button>
+            <!-- Botones geometricos de html para flechas -->
+            <button id="atras">&#10094;</button>
+            <button id="siguiente">&#10095;</button>
+
+            <!-- Codigo javascript -->
+            <script src="js/slider.js" type="text/javascript"></script>
         </div>
         <div id="descripcion">
-
             <div>
                 <h2> Nombre de la casa </h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
@@ -60,26 +63,16 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
                     obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
                     labore hic maiores nemo nihil nulla, odit.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
-                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
-                    labore hic maiores nemo nihil nulla, odit.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
-                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
-                    labore hic maiores nemo nihil nulla, odit.
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, vitae, magnam. Soluta neque
-                    obcaecati magnam assumenda excepturi necessitatibus laboriosam, provident aut quibusdam vitae
-                    labore hic maiores nemo nihil nulla, odit.</p>
-
-
             </div>
 
             <div id="icons">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2624.9916256937586!2d2.29229261524551!3d48.858370079287475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1546976108048" 
+                    width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen id="mapa"></iframe>
                 <div>
-                    <span> <img src="../img/iconos/wifi.svg" alt="wifi" /> Wi-Fi</span>
-                    <span> <img src="../img/iconos/hombre-nadando.svg" alt="wifi" /> Piscina</span>
-                    <span> <img src="../img/iconos/huellas.svg" alt="wifi" /> Mascotas</span>
-                    <span> <img src="../img/iconos/parking.svg" alt="wifi" /> Parking</span>
+                    <span> <img src="img/wifi.svg" alt="wifi" /> Wi-Fi</span>
+                    <span> <img src="img/restaurant.svg" alt="desayunos" /> Desayuno</span>
+                    <span> <img src="img/person-enjoying-jacuzzi-hot-water-bath.svg" alt="Jacuzzi" /> Jacuzzi</span>
+                    <span> <img src="img/bicycle.svg" alt="bici" /> Bici</span>
                 </div>
 
                 <span id="precio"> Desde 99€ </span>
@@ -89,23 +82,20 @@
         <!-- Formulario de busqueda -->
         <section id="busqueda">
             <form id="reservar" method="POST">
-                <label for="search" id="labelEdit">Introduce tu nombre completo</label>
-                <input type="search" placeholder="Nombre..." pattern="(\w{2,}\s)+(\w{2,})" title="Introduce un nombre"
+                <input type="search" placeholder="Nombre Completo" pattern="\w{3,}" title="Introduce un nombre"
                     required />
 
-                <label for="email" id="labelEdit">Introduce tu correo</label>
-                <input type="email" placeholder="example@gmail.com" title="Introduce tu correo" required /><br>
+                <input type="email" placeholder="Correo" title="Introduce tu correo" required /><br>
 
-                <label for="telefono" id="labelEdit">Introduce tu número de teléfono</label>
                 <input type="tel" placeholder="Teléfono..." title="Introduce un telefono" required />
 
                 <div>
                     <div>
-                        <label>Llegada</label>
+                        <label><b>Llegada</b></label>
                         <input type="date" title="Introduce una fecha" required />
                     </div>
                     <div>
-                        <label>Salida</label>
+                        <label><b>Salida</b></label>
                         <input type="date" title="Introduce una fecha" required />
                     </div>
                 </div>
@@ -125,37 +115,43 @@
                     </select>
                 </div>
 
-                <input type="submit" id="reservar" value="Finalizar" />
+                <input type="submit" id="reservar" value="Reservar" />
             </form>
         </section>
 
-
-        <button id=btnReserva id="reservar">Reservar</button>
         <h3>Comentarios</h3>
-        <article class="coments">
-            <img class="perfil" src="../img/perfil.jpg" />
-            <div class="comentarios">
-                <span><b>Nombre del usuario</b></span>
+        <article id="comentario">
+            <img id="imgPerfil" src="img/kitty.svg" />
+            <div id="comentarioTexto">
+                <span><b>Gatito Kawai</b></span>
                 <br />
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
                     sunt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, quas odit accusantium
                     ex reiciendis? Iure, ratione incidunt deserunt dicta facere, quas porro voluptas consequatur
-                    praesentium molestiae, totam in molestias!</span>
+                    praesentium molestiae, totam in molestias!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
+                            sunt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, quas odit accusantium
+                            ex reiciendis? Iure, ratione incidunt deserunt dicta facere, quas porro voluptas consequatur
+                            praesentium molestiae, totam in molestias!</p>
                 <br />
-                <span>Puntuación: 7.5</span>
+                <span id="estrellaComentario">Estrellas: 4★★★★☆</span>
             </div>
         </article>
-        <article class="coments">
-            <img class="perfil" src="../img/perfil.jpg" />
-            <div class="comentarios">
-                <span><b>Nombre del usuario</b></span>
+        <article id="comentario">
+            <img id="imgPerfil" src="img/owl.svg" />
+            <div id="comentarioTexto">
+                <span><b>ShurBúho_19</b></span>
                 <br />
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
                     sunt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, quas odit accusantium
                     ex reiciendis? Iure, ratione incidunt deserunt dicta facere, quas porro voluptas consequatur
-                    praesentium molestiae, totam in molestias!</span>
+                    praesentium molestiae, totam in molestias!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quibusdam asperiores totam magni
+                            sunt Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi, quas odit accusantium
+                            ex reiciendis? Iure, ratione incidunt deserunt dicta facere, quas porro voluptas consequatur
+                            praesentium molestiae, totam in molestias!</p>
                 <br />
-                <span>Puntuación: 7.5</span>
+                <span id="estrellaComentario">Estrellas: 4★★★★☆</span>
             </div>
         </article>
     </main>
@@ -177,5 +173,6 @@
         </div>
     </footer>
 </body>
+
 
 </html>
