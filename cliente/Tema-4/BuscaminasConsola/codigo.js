@@ -243,19 +243,19 @@
 
             switch (nivel.toLowerCase()) {
                 case "facil":
-                    buscaminas.filas = 2;
-                    buscaminas.columnas = 2;
-                    buscaminas.minas = 1;
+                    buscaminas.filas = 8;
+                    buscaminas.columnas = 8;
+                    buscaminas.minas = 10;
                     break;
                 case "medio":
-                    buscaminas.filas = 9;
-                    buscaminas.columnas = 9;
-                    buscaminas.minas = 5;
+                    buscaminas.filas = 16;
+                    buscaminas.columnas = 16;
+                    buscaminas.minas = 40;
                     break;
                 case "dificil":
-                    buscaminas.filas = 17;
-                    buscaminas.columnas = 17;
-                    buscaminas.minas = 20;
+                    buscaminas.filas = 16;
+                    buscaminas.columnas = 30;
+                    buscaminas.minas = 99;
                     break;
                 default:
                     alert("Opción incorrecta")
