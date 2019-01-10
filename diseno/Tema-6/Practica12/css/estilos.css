@@ -255,9 +255,6 @@ p {
 footer {
     height: 80px;
     background-color: #33691E;
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    align-content: center;
     text-align: center;
     color: white;
 
@@ -590,6 +587,12 @@ span > b{
 
     #nombre{
         font-size: 35px;
+    }
+
+    footer{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        align-content: center;
     }
     
 }
