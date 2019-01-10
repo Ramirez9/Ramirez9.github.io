@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas Rurales | Francisco Ramírez</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <meta name="theme-color" content="#33691E;">
+    <meta name="Description" content="Author: Francisco, Category: Houses, Price: $50.00">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Roboto" rel="stylesheet">
+           <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
+    <script src="js/menu.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <noscript>Se requiere javascript</noscript>
+
+    <!-- Cabecera de la página -->
+    <header>
+        <div>
+            <div>
+                <!-- imagen para móvil -->
+                <img src="img/menu.svg" alt="menu" id="menu">
+                <h1><a href="index.html">Chollos</a></h1>
+            </div>
+            <!-- Menú de la página -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Log in</a></li>
+                    <li><a href="#">Log out</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <section>
+            <img src="img/casaBanner.jpg" alt="Imagen de la cabecera">
+        </section>
+    </header>
+
+    <div id="contenedor">
+
+        <main>
+            <section id="busqueda">
+                <form action="buscar.html" method="GET">
+                    <input type="search" placeholder="Localidad" pattern="\w{1,}" title="Lugar de la casa"
+                        required />
+
+                    <div>
+                        <div>
+                            <label for="llegada"><b>Llegada</b>
+                                </label>
+                            <input type="date" id="llegada" title="Introduce una fecha" required />
+                        </div>
+                        <div>
+                            <label for="salida"><b>Salida</b></label>
+                            <input type="date" id="salida" title="Introduce una fecha" required />
+                        </div>
+                    </div>
+                    <div id="extras">
+                        <select>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                        </select>
+                        <select>
+                            <option value="1">1 habitación</option>
+                            <option value="2">2 habitaciones</option>
+                            <option value="3">3 habitaciones</option>
+                            <option value="4">4 habitaciones</option>
+                            <option value="5">5 habitaciones</option>
+                        </select>
+                        <select>
+                            <option value="1">0€ - 55€</option>
+                            <option value="2">55€ - 100€</option>
+                            <option value="3">100€ ++</option>
+                        </select>
+                    </div>
+                    <input type="Submit" value="Buscar" />
+                </form>
+            </section>
+    </div>
+    <h3>Recomendaciones</h3>
+    <div id="recomendaciones">
+        <article id="casas-recomendadas">
+            <img src="img/casa6.jpg" alt="casa recomendada">
+            <h4>Raicéu</h4>
+            <h6>2Km - centro</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas omnis placeat ullam, ipsa facilis quas
+                est natus quos dolores neque labore vero quidem in harum adipisci reiciendis, ipsam unde corrupti!</p>
+            <div id="info">
+                <b>5 Personas</b>
+                <b>350€</b>
+            </div>
+            <a href="reserva.html">
+                <input type="Submit" id="reserva" value="Reservar">
+            </a>
+        </article>
+        <article id="casas-recomendadas">
+            <img src="img/casa7.jpg" alt="casa recomendada">
+            <h4>El Nus</h4>
+            <h6>6Km - centro</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas omnis placeat ullam, ipsa facilis quas
+                est natus quos dolores neque labore vero quidem in harum adipisci reiciendis, ipsam unde corrupti!</p>
+            <div id="info">
+                <b>5 Personas</b> <br>
+                <b>350€</b>
+            </div>
+            <a href="reserva.html">
+                <input type="Submit" id="reserva" value="Reservar">
+            </a>
+        </article>
+        <article id="casas-recomendadas">
+            <img src="img/casa8.jpg" alt="casa recomendada">
+            <h4>Villapepino</h4>
+            <h6>9Km - centro</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas omnis placeat ullam, ipsa facilis quas
+                est natus quos dolores neque labore vero quidem in harum adipisci reiciendis, ipsam unde corrupti!</p>
+            <div id="info">
+                <b>5 Personas</b> <br>
+                <b>350€</b>
+            </div>
+            <a href="reserva.html">
+                <input type="Submit" id="reserva" value="Reservar">
+            </a>
+        </article>
+    </div>
+    </main>
+
+    <!-- Pie de página -->
+	<footer id="footer">
+            <div id="nombre">
+                <span>Francisco Ramírez Ruiz</span>
+            </div>
+            <div id="redes">
+                <a href="#">
+                    <img src="img/facebook-logo.svg" alt="Facebook" />
+                </a>
+                <a href="#">
+                    <img src="img/linkedin-logo.svg" alt="linkedin-logo" />
+                </a>
+                <a href="#">
+                    <img src="img/telegram-logo.svg" alt="telegram-logo" />
+                </a>
+                <a href="#">
+                    <img src="img/twitter-logo-silhouette.svg" alt="Twitter" />
+                </a>
+                <a href="#">
+                    <img src="img/github-logo.svg" alt="Github" />
+                </a>
+            </div>
+        </footer>
+
+</body>
+
+</html>

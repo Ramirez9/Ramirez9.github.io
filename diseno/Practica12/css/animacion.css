@@ -1,0 +1,45 @@
+
+/* Centro el título inicial en el medio de la pantalla */
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(../img/homebk.jpg);
+    background-repeat: no-repeat;
+    background-size: cover ;
+
+}
+main{
+    animation: girar 10s;
+    background-color: rgba(2, 17, 11, 0.3);
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    font-size: 35px;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+@keyframes girar{
+    from{transform: rotateY(0deg);}
+    /* 25%{transform: rotateY(90deg);} */
+    to{transform: rotateY(360deg);}
+    /* 75%{transform: rotateY(270deg);} */
+    /* 100%{transform: rotateY(360deg);} */
+}
+
+@media only screen and (min-width: 728px) {
+    h1{
+        font-size: 90px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    h1{
+        font-size: 120px;
+    }
+}
