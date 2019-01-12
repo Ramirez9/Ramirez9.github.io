@@ -41,17 +41,17 @@
         <div>
             <div id="editar">
                 <img src="img/pencil-striped-symbol-for-interface-edit-buttons.svg" id="edImagen" alt="editar busqueda" />
-                <span id="modificar"> Modificar la búsqueda</span>
+                <span id="modificar">Buscador de casas</span>
             </div>
 
     </header>
 
     <main>
-        <button id="edBoton"> Modificar la búsqueda </button>
+        <button id="edBoton"> Buscador de casas</button>
         <!-- Formulario de busqueda -->
-        <section id="abrirF" >
-            <form action="buscar.html" method="GET">
-                <input type="search" placeholder="Localidad" pattern="\w{1,}" title="Localdiad de la casa rural"
+        <section class="busquedaCerrar" id="formulario" >
+            <form action="buscar.html" method="GET" >
+                <input type="search" placeholder="Localidad" title="Localdiad de la casa rural"
                     required />
 
                 <div>
@@ -61,10 +61,10 @@
                     </div>
                     <div>
                         <label><b>Salida</b></label>
-                        <input type="date" id="salida" title="Introduce una fecha" required />
+                        <input type="date" id="salida" title="Introduce una fecha" />
                     </div>
                 </div>
-                <div>
+                <div id="extras">
                     <select>
                         <option value="1">1 persona</option>
                         <option value="2">2 personas</option>

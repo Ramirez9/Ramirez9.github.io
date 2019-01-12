@@ -86,7 +86,7 @@ section>img {
 
 /**FORMULARIO DE BUSQUEDA**/
 
-#busqueda {
+#busquedaUno, #formulario {
     width: 90%;
     margin: 0 auto;
     text-align-last: center;
@@ -205,9 +205,6 @@ input[type=submit] {
     color: white;
 }
 
-.abrirF {
-    display: block;
-}
 
 /*********************RECOMENDACIONES*****************************/
 h3 {
@@ -341,6 +338,11 @@ article>div {
     margin: 2% auto;
     border-radius: 10px;
     width: 30%;
+}
+
+/* Usado en javascript para cerrar el formulario editar */
+.busquedaCerrar{
+    display: none;
 }
 
 /*************CSS Reserva.html***************/
