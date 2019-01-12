@@ -3,6 +3,10 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
+/* Elimino el scrollbar */
+body::-webkit-scrollbar {
+   display: none;
+}
 
 /**********************CABECERA******************************/
 header {
@@ -134,13 +138,12 @@ button {
     outline: none;
     color: white;
     background-color: #689F38;
+    cursor: pointer;
 }
 button {
     cursor: pointer;
     background-color: #33691E;
 }
-
-
 
 input[type=search],
 input[type=date],
@@ -200,6 +203,10 @@ input[type=submit] {
 /*Cambio el color a los placeholder*/
 ::placeholder {
     color: white;
+}
+
+.abrirF {
+    display: block;
 }
 
 /*********************RECOMENDACIONES*****************************/
@@ -302,9 +309,6 @@ h4 {
 }
 
 /* Escondo el formulario */
-#buscar {
-    display: none;
-}
 
 #editar {
     display: flex;

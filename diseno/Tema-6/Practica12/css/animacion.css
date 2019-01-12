@@ -1,23 +1,32 @@
 
-/* Centro el título inicial en el medio de la pantalla */
+
 body{
     font-family: 'Montserrat', sans-serif;
     background-image: url(../img/homebk.jpg);
     background-repeat: no-repeat;
     background-size: cover ;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 
+}
+/* Elimino el scrollbar */
+body::-webkit-scrollbar {
+    display: none;
 }
 main{
     animation: girar 10s;
     background-color: rgba(2, 17, 11, 0.3);
+    min-height: 100vh;
 }
-
+/* Centro el título inicial en el medio de la pantalla */
 h1{
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 90vh;
     font-size: 35px;
+    margin: 0;
 }
 
 a{
