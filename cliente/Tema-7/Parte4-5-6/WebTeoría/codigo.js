@@ -19,12 +19,13 @@
 
 {
     function init(){
+
         ejercicio1();
         ejercicio2();
         ejercicio3();
         ejercicio5();
+        
     }
-
 
     //Distintas formas de acceder al atributo checked. 
     //Compruébalo en las distintas plataformas, tanto con input como con radio buttons
@@ -45,18 +46,14 @@
     //De tres 'input type="checkbox"' que te deshabilite 2 al seleccionar una de ellas
     function ejercicio2(){
 
-        $(".grupo").click(function () {
-            if (!this.checked) 
-                $(".grupo").removeAttr("disabled");
-            else 
-                $(".grupo").attr("disabled", true);
-        })
-
-        $("#boton").click(function () {
-            $(".grupo").prop('checked', false);
-            $(".grupo").removeAttr("disabled");
-        })
-    }
+        $("input[type=checkbox]").change(function () {
+            if ($(this).prop("checked"))
+                $("input:not(:checked").prop("disabled", true);
+            else
+                $("input:not(:checked").prop("disabled", false);
+            });
+    
+    }    
 
     //Asociar dintintos eventos mediante .on().
     function ejercicio3(){
