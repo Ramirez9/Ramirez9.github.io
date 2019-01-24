@@ -42,10 +42,6 @@ nav {
     text-align: center;
 }
 
-nav ul {
-    display: block;
-}
-
 nav ul li {
     display: inline;
 
