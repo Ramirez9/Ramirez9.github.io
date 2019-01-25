@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+}
+main, #contenedor{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    background-color: blue;
+    width: 39px;
+    height: 39px;
+    font-family: Arial; font-size: 30pt; 
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+#reiniciar{
+    display: none;
+}
+i{
+    animation: 2s rotate360 infinite linear;
+    font-size: 50px;
+    position: fixed;
+    left: 300px;
+    top: 40px;
+}
+
+b{
+    font-size: 24px;
+}
+
+@keyframes rotate360 { 
+ 
+    to { transform: rotate(360deg); } 
+ 
+} 
