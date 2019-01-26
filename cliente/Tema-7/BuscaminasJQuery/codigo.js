@@ -62,7 +62,7 @@ let buscaminas = {
      * 1º método obligatorio
      */
     init() {
-        // buscaminas.pedirNivel();
+        //buscaminas.pedirNivel();
         buscaminas.generarTableros();
         buscaminas.generaMinas();
         buscaminas.descubrirNumeros();
@@ -75,6 +75,7 @@ let buscaminas = {
      * 2º Método obligatorio
      */
     mostrar() {
+        console.clear();
         //Muestro el tablero mostrando las minas para las pruebas.
         console.log("Tablero Descubierto - Pruebas");
         console.table(buscaminas.tableroDescubierto);
@@ -96,7 +97,6 @@ let buscaminas = {
         //En caso de picar una minas se indica que se ha perdido el juego. 
         if (buscaminas.tableroDescubierto[x][y] === "x") {
             buscaminas.banderaFinalizar = true;
-            //Se captura en main.js
             throw new Error("Boooooooom!!!");
         }
         //Si se ha ganado la partida o se ha perdido return true.
@@ -108,11 +108,7 @@ let buscaminas = {
         buscaminas.tableroCasillaPulsada[x][y] = "c-pulsada";
         buscaminas.casillaPulsada.add(x + "-" + y);
         buscaminas.actualizaTablero();
-        console.clear();
-        console.log("Tablero Descubierto - Pruebas");
-        console.table(buscaminas.tableroDescubierto);
-        console.log("Tablero Jugable");
-        console.table(buscaminas.tableroJugable);
+        buscaminas.mostrar();
         //En caso de no quedar casillas por levantar se indica que se ha ganado el juego.
         buscaminas.compruebaVictoria();
     },
@@ -134,23 +130,78 @@ let buscaminas = {
             if (buscaminas.banderas > 0) {
                 buscaminas.tableroJugable[x][y] = "🏴";
                 buscaminas.banderas--;
-                console.clear();
-                console.log("Tablero Jugable");
-                console.table(buscaminas.tableroJugable);
+                buscaminas.mostrar();
             }
             //Si la casilla es distinto de pulsada y posee bandera, coloco el cuadro.
         } else if (buscaminas.tableroCasillaPulsada[x][y] !== "c-pulsada" &&
             buscaminas.tableroJugable[x][y] === "🏴") {
             buscaminas.tableroJugable[x][y] = "❑";
             buscaminas.banderas++;
-            console.clear();
-            console.log("Tablero Jugable");
-            console.table(buscaminas.tableroJugable);
-            
-        }
-        else
+            buscaminas.mostrar();
+
+        } else {
+            buscaminas.comprobarGanadorBanderas();
             throw new Error("No se pueden colocar");
-        buscaminas.compruebaVictoriaBandera();
+        }
+    },
+
+    /**
+     * 5º Método obligatorio.
+     * 
+     * Botón izquierdo y derecho: Se intenta destapar aquellas casillas de alrededor a una ya destapada-
+     * Si están marcadas las minas de alrededor de forma correcta, se despejan las casillas de alrededor.
+     * Si falta alguna mina por marcar, se indican las casillas mediante un parpadeo.
+     * 
+     */
+    despejar(x, y) {
+
+        if (x > 0 && y > 0) {
+            if (buscaminas.tableroJugable[x - 1][y - 1] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x - 1][y - 1] !== "c-pulsada")
+                buscaminas.picar(x - 1, y - 1);
+        }
+
+        if (y > 0) {
+            if (buscaminas.tableroJugable[x][y - 1] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x][y - 1] !== "c-pulsada")
+                buscaminas.picar(x, y - 1);
+        }
+
+        if (y > 0 && x < buscaminas.filas - 1) {
+            if (buscaminas.tableroJugable[x + 1][y - 1] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x + 1][y - 1] !== "c-pulsada")
+                buscaminas.picar(x + 1, y - 1);
+        }
+
+        if (x > 0) {
+            if (buscaminas.tableroJugable[x - 1][y] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x - 1][y] !== "c-pulsada")
+                buscaminas.picar(x - 1, y);
+        }
+
+        if (x < buscaminas.filas - 1) {
+            if (buscaminas.tableroJugable[x + 1][y] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x + 1][y] !== "c-pulsada")
+                buscaminas.picar(x + 1, y);
+        }
+
+        if (y < buscaminas.columnas - 1) {
+            if (buscaminas.tableroJugable[x][y + 1] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x][y + 1] !== "c-pulsada")
+                buscaminas.picar(x, y + 1);
+        }
+
+        if (x < buscaminas.filas - 1 && y < buscaminas.columnas - 1) {
+            if (buscaminas.tableroJugable[x + 1][y + 1] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x + 1][y + 1] !== "c-pulsada")
+                buscaminas.picar(x + 1, y + 1);
+        }
+
+        if (x > 0 && y < buscaminas.columnas - 1) {
+            if (buscaminas.tableroJugable[x - 1][y + 1] !== "🏴" &&
+                buscaminas.tableroCasillaPulsada[x - 1][y + 1] !== "c-pulsada")
+                buscaminas.picar(x - 1, y + 1);
+        }
 
     },
 
@@ -164,7 +215,6 @@ let buscaminas = {
         let contador = 0;
         for (let i = 0; i < buscaminas.filas; i++) {
             for (let j = 0; j < buscaminas.columnas; j++) {
-                //Obtengo las casillas con un bucle anidado.
                 if (buscaminas.tableroCasillaPulsada[i][j] === "c-pulsada")
                     contador++;
             }
@@ -192,35 +242,12 @@ let buscaminas = {
      */
     compruebaVictoria() {
         //Capturo el mensaje de victoria en un error
-        if (buscaminas.casillasPulsadas() === buscaminas.casillasPulsadasVictoria()){
+        if (buscaminas.casillasPulsadas() === buscaminas.casillasPulsadasVictoria()) {
             buscaminas.banderaGanado = true;
-            throw new Error("Eres todo un campeón :3");
-        }
-                    
-    },
-
-    /**
-     * Si están marcadas las minas de alrededor de forma correcta, se despejan las casillas de alrededor
-     */
-    compruebaVictoriaBandera() {
-        //Creo un contador que se acumula si hay bandera encima de bombas
-        let contador = 0;
-        for (let i = 0; i < buscaminas.filas; i++) {
-            for (let j = 0; j < buscaminas.columnas; j++) {
-                if (buscaminas.tableroJugable[i][j] === "🏴" && buscaminas.tableroDescubierto[i][j] === "x")
-                    contador++;
-            }
-        }
-        try {
-            //Si el número de contador es el mismo que de minas, he ganado
-            if (contador === buscaminas.minas)
-                throw new Error("He ganado con banderas o.o");
-        } catch (e) {
-            buscaminas.deseaContinuar(e.message);
+            throw new Error("Ganador.");
         }
 
     },
-
     //--------------------------------COMUNICACIÓN CON EL USUARIO----------------------------------
 
     /**
@@ -248,22 +275,6 @@ let buscaminas = {
                 break;
         }
     },
-    /**
-     * Pide al usario dos caracteres dependiendo
-     * de si desea jugar o no
-     */
-    deseaContinuar(str) {
-        let continua = "";
-        do {
-            //Se le pasa el error de sus correspondientes métodos
-            continua = prompt(str + ", ¿Desea continuar? (s/n)");
-        } while (continua.toLowerCase() === "s" && continua.toLowerCase() === "n");
-        if (continua.toLowerCase() === "s")
-            buscaminas.init();
-        else
-            return console.log("Hasta luego");
-    },
-
     //----------------------------------GENERAR COMPONENTES BUSCAMINAS--------------------------------
     /**
      * Se generan los 4 tableros existentes:
@@ -386,6 +397,59 @@ let buscaminas = {
                 }
             }
         }
+    },
+    /**
+     * Devuelve las banderas
+     * de las casillas que son colindantes.
+     * 
+     * @param {*} x fila
+     * @param {*} y columna
+     */
+    banderasCercanas(x, y) {
+        let nBanderas = 0;
+        if (buscaminas.tableroCasillaPulsada[x][y] === "c-pulsada") {
+            if (x > 0 && y > 0) {
+                if (buscaminas.tableroJugable[x - 1][y - 1] === "🏴")
+                    nBanderas++;
+            }
+
+            if (y > 0) {
+                if (buscaminas.tableroJugable[x][y - 1] === "🏴")
+                    nBanderas++;
+            }
+
+            if (y > 0 && x < buscaminas.filas - 1) {
+                if (buscaminas.tableroJugable[x + 1][y - 1] === "🏴")
+                    nBanderas++;
+            }
+
+            if (x > 0) {
+                if (buscaminas.tableroJugable[x - 1][y] === "🏴")
+                    nBanderas++;
+            }
+
+            if (x < buscaminas.filas - 1) {
+                if (buscaminas.tableroJugable[x + 1][y] === "🏴")
+                    nBanderas++;
+            }
+
+            if (y < buscaminas.columnas - 1) {
+                if (buscaminas.tableroJugable[x][y + 1] === "🏴")
+                    nBanderas++;
+            }
+
+            if (x < buscaminas.filas - 1 && y < buscaminas.columnas - 1) {
+                if (buscaminas.tableroJugable[x + 1][y + 1] === "🏴")
+                    nBanderas++;
+            }
+
+            if (x > 0 && y < buscaminas.columnas - 1) {
+                if (buscaminas.tableroJugable[x - 1][y + 1] === "🏴")
+                    nBanderas++;
+            }
+        }
+
+        return nBanderas;
     },
 
     /**
