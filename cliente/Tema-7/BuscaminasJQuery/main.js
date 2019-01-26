@@ -144,8 +144,8 @@ let buscaminasGui = {
             buscaminasGui.actualizarTablero();
          }
       } catch (error) {
-         buscaminasGui.descubrirMinas();
          $("span").text(error.message);
+         buscaminasGui.descubrirMinas();
       }
    },
 
@@ -168,6 +168,8 @@ let buscaminasGui = {
                   "background-color": "red",
                   "border": "1px solid black",
                   "transition-duration": "0" + contador + "s",
+                  "opacity": ".9",
+                  "transform": "scale(1.1) rotate(5deg)"
                });
             }
          }

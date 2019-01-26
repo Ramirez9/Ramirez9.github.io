@@ -154,7 +154,6 @@ let buscaminas = {
      * 
      */
     despejar(x, y) {
-
         if (x > 0 && y > 0) {
             if (buscaminas.tableroJugable[x - 1][y - 1] !== "🏴" &&
                 buscaminas.tableroCasillaPulsada[x - 1][y - 1] !== "c-pulsada")
@@ -461,6 +460,7 @@ let buscaminas = {
             for (let j = 0; j < buscaminas.columnas; j++) {
                 if (buscaminas.tableroCasillaPulsada[i][j] === "c-pulsada")
                     buscaminas.tableroJugable[i][j] = buscaminas.tableroDescubierto[i][j];
+
             }
         }
     }
