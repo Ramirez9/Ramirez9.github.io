@@ -31,8 +31,8 @@
     // let xHora;
     // let xNoches;
     // let xPersonas;
-    // let xSpan;
-    let spans
+    let xSpan;
+    let spans;
 
     //Enviar
     let enviar;
@@ -54,6 +54,7 @@
 
         //Id de los spans
         spans = Array.from(document.querySelectorAll("body form span"));
+        xSpan = document.getElementById('xSpan');
 
         //Id de boton enviar
         enviar = document.getElementById('enviar');
@@ -84,35 +85,19 @@
         ],
     }
 
-    //Objeto literal de la reserva a validar.
+    //Objeto tester necesario para reserva.
     let reserva = {
-        //Controlo los valores de noches y personas
-        testValores(valor, msg, key) {
-            map.set(key, valor);
-            if (valor.value === "")
-                msg.textContent = "El valor no puede ser nulo";
-            else if(valor.value <= 0)
-                msg.textContent = "Mínimo 1";
-            else
-                limpiarValores(key, msg, xSpan);
-
-        },
         //Valores por defecto con expresiones
-        test(patron, valor, msg, key) {
+        test(patron, valor, msg) {
             if (!patron[0].test(valor.value)) {
-                map.set(key, valor);
                 msg.textContent = patron[1];
             } else
-                limpiarValores(key, msg, xSpan);
+                reserva.limpiarValores(msg, xSpan);
         },
-        //Valor de la fecha
-        testFecha(valor, msg, key) {
-            let fecha = Date.parse(valor.value);
-            if (isNaN(fecha)) {
-                map.set(key, valor);
-                msg.textContent = "La fecha no puede ser nula";
-            } else
-                limpiarValores(key, msg, xSpan);
+        //Limpio los valores de la reserva.
+        limpiarValores(span, xSpan){
+            span.textContent = "";
+            xSpan.textContent = "";
         }
     };
 
@@ -149,7 +134,7 @@
         //Obtengo la clase de cada input
         if (valor.getAttribute("class")) {
             //Mi objeto tester
-            reserva.test(patrones[valor.getAttribute("class")], valor, spans[span]);
+            reserva.test(patron[valor.getAttribute("class")], valor, spans[span]);
           }
     }
     // /**
@@ -218,18 +203,6 @@
             return cena.value;
         return "No hay comidas";
     }
-    /**
-     * Limpio los valores de los inputs
-     * @param {*} key 
-     * @param {*} msg 
-     * @param {*} xSpan 
-     */
-    function limpiarValores(key, msg, xSpan) {
-        if (map.has(key))
-            map.delete(key);
-        msg.textContent = "";
-        xSpan.textContent = "";
-    };
 
     /**
      * Valido la reserva
