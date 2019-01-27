@@ -57,9 +57,9 @@
             "El nombre es erróneo. Ejemplo: Francisco Ramírez"
         ],
 
-         //Expresión reuglar correo electrónico
+        //Expresión reuglar correo electrónico
         correo: [/^[\w]+@[\w]+.[\w]+$/,
-        "El correo es inválido, hola@hola.com"
+            "El correo es inválido, hola@hola.com"
         ],
 
         //Expresión regular fecha
@@ -70,19 +70,19 @@
 
         //Expresión regular hora
         hora: [/\d\d[:]\d\d$/,
-        "La hora es errónea. Ejemplo: 11:40"
+            "La hora es errónea. Ejemplo: 11:40"
         ],
 
         //Expresión regular noches
-        noches: [/[1-9]{1,}$/,
+        noches: [/^[1-9]{1,}$/,
             "El número de noches es inválido"
         ],
 
         //Expresión regular personas
-        personas: [/[1-9]{1,}$/,
+        personas: [/^[1-9]{1,}$/,
             "El número de personas es inválido"
         ]
-   
+
     }
 
     //Objeto tester necesario para reserva.
@@ -171,9 +171,8 @@
     function indiceErrones() {
         let inputErroneos = [];
         spans.forEach((valor, indice) => {
-            if (valor.textContent !== "") {
+            if (valor.textContent !== "")
                 inputErroneos.push(indice)
-            }
         });
         return inputErroneos;
     }
@@ -197,6 +196,7 @@
 
         try {
             let reserva = new Reserva(
+                //Se asocian en el orden de clase reserva.
                 inputs[0].value,
                 inputs[1].value,
                 new Date(inputs[2].value),
@@ -205,8 +205,8 @@
                 inputs[5].value,
                 validarEdad(),
                 validarComida()
-              );
-              reserva.mostrar();//Mustro los datos
+            );
+            reserva.mostrar(); //Mustro los datos
         } catch (e) {
             xSpan.textContent = e.message;
         }
