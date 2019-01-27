@@ -27,28 +27,28 @@
     <form action="">
 
         <label for="nombre">Nombre completo: </label>
-        <input type="text" id="nombre">
-        <span id="xNombre"></span><br>
+        <input type="text" id="nombre" class="nombre">
+        <span id="xNombre" class="spanError"></span><br>
 
         <label for="correo">Correo electrónico: </label>
-        <input type="email" id="correo">
-        <span id="xCorreo"></span><br>
+        <input type="email" id="correo" class="correo">
+        <span id="xCorreo" class="spanError"></span><br>
 
         <label for="fecha">Fecha de llegada: </label>
-        <input type="date" id="fecha">
-        <span id="xFecha"></span><br>
+        <input type="date" id="fecha" class="fecha">
+        <span id="xFecha" class="spanError"></span><br>
 
         <label for="hora">Hora de llegada: </label>
-        <input type="time" id="hora">
-        <span id="xHora"></span><br>
+        <input type="time" id="hora" class="hora">
+        <span id="xHora" class="spanError"></span><br>
 
         <label for="noches">Número de noches: </label>
-        <input type="text" id="noches">
-        <span id="xNoches"></span><br>
+        <input type="number" id="noches" class="noches" min="1">
+        <span id="xNoches" class="spanError"></span><br>
 
         <label for="personas">Número de personas: </label>
-        <input type="text" id="personas">
-        <span id="xPersonas"></span><br>
+        <input type="number" id="personas" class="personas" min="1">
+        <span id="xPersonas" class="spanError"></span><br>
 
         <fieldset>
             <legend>
@@ -78,7 +78,7 @@
             <label for="edad3">Más de 40</label><br>
         </fieldset>
 
-        <span id="xSpan"></span><br>
+        <span id="xSpan" class="xSpan"></span><br>
         <input type="button" name="enviar" value= "Enviar Reserva" id ="enviar">
     </form>
 </body>
