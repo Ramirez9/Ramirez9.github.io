@@ -8,12 +8,12 @@
 {
 
     // Declaro las variables necesarias
-    let nombre;
-    let correo;
-    let fecha;
-    let hora;
-    let noches;
-    let personas;
+    // let nombre;
+    // let correo;
+    // let fecha;
+    // let hora;
+    // let noches;
+    // let personas;
     let inputs;
 
     // Variables checks
@@ -25,13 +25,14 @@
     let cena;
 
     //Span de errores de los datos
-    let xNombre;
-    let xCorreo;
-    let xFecha;
-    let xHora;
-    let xNoches;
-    let xPersonas;
-    let xSpan;
+    // let xNombre;
+    // let xCorreo;
+    // let xFecha;
+    // let xHora;
+    // let xNoches;
+    // let xPersonas;
+    // let xSpan;
+    let spans
 
     //Enviar
     let enviar;
@@ -58,13 +59,13 @@
         cena = document.getElementById('cena');
 
         //Id de los spans
-        xNombre = document.getElementById('xNombre');
-        xCorreo = document.getElementById('xCorreo');
-        xFecha = document.getElementById('xFecha');
-        xHora = document.getElementById('xHora');
-        xNoches = document.getElementById('xNoches');
-        xPersonas = document.getElementById('xPersonas');
-        xSpan = document.getElementById('xSpan');
+        // xNombre = document.getElementById('xNombre');
+        // xCorreo = document.getElementById('xCorreo');
+        // xFecha = document.getElementById('xFecha');
+        // xHora = document.getElementById('xHora');
+        // xNoches = document.getElementById('xNoches');
+        // xPersonas = document.getElementById('xPersonas');
+        // xSpan = document.getElementById('xSpan');
 
         //Id de boton enviar
         enviar = document.getElementById('enviar');
