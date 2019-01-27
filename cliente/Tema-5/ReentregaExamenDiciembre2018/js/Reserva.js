@@ -19,7 +19,7 @@
 function Reserva(nombre, correo, fecha, hora, noches, personas, edad, comida) {
     this.nombre = nombre;
     this.correo = correo;
-    this.fecha = this.setFecha(fecha);
+    this.setFecha(fecha);
     this.hora = hora;
     this.noches = noches;
     this.personas = personas;
@@ -62,7 +62,7 @@ Reserva.prototype.mostrar = function () {
         <p><b>Id de la reserva: </b>${this.id}</p>
         <p><b>Nombre completo:</b> ${this.nombre}</p>
         <p><b>Correo electrónico:</b> ${this.correo}</p>
-        <p><b>Fecha llegada:</b> ${this.fechaLocal()}</p>
+        <p><b>Fecha llegada:</b> ${this.fecha}</p>
         <p><b>Hora llegada:</b> ${this.hora}</p>
         <p><b>Numero de noches:</b> ${this.noches} noche/s</p>
         <p><b>Numero de personas:</b> ${this.personas} persona/s</p>
@@ -75,22 +75,18 @@ Reserva.prototype.mostrar = function () {
     ventanaNueva.document.write(contenido);
     ventanaNueva.document.close();
 }
+
 /**
- * Compruebo que la fecha sea válida y de tipo Date.
+ * Controlo que la fecha no esté vacía.
+ * 
  * @param {*} fecha 
  */
 Reserva.prototype.setFecha = function (fecha) {
-    if (!(fecha instanceof Date))
-        throw new Error("Fecha no valida");
-    return fecha;
+    if(fecha == "")
+        throw new Error("La fecha no puede estar vacía");
+    this.fecha = fecha;
 }
 
-/**
- * Obtengo la fecha en español
- */
-Reserva.prototype.fechaLocal = function () {
-    return this.fecha.toLocaleDateString("es-ES");
-}
 
 /**
  * Calculo los días que faltan para la llegada
@@ -101,11 +97,11 @@ Reserva.prototype.calcularDias = function () {
     let fechaRestante = fecha - fechaActual;
     let dia = fechaRestante / 1000 / 60 / 60 / 24;
     let diasReales = Math.trunc(fechaRestante / 1000 / 60 / 60 / 24);
-    if (diasReales < 0) {
+
+    if (diasReales < 0)
         throw new Error("La fecha no se puede calcular");
-    }
-    if (dia > 0 && dia < 1) {
+
+    if (dia > 0 && dia < 1) 
         return 1;
-    }
     return diasReales;
 }
