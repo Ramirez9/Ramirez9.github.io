@@ -14,6 +14,7 @@
     let hora;
     let noches;
     let personas;
+    let inputs;
 
     // Variables checks
     let edad1;
@@ -40,12 +41,13 @@
     function init() {
 
         //Obtengo id de los inputs
-        nombre = document.getElementById('nombre');
-        correo = document.getElementById('correo');
-        fecha = document.getElementById('fecha');
-        hora = document.getElementById('hora');
-        noches = document.getElementById('noches');
-        personas = document.getElementById('personas');
+        // nombre = document.getElementById('nombre');
+        // correo = document.getElementById('correo');
+        // fecha = document.getElementById('fecha');
+        // hora = document.getElementById('hora');
+        // noches = document.getElementById('noches');
+        // personas = document.getElementById('personas');
+        inputs = Array.from(document.querySelectorAll("input:not([type='button']):not([type='checkbox']):not([type='radio'])"));
 
         //Id de los checks
         edad1 = document.getElementById('edad1');
