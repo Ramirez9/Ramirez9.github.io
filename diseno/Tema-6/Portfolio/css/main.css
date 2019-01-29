@@ -5,7 +5,7 @@
 html {
     font-family: 'Roboto', sans-serif;
     /* Escondo barra vertical */
-    overflow: hidden;
+    *overflow: hidden;
     color: white;
 }
 body{
