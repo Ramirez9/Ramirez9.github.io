@@ -40,7 +40,7 @@ function init(){
         let idAtm = event.currentTarget.id;
 
         //WheelDelta devuelve siempre múltiplos de 120.
-        if(event.originalEvent.wheelDelta / 120 > 0) {
+        if(deltaY > 0 && event.originalEvent.wheelDelta / 120 > 0) {
             if(parseInt(idAtm)-1 != 0){
                 sectionAtm = "#"+(parseInt(idAtm)-1);
                 if($(sectionAtm) != undefined)
