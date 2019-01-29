@@ -11,7 +11,7 @@
  */
 function init(){
     let $section = ($('section').length);
-    $('section').on('mousewheel', function(event) {
+    $('section').on('mousewheel DOMMouseScroll', function(event) {
 
         let sectionAtm;
         let idAtm = event.currentTarget.id;
@@ -33,31 +33,6 @@ function init(){
         }
         console.log("prueba");
     });
-
-    $('section').on('touchmove', function(event) {
-
-        let sectionAtm;
-        let idAtm = event.currentTarget.id;
-
-        //WheelDelta devuelve siempre múltiplos de 120.
-        if(deltaY > 0 && event.originalEvent.wheelDelta / 120 > 0) {
-            if(parseInt(idAtm)-1 != 0){
-                sectionAtm = "#"+(parseInt(idAtm)-1);
-                if($(sectionAtm) != undefined)
-                    moverSection(sectionAtm);
-            }
-           
-        } else {
-            if(parseInt(idAtm) != $section){
-                sectionAtm = "#"+(parseInt(idAtm)+1);
-                if($(sectionAtm) != undefined)
-                    moverSection(sectionAtm);
-            }
-        }
-        console.log("prueba movil");
-    });
-   
-
 }
 
 /**
