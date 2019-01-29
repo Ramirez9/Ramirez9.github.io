@@ -5,26 +5,19 @@
 html {
     font-family: 'Roboto', sans-serif;
     /* Escondo barra vertical */
-    *overflow: hidden;
+    /* overflow: hidden; */
     color: white;
 }
-body{
-    font-size: 14px;
-}
 
-h1{
-    font-size: 36px;
-    background-color: rgba(0,0,0,0.8);
-}
-
-section{
+section {
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
 }
 
 /* Combinación de sections */
 
-.segundo-section, .tercer-section {
+.segundo-section,
+.tercer-section {
     display: flex;
     background-color: rgb(5, 71, 60);
 }
@@ -33,16 +26,16 @@ article {
     width: 45%;
 }
 
-article > img {
+article>img {
     border-radius: 15%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     width: 100%;
     height: 89%;
 }
 
 /* Primer section */
 
-.primer-section{
+.primer-section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,13 +44,21 @@ article > img {
     background-size: 100vw 100vh;
 }
 
+.primer-section>div {
+    text-shadow: 2px 2px 0 #000000, 4px 4px 0 #080000;
+}
+
+h1 {
+    font-size: 36px;
+}
+
 /* Segundo section */
 
-.segundo-section > div > article{
+.segundo-section>div>article {
     width: 100%;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
@@ -65,43 +66,138 @@ img.foto-perfil {
     width: 87px;
     height: 87px;
     margin: auto;
-    display:block;
+    display: block;
 }
 
-p{
+p {
     text-align: center;
     padding: 4%;
 }
 
-ul{
+ul {
     list-style: none;
 }
+
 /* Tercer section */
 
-.proyectos{
+.proyectos {
     text-align: center;
 }
 
-.tercer-section > div {
-    margin: auto ;
+.tercer-section>div {
+    margin: auto;
     width: 90%;
 }
 
-.tercer-section > div > div {
+.tercer-section>div>div {
     width: 90%;
     margin: 0 auto;
 }
 
-.tercer-section > div > div > div {
+.tercer-section>div>div>div {
     width: 100%;
 }
 
-.tercer-section > div > div > div > div {
+.tercer-section>div>div>div>div {
     display: flex;
     justify-content: space-between;
 }
 
-.mas-proyectos, h3, h4{
+.mas-proyectos,
+h3,
+h4 {
     display: none;
 }
 
+/***************************MEDIAS***************/
+
+@media only screen and (min-width: 539px) {
+
+    html {
+        overflow: hidden;
+    }
+
+    /*section2 */
+    h1 {
+        font-size: 50px;
+    }
+
+    h2 {
+        font-size: 39px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .segundo-section>div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    img.foto-perfil {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 5px;
+    }
+
+    /* section 3*/
+    .tercer-section>div>div {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+
+    .tercer-section>div>div>div {
+        width: 45%;
+        margin-bottom: 1px;
+    }
+
+    .tercer-section > div > h2{
+        margin: 0;
+    }
+
+    article>img {
+        border-radius: 15%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        width: 110%;
+        height: 120%;
+    }
+
+    h3 {
+        font-size: 22px;
+        display: block;
+        border-bottom: 2px solid black;
+    }
+
+}
+@media only screen and (min-width: 1024px) {
+
+    .mas-proyectos,
+    h4 {
+        text-align: center;
+        display: block;
+    }
+
+    article>img {
+        border-radius: 15%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        width: 75%;
+        height: 70%;
+    }
+
+    .mas-proyectos{
+        display: block;
+        margin: 0 auto 0 auto;
+        color: white;
+        border: 0;
+        padding: 1%;
+        font-size: 19px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
