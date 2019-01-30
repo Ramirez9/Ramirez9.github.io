@@ -17,7 +17,8 @@ section {
 /* Combinación de sections */
 
 .segundo-section,
-.tercer-section {
+.tercer-section,
+.cuarto-section {
     display: flex;
     background-color: rgb(5, 71, 60);
 }
@@ -26,7 +27,7 @@ article {
     width: 45%;
 }
 
-article>img {
+article>a>img {
     border-radius: 15%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     width: 100%;
@@ -61,7 +62,9 @@ h1 {
 h2 {
     text-align: center;
 }
-
+.p1, .p2{
+    display: none;
+}
 img.foto-perfil {
     width: 87px;
     height: 87px;
@@ -70,12 +73,41 @@ img.foto-perfil {
 }
 
 p {
-    text-align: center;
-    padding: 4%;
+    text-align: justify;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+ .habilidades > h2 {
+     margin-bottom: 0px;
+ }
+
+.habilidad {
+    margin: 0px ;
+    display: grid;
+    grid-template-columns: 25% 60%;
+    align-items: center;
+}
+.habilidad p {
+    text-align: right;
+    margin-right: 10px;
+}
+.habilidad p img {
+    height: 25px;
+    width: 25px;
 }
 
-ul {
-    list-style: none;
+.habilidad div {
+    height: 6px;
+    color: rgb(255, 255, 255);
+    text-align: right;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.856);
+    width: 0%;
+    padding: 0.7em;
+
+}
+#habilidad-1, #habilidad-2{
+    display: none;
 }
 
 /* Tercer section */
@@ -108,6 +140,69 @@ h3,
 h4 {
     display: none;
 }
+
+/* cuarto section*/
+.cuarto-section > div{
+    width: 100%;
+    display:block;
+
+}
+.formulario{
+    margin: 5%;
+    width: 90%;
+}
+
+input{
+    margin: 10% 0;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.submit{
+    font-weight: bold;
+    margin: 0 auto;
+    display:block;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    padding: 10px;
+    color: black;
+}
+
+input:focus{
+    /*Quito el cuadrado al ponerle el foco*/
+    outline:0px;
+}
+input:focus:required:invalid {
+    border-bottom: 5px solid red;
+}
+
+input:focus:required:valid {
+    border-bottom: 2px solid green;
+}
+
+/*asides*/
+.subir, .bajar{
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    left: 46%;
+}
+
+.subir{
+    top: 1%;
+}
+
+.bajar{
+    bottom: 1%;
+
+}
+
 
 /***************************MEDIAS***************/
 
@@ -142,7 +237,11 @@ h4 {
         margin-bottom: 5px;
     }
 
+    #habilidad-1, #habilidad-2{
+        display: grid;
+    }
     /* section 3*/
+
     .tercer-section>div>div {
         display: flex;
         flex-flow: wrap;
@@ -158,31 +257,72 @@ h4 {
         margin: 0;
     }
 
-    article>img {
-        border-radius: 15%;
+    article>a>img {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         width: 110%;
         height: 120%;
     }
 
     h3 {
+        padding-top: 10px;
+        margin-bottom: 7px;
         font-size: 22px;
         display: block;
-        border-bottom: 2px solid black;
+        border-bottom: 3px solid black;
+    }
+    .bajar, .subir{
+        left: 48%;
     }
 
 }
+
+@media only screen and (min-width: 768px) {
+
+    input{
+        margin: 4% 0;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        width: 100%;
+        text-align: center;
+    }
+
+    .submit{
+        width: 30%;
+
+    }
+}
+
 @media only screen and (min-width: 1024px) {
 
-    .mas-proyectos,
-    h4 {
+    h1{
+        font-size: 100px;
+    }
+    h2{
+        font-size: 50px; 
+    }
+    h3{
+        padding-bottom: 3px;
+    }
+    h4{
+        display: block;
+        text-align: left;
+    }
+    .p1, p2{
+        display: block;
+    }
+
+    .mas-proyectos{
         text-align: center;
         display: block;
     }
 
-    article>img {
-        border-radius: 15%;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    .subir, .bajar{
+        display: none;
+    }
+
+    article>a>img {
         width: 75%;
         height: 70%;
     }
@@ -198,6 +338,25 @@ h4 {
     
     a{
         text-decoration: none;
-        color: black;
+        color: white;
     }
+
+    .habilidad p img {
+        height: 55px;
+        width: 55px;
+    }
+    .habilidad div {
+        height: 15px;
+        font-size: 22px;
+    
+    }
+
+    label{
+        font-size: 24px;
+    }
+
+    input{
+        margin: 3% 0;
+    }
+
 }
