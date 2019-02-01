@@ -10,11 +10,18 @@
  * Funcion inicial del programa
  */
 function init() {
+    console.log($(window).width());
     //Anulo el botón inicial de top
     $(".subir").css("display", "none");
-   // if ($(window).width() >= 1020) {  
+   //if ($(window).width() >= 1020) {  
+
+   
+    //if (navigator.userAgent.search("Chrome") >= 0){
+    console.log(navigator.userAgent.text);
     let $section = ($('section, footer').length);
-    $('#1, #2, #3, #4, #5').on('mousewheel', function (event) {
+    //Hago uso de wheel en vez de mousewheel con deltaY para que 
+    //FIREFOX lo detecte
+    $('#1, #2, #3, #4, #5').on('wheel', function (event) {
 
         let sectionAtm;
         let idAtm = event.currentTarget.id;
@@ -23,7 +30,8 @@ function init() {
             "transform": "rotateY(360deg)"
         })
         //WheelDelta devuelve siempre múltiplos de 120.
-        if (event.originalEvent.wheelDelta / 120 > 0) {
+        if (event.originalEvent.deltaY < 0) {
+            console.log("subida");
             if (parseInt(idAtm) - 1 != 0) {
                 sectionAtm = "#" + (parseInt(idAtm) - 1);
                 if ($(sectionAtm) != undefined)
@@ -31,15 +39,15 @@ function init() {
             }
 
         } else {
+            console.log("bajada");
             if (parseInt(idAtm) != $section) {
                 sectionAtm = "#" + (parseInt(idAtm) + 1);
                 if ($(sectionAtm) != undefined)
                     moverSection(sectionAtm);
             }
         }
-        console.log("prueba");
-    });
-
+        });
+   //}
    // }
     let contador = 1;
 
