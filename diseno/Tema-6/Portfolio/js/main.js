@@ -99,10 +99,10 @@
         e.preventDefault()
     }, false);
 
-        $('#1, #2, #3, #4, #5').on('wheel', {passive: true}, function (event) {
+        $('#1, #2, #3, #4, #5').on('wheel mousewheel', {passive: true}, function (event) {
             let sectionAtm;
             let idAtm = event.currentTarget.id;
-            if (event.originalEvent.deltaY < 0) {
+            if (event.originalEvent.deltaY < 0 || event.originalEvent.wheelDelta / 120 > 0) {
                 console.log("subida");
                 if (parseInt(idAtm) - 1 != 0) {
                     sectionAtm = "#" + (parseInt(idAtm) - 1);
