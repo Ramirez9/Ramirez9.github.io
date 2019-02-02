@@ -1,0 +1,7 @@
+*************
+
+La página web ha sido desarrollada por secciones obteniendo el ancho y máximo
+de cada resolución de la pantalla, en los respectivos mockups se ven todas las secciones 
+a la vez, sin embargo en la práctica se ve una a una.
+
+****************
