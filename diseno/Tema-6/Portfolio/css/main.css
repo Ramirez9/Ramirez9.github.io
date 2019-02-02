@@ -511,6 +511,11 @@ a {
     .p2 {
         display: block;
     }
+    img.foto-perfil {
+        *margin-top: 10%;
+        width: 210px;
+        height: 210px;
+    }
     .mas-proyectos {
         text-align: center;
         display: block;
@@ -533,8 +538,8 @@ a {
         font-size: 19px;
     }
     .habilidad p img {
-        height: 55px;
-        width: 55px;
+        height: 45px;
+        width: 45px;
     }
     .habilidad div {
         height: 15px;
@@ -594,15 +599,15 @@ a {
 
 @media only screen and (min-width: 1440px) {
     p {
-        font-size: 32px;
+        font-size: 24px;
     }
     h4{
         margin-top: 1px;
     }
     img.foto-perfil {
-        margin-top: 10%;
-        width: 350px;
-        height: 350px;
+        *margin-top: 10%;
+        width: 320px;
+        height: 320px;
     }
     article>a>img {
         width: 100%;
@@ -624,6 +629,16 @@ a {
         margin: 10px;
         margin-right: 60%;
         margin-left: 8%;
+    }
+}
+@media only screen and (min-width: 1900px) {
+    p {
+        font-size: 32px;
+    }
+    img.foto-perfil {
+        *margin-top: 10%;
+        width: 400px;
+        height: 400px;
     }
 }
 
