@@ -94,10 +94,14 @@
      * FIREFOX lo detecte
      */
     function capturarScroll($section) {
+        
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault()
+    }, false);
+
         $('#1, #2, #3, #4, #5').on('wheel', {passive: true}, function (event) {
             let sectionAtm;
             let idAtm = event.currentTarget.id;
-            //WheelDelta devuelve siempre múltiplos de 120.
             if (event.originalEvent.deltaY < 0) {
                 console.log("subida");
                 if (parseInt(idAtm) - 1 != 0) {
