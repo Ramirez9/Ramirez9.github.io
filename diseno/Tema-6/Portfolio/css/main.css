@@ -7,7 +7,8 @@ html {
     background-size: cover;
 }
 
-section, footer {
+section,
+footer {
     width: 100%;
     height: 100vh;
 }
@@ -16,14 +17,13 @@ section, footer {
 .cuarto-section,
 .quinto-section {
     display: flex;
-    
 }
 
-.tercer-section{
+.tercer-section {
     display: flex;
     background-color: rgba(97, 11, 11, 0.9);
 }
-    
+
 article {
     width: 45%;
 }
@@ -40,19 +40,21 @@ article>a>img:hover {
     transform: scale(1.2);
 }
 
-.menu a{
+.menu a {
     margin-right: 10%;
     margin-top: 50%;
 }
-.menu{
+
+.menu {
     display: none;
 }
-.menu a img{
+
+.menu a img {
     width: 35px;
-    height: 35px; 
+    height: 35px;
 }
 
-.menu a img:hover{
+.menu a img:hover {
     transition-duration: 1s;
     transform: rotateY(360deg);
 }
@@ -87,7 +89,8 @@ h2 {
     text-align: center;
 }
 
-.p1, .p2{
+.p1,
+.p2 {
     display: none;
 }
 
@@ -104,12 +107,12 @@ p {
     padding-right: 5%;
 }
 
-.habilidades > h2 {
-     margin-bottom: 0px;
+.habilidades>h2 {
+    margin-bottom: 0px;
 }
 
 .habilidad {
-    margin: 0px ;
+    margin: 0px;
     display: grid;
     grid-template-columns: 25% 60%;
     align-items: center;
@@ -123,8 +126,14 @@ p {
 .habilidad p img {
     height: 25px;
     width: 25px;
-}
 
+}
+.habilidad p img:hover{
+    transition-duration: 1s;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.9;
+}
 .habilidad div {
     height: 6px;
     color: rgb(255, 255, 255);
@@ -133,11 +142,39 @@ p {
     background-color: rgba(0, 0, 0, 0.856);
     width: 0%;
     padding: 0.7em;
-
 }
 
-#habilidad-1, #habilidad-2{
+#habilidad-1,
+#habilidad-2 {
     display: none;
+}
+
+.habilidad {
+    cursor: cell;
+}
+
+.habilidades span {
+    display: none;
+    position: absolute;
+    top: 118%;
+    left: 81%;
+    padding: 20px;
+    margin: 10px;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.habilidad>p:nth-of-type(2n) {
+    display: none;
+    position: absolute;
+    top: 127%;
+    left: 0%;
+    padding: 25px;
+    margin: 10px;
+    background-color: black;
+    opacity: 0.7;
+    text-align: justify;
 }
 
 /* Tercer section */
@@ -172,18 +209,19 @@ h4 {
 }
 
 /* cuarto section*/
-.cuarto-section > div{
-    width: 100%;
-    display:block;
 
+.cuarto-section>div {
+    width: 100%;
+    display: block;
 }
 
-.formulario{
+.formulario {
     margin: 5%;
     width: 90%;
 }
 
-input, textarea{
+input,
+textarea {
     margin: 10% 0;
     font-size: 1rem;
     border: none;
@@ -194,10 +232,10 @@ input, textarea{
     color: white;
 }
 
-.submit{
+.submit {
     font-weight: bold;
     margin: 0 auto;
-    display:block;
+    display: block;
     border: none;
     background-color: rgb(255, 255, 255);
     width: 50%;
@@ -207,44 +245,49 @@ input, textarea{
     text-align: center;
 }
 
-input:focus, textarea:focus{
-    outline:0px;
+input:focus,
+textarea:focus {
+    outline: 0px;
 }
 
-input:focus:required:invalid, textarea:focus:required:invalid {
+input:focus:required:invalid,
+textarea:focus:required:invalid {
     border-bottom: 5px solid red;
 }
 
-input:focus:required:valid, textarea:focus:required:valid {
+input:focus:required:valid,
+textarea:focus:required:valid {
     border-bottom: 5px solid green;
 }
 
 /*asides*/
-.subir, .bajar{
+
+.subir,
+.bajar {
     font-size: 45px;
     color: rgba(255, 5, 5, 0.9);
     position: fixed;
     left: 43%;
 }
 
-.subir{
+.subir {
     top: 1%;
 }
 
-.bajar{
+.bajar {
     bottom: 1%;
 }
 
 /**FOOTER**/
 
-footer{
+footer {
     *display: flex;
     background-image: url("../img/footer.jpg");
     background-size: cover;
     opacity: 1;
 }
 
-footer > h2{
+footer>h2 {
     margin-top: 23%;
 }
 
@@ -254,13 +297,13 @@ footer > h2{
     justify-content: center;
 }
 
-.extra img{
+.extra img {
     width: 35px;
     height: 35px;
     margin-top: 20%;
 }
 
-.idiomas{
+.idiomas {
     font-weight: bold;
     color: white;
     background-color: transparent;
@@ -269,11 +312,11 @@ footer > h2{
     margin-left: 3%;
 }
 
-option{
+option {
     background-color: rgb(39, 39, 36);
 }
 
-select:focus{
+select:focus {
     outline: none;
 }
 
@@ -289,13 +332,13 @@ select:focus{
     grid-auto-flow: column;
 }
 
-a{
+a {
     font-weight: bold;
     text-decoration: none;
     color: white;
 }
 
-.privacidad{
+.privacidad {
     border-top: 3px solid;
     margin-top: 10%;
     margin-left: 10%;
@@ -308,8 +351,8 @@ a{
     color: black;
 }
 
-.icono-texto{
-    display:none;
+.icono-texto {
+    display: none;
 }
 
 .derechos p:nth-of-type(2n) {
@@ -317,9 +360,9 @@ a{
     padding-right: 15%;
     text-align: center;
     color: black;
-} 
+}
 
-.derechos p:first-child { 
+.derechos p:first-child {
     text-align: center;
     color: black;
 }
@@ -327,60 +370,49 @@ a{
 /***************************MEDIAS***************/
 
 @media only screen and (min-width: 539px) {
-
     html {
         overflow: hidden;
     }
-
     h1 {
         font-size: 50px;
     }
-
     h2 {
         font-size: 39px;
     }
-
     p {
         font-size: 18px;
     }
-
     .segundo-section>div {
         width: 100%;
         display: flex;
         justify-content: space-between;
     }
-
     img.foto-perfil {
         width: 260px;
         height: 260px;
         margin-bottom: 5px;
     }
-
-    #habilidad-1, #habilidad-2{
+    #habilidad-1,
+    #habilidad-2 {
         display: grid;
     }
-
     .tercer-section>div>div {
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
     }
-
     .tercer-section>div>div>div {
         width: 45%;
         margin-bottom: 1px;
     }
-
-    .tercer-section > div > h2{
+    .tercer-section>div>h2 {
         margin: 0;
     }
-
     article>a>img {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         width: 110%;
         height: 120%;
     }
-
     h3 {
         padding-top: 10px;
         margin-bottom: 7px;
@@ -388,17 +420,28 @@ a{
         display: block;
         border-bottom: 3px solid black;
     }
-
-    .bajar, .subir{
+    .bajar,
+    .subir {
         left: 48%;
     }
-
+    .habilidades span{
+        top: 128%;
+        left: 41%;
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .habilidad  > p:nth-of-type(2n) {
+        top: 140%;
+        left: 0%;
+        padding: 50px;
+        margin: 10px;
+        margin-right: 50%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
-
     /* navegacion */
-
     nav {
         color: white;
         display: block;
@@ -406,14 +449,11 @@ a{
         top: 20vh;
         right: 0;
     }
-
-    .menu{
+    .menu {
         display: flex;
         flex-flow: row-reverse;
-    
     }
-
-    input{
+    input {
         margin: 4% 0;
         font-size: 1rem;
         border: none;
@@ -421,85 +461,69 @@ a{
         border-bottom: 2px solid rgb(255, 255, 255);
         width: 100%;
     }
-
-    textarea{
+    textarea {
         border: none;
         margin: 5% 0;
         border-bottom: 2px solid rgb(255, 255, 255);
     }
-
-    .submit{
+    .submit {
         margin-top: 0%;
         width: 30%;
-
     }
-
-    .idiomas{
+    .idiomas {
         margin-top: 10%;
     }
-
-    .extra img{
+    .extra img {
         width: 35px;
         height: 35px;
         margin-top: 10%;
-    
     }
-
-    footer > h2 {
+    footer>h2 {
         margin-top: 5%;
     }
-
-    .redes{
+    .redes {
         margin-left: 10%;
     }
-
-    .derechos br{
-        display:none;
+    .derechos br {
+        display: none;
     }
-
-    .bajar, .subir{
+    .bajar,
+    .subir {
         left: 47%;
     }
 }
 
 @media only screen and (min-width: 1024px) {
-
-    h1{
+    h1 {
         font-size: 100px;
     }
-
-    h2{
-        font-size: 50px; 
+    h2 {
+        font-size: 50px;
     }
-
-    h3{
+    h3 {
         padding-bottom: 3px;
     }
-
-    h4{
+    h4 {
         display: block;
         text-align: left;
     }
-
-    .p1, .p2{
+    .p1,
+    .p2 {
         display: block;
     }
-
-    .mas-proyectos{
+    .mas-proyectos {
         text-align: center;
         display: block;
     }
-
-    .subir, .bajar{
+    .subir,
+    .bajar {
         display: none;
     }
-
     article>a>img {
         width: 75%;
         height: 70%;
     }
-
-    .mas-proyectos{
+    .mas-proyectos {
         display: block;
         padding-top: 0;
         margin: 0 auto 0 auto;
@@ -508,84 +532,106 @@ a{
         padding: 1%;
         font-size: 19px;
     }
-    
     .habilidad p img {
         height: 55px;
         width: 55px;
     }
-
     .habilidad div {
         height: 15px;
         font-size: 22px;
     }
-
-    label{
+    label {
         font-size: 24px;
     }
-
-    input{
+    input {
         margin: 3% 0;
     }
-
-    textarea{
+    textarea {
         margin: 4% 0;
     }
-  
-    .icono-texto{
+    .icono-texto {
         font-weight: bold;
         color: black;
-        display:inline-block;
+        display: inline-block;
     }
-
-    .extra img, .idiomas{
+    .extra img,
+    .idiomas {
         margin-top: 4%;
     }
-
-    footer > h2{
+    footer>h2 {
         margin-top: 5%;
     }
-
-    .idiomas{
+    .idiomas {
         margin-left: 1%;
     }
-
-    .privacidad{
+    .privacidad {
         margin-top: 5%;
     }
-
-    .derechos p:first-child { 
+    .derechos p:first-child {
         color: black;
         margin-top: 7%;
     }
-
-    .submit{
+    .submit {
         width: 20%;
+    }
+    .habilidades span{
+        font-size: 20px;
+        top: 140%;
+        left: 41%;
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .habilidad  > p:nth-of-type(2n) {
+        top: 150%;
+        left: 0%;
+        padding: 50px;
+        margin: 10px;
+        margin-right: 60%;
+        margin-left: 8%;
     }
 }
 
 @media only screen and (min-width: 1440px) {
-
-    p{
+    p {
         font-size: 32px;
     }
-
-    img.foto-perfil{
-        margin-top: 10%;
-        width: 300px;
-        height: 300px;
+    h4{
+        margin-top: 1px;
     }
-
+    img.foto-perfil {
+        margin-top: 10%;
+        width: 350px;
+        height: 350px;
+    }
     article>a>img {
         width: 100%;
         height: 100%;
+    }
+
+    .habilidades span{
+        font-size: 24px;
+        top: 140%;
+        left: 41%;
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .habilidad  > p:nth-of-type(2n) {
+        top: 150%;
+        left: 0%;
+        padding: 50px;
+        margin: 10px;
+        margin-right: 60%;
+        margin-left: 8%;
     }
 }
 
 @keyframes agrandar {
     from {
-              transform: scale(0.2);
+        transform: scale(0.2);
     }
     to {
-              transform: scale(1);
+        transform: scale(1);
     }
-  }
+}

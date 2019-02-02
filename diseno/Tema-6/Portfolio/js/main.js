@@ -25,6 +25,9 @@
         menuIconos(contador);
 
         cambiosIdiomas();
+
+        habilidades();
+
     }
 
     /**
@@ -165,6 +168,63 @@ function cambiosIdiomas() {
             textoFrances();
 
     });
+}
+
+/**
+ * Asocio el evento click a cada habilidad para mostrar un mensaje
+ */
+function habilidades() {
+    $("#habilidad-1").on("click", function () {
+        limpiarHabilidad();
+        $("#habilidad-1 > p:nth-of-type(2n)").fadeIn(1000, function () {
+            $("#habilidad-1  > p:nth-of-type(2n)").css("display", "block");
+        });
+    });
+
+    $("#habilidad-2").on("click", function () {
+        limpiarHabilidad();
+        $("#habilidad-2 > p:nth-of-type(2n)").fadeIn(1000, function () {
+            $("#habilidad-2  > p:nth-of-type(2n)").css("display", "block");
+        });
+    });
+
+    $("#habilidad-3").on("click", function () {
+        limpiarHabilidad();
+        $("#habilidad-3 > p:nth-of-type(2n)").fadeIn(1000, function () {
+            $("#habilidad-3  > p:nth-of-type(2n)").css("display", "block");
+        });
+    });
+
+    $("#habilidad-4").on("click", function () {
+        limpiarHabilidad();
+        $("#habilidad-4 > p:nth-of-type(2n)").fadeIn(1000, function () {
+            $("#habilidad-4  > p:nth-of-type(2n)").css("display", "block");
+        });
+    });
+
+    $("#habilidad-5").on("click", function () {
+        limpiarHabilidad();
+        $("#habilidad-5 > p:nth-of-type(2n)").fadeIn(1000, function () {
+            $("#habilidad-5  > p:nth-of-type(2n)").css("display", "block");
+        });
+    });
+
+    $(".habilidades span").on("click", function () {
+        limpiarHabilidad();
+        $(".habilidades span").css("display", "none");
+    });
+}
+
+/**
+ * Limpio las habilidades
+ */
+function limpiarHabilidad() {
+    $(".habilidades span").css("display", "block");
+    $("#habilidad-1  > p:nth-of-type(2n)").css("display", "none");
+    $("#habilidad-2  > p:nth-of-type(2n)").css("display", "none");
+    $("#habilidad-3  > p:nth-of-type(2n)").css("display", "none");
+    $("#habilidad-4  > p:nth-of-type(2n)").css("display", "none");
+    $("#habilidad-5  > p:nth-of-type(2n)").css("display", "none");
 }
 
 /**
