@@ -97,10 +97,6 @@
         $('#1, #2, #3, #4, #5').on('wheel', function (event) {
             let sectionAtm;
             let idAtm = event.currentTarget.id;
-            $(".foto-perfil").css({
-                "transition-duration": "5s",
-                "transform": "rotateY(360deg)"
-            });
             //WheelDelta devuelve siempre múltiplos de 120.
             if (event.originalEvent.deltaY < 0) {
                 console.log("subida");
