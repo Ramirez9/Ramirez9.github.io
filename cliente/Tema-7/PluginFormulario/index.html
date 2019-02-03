@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisc Ramírez Ruiz</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+    <script src="js/pluginFormulario.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+</head>
+
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    input, textarea{
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+    }
+    #submit{
+        margin: auto 25%;
+    }
+    </style>
+
+<body>
+    <noscript>
+        <h4>Se requiere javascript</h4>
+    </noscript>
+
+    <main>
+
+        <h1>Francisco Ramírez Ruiz</h1>
+        <h2>Plugin Formulario</h2>
+        <span class="plugin"></span>
+        <form action="" method="GET">
+            <label for="nombre">Nombre</label><br>
+            <input type="text" name="nombre" tipo="nombre" id="nombre">
+            <span></span>
+            <br>
+
+            <label for="apellido">Apellidos</label> <br>
+            <input type="text" name="apellido" tipo="apellido" id="apellido">
+            <span></span>
+            <br>
+
+            <label for="email">Correo electrónico</label> <br>
+            <input type="email" name="email" tipo="email" id="email"> 
+            <span></span>
+            <br>
+
+            <label for="contenido"></label> <br>
+            <textarea name="textarea" tipo="textarea" id="textarea" cols="30" rows="10"></textarea> 
+            <span></span>
+            <br>
+
+            <input type="submit" name="submit"id="submit" value="Submit">
+
+        </form>
+
+
+    </main>
+</body>
+
+</html>
