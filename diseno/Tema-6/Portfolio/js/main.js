@@ -13,21 +13,22 @@
      */
     function init() {
 
-
         let contador = 1;
         let $section = ($('section, footer').length);
-
         $(".subir").css("display", "none");
 
-        capturarScroll($section);
+        capturarScroll($section, contador);
         scrollBotones(contador);
         setTimeout(barras, 1000);
         menuIconos(contador);
 
         cambiosIdiomas();
-
         habilidades();
 
+        $("#inicio").css({
+            "background-color": "rgb(250, 49, 49)",
+            "border-radius" : "20%"
+        })
     }
 
     /**
@@ -36,8 +37,7 @@
     function moverSection(msg) {
         $('html, body').clearQueue().animate({
             scrollTop: ($(msg).offset().top)
-        }, 1000);
-
+        }, 1000);        
     }
 
     /**
@@ -53,6 +53,24 @@
         });
     }
 
+    function limpiarMenu() {
+        $("#inicio").css({
+            "background-color": "transparent"
+        })
+        $("#informacion").css({
+            "background-color": "transparent"
+        })
+        $("#proyectos").css({
+            "background-color": "transparent"
+        })
+        $("#contacto").css({
+            "background-color": "transparent"
+        })
+        $("#redes").css({
+            "background-color": "transparent"
+        })
+    }
+
     /**
      * Capturo el evento click.
      * Dependiendo del id del ICONO muevo a una section u otra.
@@ -65,25 +83,48 @@
             if ($(this)[0].id == "inicio") {
                 moverSection("#1");
                 contador = 1;
-                //$(".subir").css("display", "none");
+                limpiarMenu();
+                $("#inicio").css({
+                    "background-color": "rgb(250, 49, 49)",
+                    "border-radius" : "20%"
+                })
             }
             if ($(this)[0].id == "informacion") {
                 contador = 2;
                 moverSection("#2");
+                limpiarMenu();
+                $("#informacion").css({
+                    "background-color": "rgb(250, 49, 49)",
+                    "border-radius" : "20%"
+                })
             }
             if ($(this)[0].id == "proyectos") {
                 contador = 3;
                 moverSection("#3");
+                limpiarMenu();
+                $("#proyectos").css({
+                    "background-color": "rgb(250, 49, 49)",
+                    "border-radius" : "20%"
+                })
             }
             if ($(this)[0].id == "contacto") {
                 contador = 4;
                 moverSection("#4");
+                limpiarMenu();
+                $("#contacto").css({
+                    "background-color": "rgb(250, 49, 49, 0.9)",
+                    "border-radius" : "20%"
+                })
             }
             if ($(this)[0].id == "redes") {
                 contador = 5;
                 moverSection("#5");
-                //$(".subir").css("display", "block");
-                //$(".bajar").css("display", "none");
+                limpiarMenu();
+                $("#redes").css({
+                    "background-color": "rgb(250, 49, 49)",
+                    "border-radius" : "20%"
+                })
+
             }
         });
         return contador;
@@ -94,27 +135,104 @@
      * FIREFOX lo detecte
      */
     function capturarScroll($section) {
-        
-    document.addEventListener('touchmove', function(e) {
-        e.preventDefault()
-    }, false);
 
-        $('#1, #2, #3, #4, #5').on('wheel mousewheel', {passive: true}, function (event) {
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault()
+        }, false);
+
+        $('#1, #2, #3, #4, #5').on('wheel mousewheel', {
+            passive: true
+        }, function (event) {
             let sectionAtm;
             let idAtm = event.currentTarget.id;
+            
             if (event.originalEvent.deltaY < 0 || event.originalEvent.wheelDelta / 120 > 0) {
                 console.log("subida");
                 if (parseInt(idAtm) - 1 != 0) {
                     sectionAtm = "#" + (parseInt(idAtm) - 1);
-                    if ($(sectionAtm) != undefined)
+                    if ($(sectionAtm) != undefined) {
+                        console.log(sectionAtm);
                         moverSection(sectionAtm);
+                        if($(sectionAtm).attr("id") === "1"){
+                            limpiarMenu();
+                            $("#inicio").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "2"){
+                            limpiarMenu();
+                            $("#informacion").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "3"){
+                            limpiarMenu();
+                            $("#proyectos").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "4"){
+                            limpiarMenu();
+                            $("#contacto").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "5"){
+                            limpiarMenu();
+                            $("#redes").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                    }
                 }
             } else {
                 console.log("bajada");
                 if (parseInt(idAtm) != $section) {
                     sectionAtm = "#" + (parseInt(idAtm) + 1);
-                    if ($(sectionAtm) != undefined)
+                    if ($(sectionAtm) != undefined) {
+                        console.log(sectionAtm);
                         moverSection(sectionAtm);
+                        if($(sectionAtm).attr("id") === "1"){
+                            limpiarMenu();
+                            $("#inicio").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "2"){
+                            limpiarMenu();
+                            $("#informacion").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "3"){
+                            limpiarMenu();
+                            $("#proyectos").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "4"){
+                            limpiarMenu();
+                            $("#contacto").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                        if($(sectionAtm).attr("id") === "5"){
+                            limpiarMenu();
+                            $("#redes").css({
+                                "background-color": "rgb(250, 49, 49)",
+                                "border-radius" : "20%"
+                            })
+                        }
+                    }
                 }
             }
         });
@@ -174,42 +292,54 @@ function cambiosIdiomas() {
  * Asocio el evento click a cada habilidad para mostrar un mensaje
  */
 function habilidades() {
-    $("#habilidad-1").on("click", {passive: true}, function () {
+    $("#habilidad-1").on("click", {
+        passive: true
+    }, function () {
         limpiarHabilidad();
         $("#habilidad-1 > p:nth-of-type(2n)").fadeIn(1000, function () {
             $("#habilidad-1  > p:nth-of-type(2n)").css("display", "block");
         });
     });
 
-    $("#habilidad-2").on("click", {passive: true}, function () {
+    $("#habilidad-2").on("click", {
+        passive: true
+    }, function () {
         limpiarHabilidad();
         $("#habilidad-2 > p:nth-of-type(2n)").fadeIn(1000, function () {
             $("#habilidad-2  > p:nth-of-type(2n)").css("display", "block");
         });
     });
 
-    $("#habilidad-3").on("click", {passive: true}, function () {
+    $("#habilidad-3").on("click", {
+        passive: true
+    }, function () {
         limpiarHabilidad();
         $("#habilidad-3 > p:nth-of-type(2n)").fadeIn(1000, function () {
             $("#habilidad-3  > p:nth-of-type(2n)").css("display", "block");
         });
     });
 
-    $("#habilidad-4").on("click", {passive: true}, function () {
+    $("#habilidad-4").on("click", {
+        passive: true
+    }, function () {
         limpiarHabilidad();
         $("#habilidad-4 > p:nth-of-type(2n)").fadeIn(1000, function () {
             $("#habilidad-4  > p:nth-of-type(2n)").css("display", "block");
         });
     });
 
-    $("#habilidad-5").on("click", {passive: true}, function () {
+    $("#habilidad-5").on("click", {
+        passive: true
+    }, function () {
         limpiarHabilidad();
         $("#habilidad-5 > p:nth-of-type(2n)").fadeIn(1000, function () {
             $("#habilidad-5  > p:nth-of-type(2n)").css("display", "block");
         });
     });
 
-    $(".habilidades span").on("click", {passive: true}, function () {
+    $(".habilidades span").on("click", {
+        passive: true
+    }, function () {
         limpiarHabilidad();
         $(".habilidades span").css("display", "none");
     });
