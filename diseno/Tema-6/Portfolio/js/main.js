@@ -32,14 +32,10 @@
             "border-radius": "20%"
         })
 
-        $("body").on("touchmove", false);
-
-        $(document).on('scroll', function() {
-            // "Desactivar" el scroll horizontal
-            if ($(document).scrollLeft() !== 0) {
-                $(document).scrollLeft(0);
-            }
-        });
+        $('html, body').on('touchstart touchmove', function(e){ 
+            //prevent native touch activity like scrolling
+            e.preventDefault(); 
+       });
 
     }
 
