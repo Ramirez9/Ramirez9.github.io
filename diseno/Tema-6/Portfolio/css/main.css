@@ -290,7 +290,7 @@ footer {
 
 footer>h2 {
     margin-top: 13%;
-    margin-bottom: 10%;
+    margin-bottom: 13%;
 }
 
 .extra {
@@ -332,7 +332,6 @@ select:focus {
     margin-left: 5%;
     display: grid;
     grid-auto-flow: column;
-    margin-bottom: 10%;
 }
 
 a {
@@ -369,39 +368,21 @@ a {
     text-align: center;
     color: black;
 }
+@media only screen and (min-width: 391px) {
+  
+    .tercer-section>div>div>div {
+        width: 70%;
+        margin-bottom: 1px;
+        margin-left: 15%;
+    }
+}
 
 /***************************MEDIAS***************/
-@media only screen and (min-width: 430px) {
-    article>a>img {
-        width: 90%;
-        height: 69%;
-    }
 
-    article{
-        height: 115px;
-    }
-}
-@media only screen and (min-width: 460px) {
-
-    .idiomas{
-        margin-top: 10%;
-    }
-    .extra img{
-        margin-top: 10%;
-    }
-    footer > h2{
-        margin-top: 8%;
-    }
-}
-
-@media only screen and (min-width: 536px) {
-
-   input{
-       margin: 5% 0;
-   }
-}
 @media only screen and (min-width: 539px) {
-
+    html {
+        overflow: hidden;
+    }
     h1 {
         font-size: 50px;
     }
@@ -433,6 +414,7 @@ a {
     .tercer-section>div>div>div {
         width: 45%;
         margin-bottom: 1px;
+        margin-left: 0%;
     }
     .tercer-section>div>h2 {
         margin: 0;
@@ -467,24 +449,16 @@ a {
         margin: 10px;
         margin-right: 50%;
     }
+
+    input{
+        margin-top: 1%;
+    }
+    textarea{
+        margin: 4% 0;
+    }
 }
 
-@media only screen and (min-width: 760px) {
-
-    .idiomas{
-        margin-top: 10%;
-    }
-    .extra img{
-        margin-top: 10%;
-    }
-    footer > h2{
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
-    .redes{
-        margin-bottom: 5%;
-    }
-
+@media only screen and (min-width: 768px) {
     /* navegacion */
     nav {
         color: white;
@@ -524,6 +498,10 @@ a {
     }
     footer>h2 {
         margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .privacidad{
+        margin-top: 5%;
     }
     .redes {
         margin-left: 10%;
@@ -537,13 +515,6 @@ a {
     }
 }
 
-@media only screen and (min-width: 880px) {
-    .privacidad{
-        margin-top: 5%;
-    }
-}
-
-
 @media only screen and (min-width: 1024px) {
     h1 {
         font-size: 100px;
@@ -552,6 +523,7 @@ a {
         font-size: 50px;
     }
     h3 {
+        margin-top: 1%;
         padding-bottom: 3px;
     }
     h4 {
@@ -601,6 +573,10 @@ a {
     }
     input {
         margin: 3% 0;
+    }
+    .formulario {
+        margin-top: 1%;
+        width: 90%;
     }
     textarea {
         margin: 4% 0;
@@ -690,6 +666,9 @@ a {
         *margin-top: 10%;
         width: 400px;
         height: 400px;
+    }
+    textarea{
+        margin: 7% 0;
     }
 }
 

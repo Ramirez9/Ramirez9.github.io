@@ -367,7 +367,7 @@
 
         //Section 3
         $(".proyectos a").text("<a = Proyectos/>");
-        $(".e1").text("oteles Rurales");
+        $(".e1").text("Hoteles Rurales");
         $(".e2").text("Gestor de Tareas");
         $(".e3").text("Marcador Baloncesto");
         $(".e4").text("Conecta 4");
