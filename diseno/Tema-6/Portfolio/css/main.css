@@ -371,6 +371,16 @@ a {
 }
 
 /***************************MEDIAS***************/
+@media only screen and (min-width: 430px) {
+    article>a>img {
+        width: 90%;
+        height: 69%;
+    }
+
+    article{
+        height: 115px;
+    }
+}
 @media only screen and (min-width: 460px) {
 
     .idiomas{
@@ -382,6 +392,13 @@ a {
     footer > h2{
         margin-top: 8%;
     }
+}
+
+@media only screen and (min-width: 536px) {
+
+   input{
+       margin: 5% 0;
+   }
 }
 @media only screen and (min-width: 539px) {
 
@@ -452,7 +469,7 @@ a {
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 760px) {
 
     .idiomas{
         margin-top: 10%;
@@ -519,6 +536,13 @@ a {
         left: 47%;
     }
 }
+
+@media only screen and (min-width: 880px) {
+    .privacidad{
+        margin-top: 5%;
+    }
+}
+
 
 @media only screen and (min-width: 1024px) {
     h1 {
