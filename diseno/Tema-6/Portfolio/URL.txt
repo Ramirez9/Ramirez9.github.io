@@ -1,3 +1,13 @@
 https://ramirez9.github.io/diseno/Tema-6/Portfolio/index.html
 
 https://github.com/Ramirez9/Ramirez9.github.io/tree/master/diseno/Tema-6/Portfolio
+
+****************************
+La página ha sido diseñada para el idioma:
+	Español
+	Francés
+	Inglés
+Muestro el respectivo idioma dependiendo del navegador del usuario para facilitarte 
+la estancia, más cómodo que si la tuviese que cambiar, sin embargo también podrá cambiar el 
+idioma
+***********************************
