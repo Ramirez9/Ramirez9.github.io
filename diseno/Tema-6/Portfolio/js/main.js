@@ -32,10 +32,6 @@
             "border-radius": "20%"
         })
 
-        $('html, body').on('touchstart touchmove', function(e){ 
-            //prevent native touch activity like scrolling
-            e.preventDefault(); 
-       });
 
     }
 
@@ -126,9 +122,6 @@
      */
     function capturarScroll($section) {
 
-        document.addEventListener('touchmove', function (e) {
-            e.preventDefault()
-        }, false);
 
         $('#1, #2, #3, #4, #5').on('wheel mousewheel', {
             passive: true

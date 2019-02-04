@@ -5,6 +5,7 @@ html {
     color: white;
     background-image: url("../img/stars.jpg");
     background-size: cover;
+    overflow: hidden;
 }
 
 section,
@@ -383,9 +384,7 @@ a {
     }
 }
 @media only screen and (min-width: 539px) {
-    html {
-        overflow: hidden;
-    }
+
     h1 {
         font-size: 50px;
     }
