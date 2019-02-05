@@ -117,6 +117,9 @@ let buscaminasGui = {
       buscaminasGui.filaColumna(id);
       let $id = $("#" + $fila + "-" + $columna);
 
+      if(buscaminas.tableroCasillaPulsada[$fila][$columna] !== "c-pulsada"){
+
+      
       try {
          //Selecciono el botón derecho para marcar en el tablero
          if (event.buttons === 2) {
@@ -138,6 +141,9 @@ let buscaminasGui = {
          }
       } catch (error) {
          $("span").text(error.message);
+      }
+      }else{
+            console.log("nope")
       }
    },
 
