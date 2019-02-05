@@ -13,6 +13,8 @@
      */
     jQuery.fn.examen = function (opciones) {
 
+        let elementoFocus = new Map();
+
         //Patrones de las expresiones por defecto.
         let defaultExpresiones = {
             nombre: [/[a]/, "Mínimo 3 caracteres para el nombre."],
@@ -33,29 +35,48 @@
 
         }, opciones);
 
-        // let tester = {
-        //     //Valores por defecto con expresiones
-        //     test() {
-        //         let regex = new RegExp(defaultOpciones.expresiones[$(this).attr("tipo")][0].test($(this).val()));
-        //         if (!regex.test($(this).val())) {
-        //             $("span").text(defaultOpciones.expresiones[1])
-        //         } 
-        //     }
-        // };
-
         //Obtengo todos los inputs que no sean submit ( botón enviar ) y textarea.
-        let $inputs = $("input:not([type='submit']), textarea", $(this));
+        let $inputs = $("input:not([type='submit']), select, option", $(this));
+
+        $(this).submit(function (event) {
+
+            event.preventDefault();
+            $inputs.blur();
+            if(elementoFocus.size === 0){
+                console.log("correcto");
+                let mensaje = "";
+                $inputs.each(function (indice, valor) {
+                    mensaje += $(valor).attr("tipo") + " --> " + $(valor).val() + "\n";
+                   
+                });
+                $("textarea").text(mensaje);
+            }
+            else{
+                console.log(elementoFocus);
+                //Con next paso al siguiente elemento.
+                console.log(elementoFocus.values())
+                console.log(elementoFocus.values().next()) //false
+                console.log(elementoFocus.value) //Undefined
+                console.log(elementoFocus.values().next().value.focus()) // jQuery.fn.init [input#nombre]
+                elementoFocus.values().next().value.focus();
+            }
+        });
+
         /*
          * Asocio a los inputs el evento blur.
          * Obtengo el elemento tipo del html
          */
         $inputs.on("blur", function () {
             if (!defaultOpciones.expresiones[$(this).attr("tipo")][0].test($(this).val())) {
+
                 $(this).css({
                     color: defaultOpciones.css.color,
                     background: defaultOpciones.css.backgroundcolor,
                     border: defaultOpciones.css.border
                 });
+                //Si hay blur guardo en el map
+                elementoFocus.set($(this).attr("tipo"), $(this));
+
                 /**
                  * Si está correcto al quitar blur
                  */
@@ -65,6 +86,8 @@
                     background: "white",
                     border: "1px solid black"
                 });
+                //Sino, elimino del map
+                elementoFocus.delete($(this).attr("tipo"));
             }
         });
 
