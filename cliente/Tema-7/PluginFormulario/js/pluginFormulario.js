@@ -44,12 +44,17 @@
             $inputs.blur();
             if(elementoFocus.size === 0){
                 console.log("correcto");
-                let mensaje = "";
-                $inputs.each(function (indice, valor) {
-                    mensaje += $(valor).attr("tipo") + " --> " + $(valor).val() + "\n";
-                   
-                });
-                $("textarea").text(mensaje);
+                /**
+                 * let mensaje = "";
+                 * $inputs.each(function (indice, valor) {
+                 * mensaje += $(valor).attr("tipo") + " --> " + $(valor).val() + "\n";
+                 * 
+                 * });
+                 * $("textarea").text(mensaje);
+                 */
+                $.ajax({url: "texto.txt", success: function(result){
+                    $("textarea").text(result);
+                  }});
             }
             else{
                 console.log(elementoFocus);
@@ -59,6 +64,7 @@
                 console.log(elementoFocus.value) //Undefined
                 console.log(elementoFocus.values().next().value.focus()) // jQuery.fn.init [input#nombre]
                 elementoFocus.values().next().value.focus();
+                $("textarea").text("");
             }
         });
 
