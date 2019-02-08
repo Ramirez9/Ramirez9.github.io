@@ -17,9 +17,9 @@
 
         //Patrones de las expresiones por defecto.
         let defaultExpresiones = {
-            nombre: [/[a]/, "Mínimo 3 caracteres para el nombre."],
-            apellido: [/a/, "Mínimo 3 caracteres para el apellido."],
-            email: [/a/, "Correo inválido. Ejemplo:examen@exm.c"],
+            nombre: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el nombre."],
+            apellido: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el apellido."],
+            email: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/, "Correo inválido. Ejemplo:examen@exm.c"],
             textarea: [/a/, "El contenido no puede estar vacío."]
         }
 
