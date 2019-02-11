@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Ramírez Ruiz</title>
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Francisco Ramírez Ruiz">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <noscript>
+        <h4>Se requiere javascript</h4>
+    </noscript>
+
+    <h1>Sugerencias mediante PHP</h1>
+    <h2>Francisco Ramírez Ruiz</h2>
+    <p>Suferencias: <span id="sugerencia"></span></p>
+
+    <label for="name">Nombre: </label>
+    <input type="text" id="buscador" name = "name" >
+    <h2>Preguntas teóricas</h2>
+     <br>
+    <b>1.- ¿Cómo se trata el envío de una parámetro a php?.Indica todos los pasos (html, javascript, php) </b>
+    <p>Para pasar un parametro desde html he utilizado un <b>input de tipo texto</b>, en el cuál he obtenido su valor en jquery
+        mediante  <b>let valorInput = $('#buscador').val();</b> y después lo he pasado en forma de objeto data <b> data:{"valorInput":valorInput}</b>
+      <br>  Por último he recogido el valor en php con<b> $valorInput = $_REQUEST["valorInput"];</b>
+    </p>
+    <b>2.-Atributo donde se recibe la respuesta </b>
+    <p>La respuesta obtenida del array php ha sido gracias al atributto <b>success</b> en el cual imprimo los valores si todo ha ido bien</p>
+    
+</body>
+
+</html>
