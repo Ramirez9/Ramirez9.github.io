@@ -18,38 +18,76 @@
  * @version 1.0
  */
 {
+    function init() {
 
-
-function init() {
-
-    $("#boton1").click(function() {
-        console.log("prueba");
-        $.getJSON( "json/habilidades.json", function( data ) {
-            $( "#lista1").css("display", "block");
+        $("input[type=button]").click(function () {
             let arrayHabilidades = [];
-            $.each( data, function( clave, valor ) {
-                arrayHabilidades.push( "<li id='" + clave + "'>" + valor + "</li>" );
+            $("ul").css("display", "none");
+            let $id = $(this).attr("id");
+            switch ($id) {
+                case "boton1":
+                    habilidades(arrayHabilidades, "#lista1", "habilidades");
+                    break;
+                case "boton2":
+                    perfiles(arrayHabilidades, "#lista2", "perfiles");
+                    break;
+                case "boton3":
+                    tipos(arrayHabilidades, "#lista3", "tipos");
+                    break;
+                default:
+                    break;
+            }
+
+        });
+
+    }
+
+    /**
+     * Obtengo elementos de habilidades.json
+     */
+    function habilidades(arrayHabilidades, msg, json) {
+        ficheroJson(arrayHabilidades, msg, json);
+    }
+    /**
+     * Obtengo elementos de perfiles.json
+     */
+    function perfiles(arrayHabilidades, msg, json) {
+        ficheroJson(arrayHabilidades, msg, json);
+    }
+
+    /**
+     * Obtengo elementos de tipos.json
+     */
+    function tipos(arrayHabilidades, msg, json) {
+        ficheroJson(arrayHabilidades, msg, json);
+    }
+    /**
+     * Recorro el array y muestro en una lista
+     * @param {*} data 
+     * @param {*} arrayHabilidades 
+     * @param {*} msg 
+     */
+    function mensaje(data, arrayHabilidades, msg) {
+        $(msg).css("display", "block");
+        $.each(data, function (clave, valor) {
+            arrayHabilidades.push("<li>" + "<b>" + clave + "</b>" + ": " + valor + "</li>");
+        });
+        $(msg).html(arrayHabilidades);
+    }
+
+    /**
+     * Obtengo el fichero json y muestro su cabecera
+     * @param {*} arrayHabilidades 
+     * @param {*} msg 
+     * @param {*} json 
+     */
+    function ficheroJson(arrayHabilidades, msg, json) {
+        $.getJSON("json/" + json + ".json", function (data) {
+            $.each(data, function (index, value) {
+                arrayHabilidades.push("<h2>" + index + "</h2>");
+                mensaje(value, arrayHabilidades, msg);
             });
-            $( "#lista1").html(arrayHabilidades);
-
-          });
-    });
-
-    $("#boton2").click(function() {
-        console.log("prueba");
-        $.getJSON( "json/perfiles.json", function( data ) {
-            $( "#lista2").css("display", "block");
-            let arrayHabilidades = [];
-            $.each( data, function( clave, valor ) {
-                arrayHabilidades.push( "<li id='" + clave + "'>" + valor + "</li>" );
-            });
-            $( "#lista2").html(arrayHabilidades);
-
-          });
-    });
-
-}
-
-$(init)
-
+        });
+    }
+    $(init)
 }
