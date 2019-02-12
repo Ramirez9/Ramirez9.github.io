@@ -26,40 +26,18 @@
             let $id = $(this).attr("id");
             switch ($id) {
                 case "boton1":
-                    habilidades(arrayHabilidades, "#lista1", "habilidades");
+                    ficheroJson(arrayHabilidades, "#lista1", "habilidades");
                     break;
                 case "boton2":
-                    perfiles(arrayHabilidades, "#lista2", "perfiles");
+                    ficheroJson(arrayHabilidades, "#lista2", "perfiles");
                     break;
                 case "boton3":
-                    tipos(arrayHabilidades, "#lista3", "tipos");
+                    ficheroJson(arrayHabilidades, "#lista3", "tipos");
                     break;
                 default:
                     break;
             }
-
         });
-
-    }
-
-    /**
-     * Obtengo elementos de habilidades.json
-     */
-    function habilidades(arrayHabilidades, msg, json) {
-        ficheroJson(arrayHabilidades, msg, json);
-    }
-    /**
-     * Obtengo elementos de perfiles.json
-     */
-    function perfiles(arrayHabilidades, msg, json) {
-        ficheroJson(arrayHabilidades, msg, json);
-    }
-
-    /**
-     * Obtengo elementos de tipos.json
-     */
-    function tipos(arrayHabilidades, msg, json) {
-        ficheroJson(arrayHabilidades, msg, json);
     }
     /**
      * Recorro el array y muestro en una lista
