@@ -23,8 +23,6 @@ $alumnos = [
     "Samueeh"
     ];
 
-
-
 //Obtengo el valor del input del archivo main.js
 $valorInput = $_REQUEST["valorInput"];
 

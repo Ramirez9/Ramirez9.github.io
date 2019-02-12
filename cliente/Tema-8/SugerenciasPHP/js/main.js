@@ -21,7 +21,7 @@ function init() {
             return;
         } else {
             $.get({
-                url: ("php/arrayAlumnos.php" + str),
+                url: ("php/arrayAlumnos.php?valorInput=" + str),
                 data:{"valorInput":valorInput},
                 cache:"false",
                 success: function (response) {
