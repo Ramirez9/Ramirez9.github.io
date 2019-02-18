@@ -17,9 +17,8 @@ function init() {
 
     $("#mostrar").click(function () {
         let cadena = "";
-        let url = "index2.html" //URLactual
         $.get({
-                url: url,
+                url: $("#url").val(),
                 cache: "false",
 
                 error: function () {
@@ -48,13 +47,14 @@ function init() {
             .fail(function () {
                 cadena += ", Fallo (fail)"
                 $("#estado").val(cadena);
+                $("#scroller").text("");
             })
             .always(function () {
                 cadena += ", Finalizado (always)"
                 $("#estado").val(cadena);
             })
 
-            $("#url").val(url);
+            $("#url").val()
 
     });
 }
