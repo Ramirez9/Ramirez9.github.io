@@ -20,25 +20,39 @@
 {
     function init() {
 
+        let contador;
+
         $("input[type=button]").click(function () {
             let arrayHabilidades = [];
             $("ul").css("display", "none");
             let $id = $(this).attr("id");
             switch ($id) {
                 case "boton1":
-                    ficheroJson(arrayHabilidades, "#lista1", "habilidades");
+                    contador = 0;
+                    ficheroJson(contador, arrayHabilidades, "#lista1", "habilidades");
                     break;
                 case "boton2":
-                    ficheroJson(arrayHabilidades, "#lista2", "perfiles");
+                    contador = 1;
+                    ficheroJson(contador, arrayHabilidades, "#lista2", "perfiles");
                     break;
                 case "boton3":
-                    ficheroJson(arrayHabilidades, "#lista3", "tipos");
+                    contador = 2;
+                    ficheroJson(contador, arrayHabilidades, "#lista3", "tipos");
                     break;
                 default:
                     break;
             }
         });
+
     }
+    function coloAleatorio() {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
     /**
      * Recorro el array y muestro en una lista
      * @param {*} data 
@@ -48,9 +62,48 @@
     function mensaje(data, arrayHabilidades, msg) {
         $(msg).css("display", "block");
         $.each(data, function (clave, valor) {
-            arrayHabilidades.push("<li>" + "<b>" + clave + "</b>" + ": " + valor + "</li>");
+            arrayHabilidades.push("<li style=\"display: none\" title=\" " + valor + "\"> <input type=\"checkbox\">" + "<b>" + clave + "</b></li>");
         });
         $(msg).html(arrayHabilidades);
+
+        $("div").click(function hola() {
+            let $id = $(this).attr("id");
+            console.log($id)
+            switch ($id) {
+                case "0":
+                    $("li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4)," + 
+                    "li:nth-of-type(5), li:nth-of-type(6) , li:nth-of-type(7) , li:nth-of-type(8) ,"+
+                    "li:nth-of-type(9), li:nth-of-type(10)").toggle(1000).css({"color": coloAleatorio, "text-shadow": "2px 0 0 #000,"+ 
+                    "-2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,"+
+                    "1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000"});
+                    break;
+                case "1":
+                    $("li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4),"+
+                     "li:nth-of-type(5)").toggle(2000).css({"color": coloAleatorio, "text-shadow": "2px 0 0 #000,"+ 
+                     "-2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,"+
+                     "1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000"});
+                    break;
+                case "2":
+                    $("li:nth-of-type(1), li:nth-of-type(2)," +
+                    "li:nth-of-type(3)").toggle(500).css({"color": coloAleatorio, "text-shadow": "2px 0 0 #000,"+ 
+                    "-2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,"+
+                    "1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000"});
+                    break;
+                case "3":
+                    $("li:nth-of-type(4), li:nth-of-type(5), li:nth-of-type(6) , li:nth-of-type(7) , li:nth-of-type(8),"+ 
+                     "li:nth-of-type(9)").toggle(3000).css({"color": coloAleatorio, "text-shadow": "2px 0 0 #000,"+ 
+                     "-2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,"+
+                     "1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000"});
+                    break;
+                case "4":
+                    $("li:nth-of-type(10)").toggle(1500).css({"color": coloAleatorio, "text-shadow": "2px 0 0 #000,"+ 
+                    "-2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,"+
+                    "1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000"});
+                    break;
+                default:
+                    break;
+            }
+        })
     }
 
     /**
@@ -59,10 +112,10 @@
      * @param {*} msg 
      * @param {*} json 
      */
-    function ficheroJson(arrayHabilidades, msg, json) {
+    function ficheroJson(contador, arrayHabilidades, msg, json) {
         $.getJSON("json/" + json + ".json", function (data) {
             $.each(data, function (index, value) {
-                arrayHabilidades.push("<h2>" + index + "</h2>");
+                arrayHabilidades.push("<div id=" + contador++ + ">" + "<h2>" + index + "</h2>");
                 mensaje(value, arrayHabilidades, msg);
             });
         });
