@@ -171,6 +171,7 @@ let buscaminasGui = {
       } catch (error) {
          $("span").text(error.message);
          buscaminasGui.descubrirMinas($(""));
+         buscaminasGui.actualizarTablero();
       }
    },
 
@@ -259,7 +260,6 @@ let buscaminasGui = {
          },1);
          if(contador >= 1500)
             contador = 125;
-         console.log(contador);
       }
    },
 
