@@ -42,18 +42,6 @@ let buscaminasGui = {
    },
 
    /**
-    * Devuelvo un color aleatorio
-    */
-   coloresAleatorios() {
-      let letters = '39123123F50F';
-      let color = '#';
-      for (let i = 0; i < 6; i++) {
-         color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-   },
-
-   /**
     * Genero el tablero con display grid.
     */
    generarTableroGui() {

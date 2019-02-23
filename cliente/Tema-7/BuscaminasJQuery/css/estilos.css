@@ -20,6 +20,7 @@ input {
     font-family: Arial; font-size: 30pt; 
     text-align: center;
     color: white;
+    cursor: pointer;
 }
 
 #reiniciar{

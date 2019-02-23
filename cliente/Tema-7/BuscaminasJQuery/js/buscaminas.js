@@ -313,13 +313,13 @@ let buscaminas = {
     pedirNivel(nivel) {
         switch (nivel) {
             case "medio":
-                buscaminas.banderas = 10;
+                buscaminas.banderas = 40;
                 buscaminas.filas = 16;
                 buscaminas.columnas = 16;
                 buscaminas.minas = 40;
                 break;
             case "dificil":
-                buscaminas.banderas = 20;
+                buscaminas.banderas = 99;
                 buscaminas.filas = 16;
                 buscaminas.columnas = 30;
                 buscaminas.minas = 99;
