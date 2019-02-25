@@ -17,11 +17,16 @@
              * expresiones2, determinarás las personalizadas.
              */
               expresiones: {
-                nombre: [/b/,"Fallo en nombre"],
-                apellido: [/b/, "Fallo en apellido"],
-                email: [/b/, "Fallo en correo"],
-                textarea: [/b/, "Fallo en textarea"]
-              }
+                nombre: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el nombre."],
+                apellido: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el apellido."],
+                email: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/, "Correo inválido. Ejemplo:examen@exm.c"]
+              },
+
+              //css: {
+                //"color": "white",
+                //"backgroundcolor": "blue",
+                //"border": "2px solid blue"
+           // }
             });
 
     }

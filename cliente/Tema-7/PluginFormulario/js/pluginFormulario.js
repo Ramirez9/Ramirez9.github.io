@@ -20,7 +20,6 @@
             nombre: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el nombre."],
             apellido: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el apellido."],
             email: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/, "Correo inválido. Ejemplo:examen@exm.c"],
-            textarea: [/a/, "El contenido no puede estar vacío."]
         }
 
         // opciones por defecto
@@ -52,8 +51,10 @@
                  * });
                  * $("textarea").text(mensaje);
                  */
-                $.ajax({url: "texto.txt", success: function(result){
-                    $("textarea").text(result);
+                $.ajax({
+                    url: "autor.txt", 
+                    success: function(result){
+                        $("textarea").text(result);
                   }});
             }
             else{
@@ -88,9 +89,9 @@
                  */
             } else {
                 $(this).css({
-                    color: "black",
-                    background: "white",
-                    border: "1px solid black"
+                    color: "initial",
+                    background: "initial",
+                    border: "initial"
                 });
                 //Sino, elimino del map
                 elementoFocus.delete($(this).attr("tipo"));
@@ -104,9 +105,9 @@
          */
         $inputs.on("focus", function () {
             $(this).css({
-                "color": "black",
-                "background": "white",
-                "border": "1px solid black"
+                color: "initial",
+                background: "initial",
+                border: "initial"
             });
         });
     };
