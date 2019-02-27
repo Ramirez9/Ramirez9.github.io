@@ -12,14 +12,14 @@
      * @param {*} opciones 
      */
     jQuery.fn.examen = function (opciones) {
-
-        let elementoFocus = new Map();
+        //Creo un array para añadir los elementos a focusear, guardo elemento JQuery
+        let $elementoFocus = [];
 
         //Patrones de las expresiones por defecto.
         let defaultExpresiones = {
             nombre: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el nombre."],
             apellido: [/^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,20}$/, "Mínimo 3 caracteres para el apellido."],
-            email: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/, "Correo inválido. Ejemplo:examen@exm.c"],
+            email: [/^[a-zA-Zñ]{1,10}([.][a-zA-Zñ]{1,10}){0,3}[@][a-z]{1,6}([\.][a-z]{1,4}){1,4}$/, "Correo inválido. Ejemplo:examen@exm.c"],
         }
 
         // opciones por defecto
@@ -37,34 +37,27 @@
         //Obtengo todos los inputs que no sean submit ( botón enviar ) y textarea.
         let $inputs = $("input:not([type='submit']), select, option", $(this));
 
-        $(this).submit(function (event) {
+        //Guardo las variables de color, background y border para resetearlas
+        let $colorInitial = $inputs.css("color");
+        let $backgroundInitial = $inputs.css("background-color");
+        let $borderInitial = $inputs.css("border");
 
+
+        $(this).submit(function (event) {
             event.preventDefault();
+            $elementoFocus = []; // Vacío el array para volver al top de los elementos
             $inputs.blur();
-            if(elementoFocus.size === 0){
-                console.log("correcto");
-                /**
-                 * let mensaje = "";
-                 * $inputs.each(function (indice, valor) {
-                 * mensaje += $(valor).attr("tipo") + " --> " + $(valor).val() + "\n";
-                 * 
-                 * });
-                 * $("textarea").text(mensaje);
-                 */
-                $.ajax({
+            
+            if($elementoFocus.length === 0){
+                $.get({
                     url: "autor.txt", 
                     success: function(result){
                         $("textarea").text(result);
                   }});
             }
             else{
-                console.log(elementoFocus);
-                //Con next paso al siguiente elemento.
-                console.log(elementoFocus.values())
-                console.log(elementoFocus.values().next()) //false
-                console.log(elementoFocus.value) //Undefined
-                console.log(elementoFocus.values().next().value.focus()) // jQuery.fn.init [input#nombre]
-                elementoFocus.values().next().value.focus();
+                //Recorro elemento desde el inicio para seleccionar el primero Foco.
+                $elementoFocus[0].focus();
                 $("textarea").text("");
             }
         });
@@ -75,42 +68,26 @@
          */
         $inputs.on("blur", function () {
             if (!defaultOpciones.expresiones[$(this).attr("tipo")][0].test($(this).val())) {
-
                 $(this).css({
                     color: defaultOpciones.css.color,
                     background: defaultOpciones.css.backgroundcolor,
                     border: defaultOpciones.css.border
                 });
                 //Si hay blur guardo en el map
-                elementoFocus.set($(this).attr("tipo"), $(this));
+                $elementoFocus.push($(this));
 
                 /**
                  * Si está correcto al quitar blur
                  */
             } else {
                 $(this).css({
-                    color: "initial",
-                    background: "initial",
-                    border: "initial"
+                    color: $colorInitial,
+                    background: $backgroundInitial,
+                    border: $borderInitial
                 });
-                //Sino, elimino del map
-                elementoFocus.delete($(this).attr("tipo"));
             }
         });
-
-        /*
-         * Cuando hago focus sobre un elemento
-         * Vuelvo a obtener sus valores de por defecto
-         * del HTML
-         */
-        $inputs.on("focus", function () {
-            $(this).css({
-                color: "initial",
-                background: "initial",
-                border: "initial"
-            });
-        });
     };
-    // return this;
+    return this;
 
 })(jQuery)
