@@ -2,6 +2,8 @@
 
 Proyecto desarrollado en la asignatura de cliente
 
+https://iesgrancapitan-dwec.github.io/Buscaminas-Francisco/
+
 ## Efectos realizados con JQuery
 
 Códigos de los efectos realizados en el proyecto, todos ellos han sido creados con JQuery
