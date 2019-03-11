@@ -1,0 +1,50 @@
+#header {
+    color: black;
+    .navigation {
+      font-size: 12px;
+    }
+    .logo {
+      width: 300px;
+    }
+  }
+
+
+  .clearfix {
+    display: block;
+    zoom: 1;
+  
+    &:after {
+      content: " ";
+      display: block;
+      font-size: 0;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+
+  .component {
+    width: 300px;
+    
+    @media (min-width: 768px) {
+      width: 600px;
+      @media  (min-resolution: 192dpi) {
+        background-image: url(/img/retina2x.png);
+      }
+    }
+
+    @media (min-width: 1280px) {
+      width: 800px;
+    }
+  }
+
+@conversion-1: 5cm + 10mm; // result is 6cm
+@conversion-2: 2 - 3cm - 5mm; // result is -1.5cm
+
+// conversion is impossible
+@incompatible-units: 2 + 5px - 3cm; // result is 4px
+
+// example with variables
+@base: 5%;
+@filler: @base * 2; // result is 10%
+@other: @base + @filler; // result is 15%
