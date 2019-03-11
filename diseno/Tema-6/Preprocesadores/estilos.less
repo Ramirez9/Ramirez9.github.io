@@ -1,50 +1,300 @@
-#header {
-    color: black;
-    .navigation {
-      font-size: 12px;
-    }
-    .logo {
-      width: 300px;
-    }
+//Fuente de letra.
+@Opens : 'Open Sans', sans-serif;
+
+//Colores
+@blanco: white;
+@blanco2: lightcyan;
+@azul: navy;
+@azul2: steelblue;
+@negro: black;
+@shadowNegro:  rgba(0,0,0,.3);
+@backgroundAzul: rgba(70,130,180,.5);
+@backgroundAzul2: rgba(70,130,180,.7);
+
+//Tiempo
+@duracion: .3s;
+
+//Scales
+@scale1: scale(1.1);
+
+//Medidas px
+@nulo: 0;
+@0px : 0px;
+@2px: 2px;
+@5px: (@2px * 2) + 1; 
+@8px : @5px + 3;
+@10px: @5px + @5px;
+@25px: @5px * 5;
+@50px: @5px * 10;
+@64px: @50px + @10px + (@2px * 2);
+@90px: @64px + @25px + 1;
+@120px: @90px + @25px + @5px;
+@150px: @120px + @25px + @5px;
+@tamanioMaximo: @120px * 10;
+
+//Medidas %
+@1P: 1%;
+@2P: (@1P + @1P);
+@5P: ((@2P * 2 ) + 1);
+@10P: (@5P * 2);
+@18P: (@10P + @5P + @2P + 1);
+@25P: ((@10P * 2) + @5P);
+@50P: (@25P + @25P);
+@60P: (@50P + @10P);
+@70P: (@50P + @10P + @10P);
+@80P: (@60P + (@10P * 2));
+@100P: (@10P * 10);
+
+//Medidas em
+@0-2E: 0.2em;
+@0-5E: 0.5em;
+@0-8E: 0.8em;
+@1E: @0-5E + @0-5E;
+@2E: @1E + @1E;
+
+//Tamaño fuentes
+@fuenteTamanio : @10px + 6;
+@fuenteTamanio2 : @fuenteTamanio - 7;
+@fuenteTamanio3: @0-8E;
+@fuenteTamanio4: @fuenteTamanio3 + @0-2E;
+@fuenteTamanio5: @fuenteTamanio4 + @0-5E;
+
+//Medidas responsive.
+@pantallaPequenia: ((@150px * 3 ) - 10); //440
+@pantallaMediana: (@pantallaPequenia + @90px + (@10px * 2 )); //550
+@pantallaGrande : ((@pantallaMediana + @150px + @120px ) - ( @5px *  4));// 800
+
+
+/**MIXINGS**/
+.displayBlock{
+    display: inline-block;
+}
+.elementosUl{
+    text-align:center;
+    text-decoration: none;
+    text-transform:uppercase;
+}
+.borderRadio{
+    border-radius: @5px;
+}
+.borders{
+    border: @5px solid @azul;
+    .borderRadio();
+}
+.vertical{
+    vertical-align: top; 
+}
+.elementosUl2{
+    padding: @10px @nulo;
+    .vertical();   
+}
+
+/**INICIO DE ESTILOS**/
+* {
+  margin: @nulo auto;
+}
+
+article {
+  .displayBlock();
+}
+
+aside {
+  .borders();
+  display: block;
+  margin: @2P;
+  padding: @10px;
+  text-align: center;
+  width: @18P;
+  a {
+    text-decoration: none;
   }
+}
 
+body{
+	color: @blanco;
+	font-family: @Opens;
+	font-size: @fuenteTamanio;
+	max-width: @tamanioMaximo;
+	text-shadow:@2px @2px @nulo @shadowNegro;
+}
 
-  .clearfix {
-    display: block;
-    zoom: 1;
-  
-    &:after {
-      content: " ";
-      display: block;
-      font-size: 0;
-      height: 0;
-      clear: both;
-      visibility: hidden;
-    }
-  }
+header{
+	.borderRadio();
+}
 
-  .component {
-    width: 300px;
+footer{
+	background: @backgroundAzul;
+    max-width: @tamanioMaximo;
     
-    @media (min-width: 768px) {
-      width: 600px;
-      @media  (min-resolution: 192dpi) {
-        background-image: url(/img/retina2x.png);
-      }
+    ul{
+        font-size: @nulo;
+        padding: @nulo;
+        text-align: center;
+        width: @100P;
     }
 
-    @media (min-width: 1280px) {
-      width: 800px;
+    > ul > li{
+        .displayBlock();
+        font-size: @fuenteTamanio2;
+        height: @25px;
+        line-height: @25px;
+        margin: @nulo @5P;
+        .elementosUl2();
+        width: @10P;
     }
-  }
 
-@conversion-1: 5cm + 10mm; // result is 6cm
-@conversion-2: 2 - 3cm - 5mm; // result is -1.5cm
+    ul li img {
+        height: @25px;
+    }
+    ul li a{
+        color: @azul;
+        font-weight:bold;
+        .elementosUl();
+    &:hover{
+            color: @blanco;
+        }
+    }
+}
+nav{
+    .borderRadio();
+    ul{
+        font-size: @nulo;
+        padding: @nulo;
+    }
+    ul li{
+        background: @backgroundAzul;
+        .displayBlock();
+        font-size: @fuenteTamanio;
+        height: @50px;
+        line-height: @50px;
+        .elementosUl2();
+        width: @25P;
 
-// conversion is impossible
-@incompatible-units: 2 + 5px - 3cm; // result is 4px
+        &:hover{
+            background: @backgroundAzul2;
+            box-shadow: inset @blanco @0px @8px @8px;
+        }
+    }
+    ul li img {
+        height: @50px;
+    }
+    ul li a{
+        color: @azul;
+        display: block;
+        font-weight:bold;
+        .elementosUl();
 
-// example with variables
-@base: 5%;
-@filler: @base * 2; // result is 10%
-@other: @base + @filler; // result is 15%
+        &:hover{
+            color: @blanco;
+        }
+    }
+}
+section{
+	text-align:center;
+	width: @70P;
+}
+
+section article{
+    .borders();
+	box-shadow: @5px @5px @5px @azul2;
+	color: @negro;
+	font-size: @fuenteTamanio3;
+	margin: @1P;
+	padding: @10px;
+    width: @150px;
+    img {
+        transition: @duracion;
+        -webkit-transition: @duracion;
+        -moz-transition: @duracion;
+        -ms-transition: @duracion;
+        -o-transition: @duracion;
+        box-shadow: @8px @8px @10px @azul2;
+        height: @150px;
+        width: @150px;
+    }
+    &:hover img{
+        transform: @scale1;
+        -webkit-transform: @scale1;
+        -moz-transform: @scale1;
+        -ms-transform: @scale1;
+        -o-transform: @scale1;
+    }
+}
+
+section,aside{
+	display:inline-block;
+	.vertical();
+}
+
+#contenedor{
+	background: @blanco2;
+	display: inline-block;
+	max-width: @tamanioMaximo;
+	text-align: center;
+}
+
+.personales{
+    padding-bottom: @0-5E;
+    
+    h2{
+        text-shadow:@2px @2px @10px @blanco;
+        
+    }
+    img{
+        height: @120px;
+        padding-bottom: @2E;
+        width: @120px;
+    }
+}
+
+.publicidad_titulo{
+	padding: @1E @1E;
+}
+
+.Redes_sociales img{
+	height: @64px;
+	width: @64px;
+}
+
+@media screen and (max-width:@pantallaGrande){
+	nav ul li {
+        width: @50P;
+        
+        img {
+            height: @80P;
+        }
+	}
+
+	.publicidad img{
+	height: @90px;
+	padding: @1E @1E;
+	width: @90px;
+	}
+	.publicidad_titulo h2{
+		font-size: @fuenteTamanio4;
+	}
+}
+@media screen and (max-width:@pantallaMediana){
+	
+	aside{
+		width: @60P;
+	}
+
+	section{
+		width: @100P;
+	}
+	
+	.publicidad_titulo h2{
+		font-size: @fuenteTamanio5;
+	}
+}
+
+@media screen and (max-width:@pantallaPequenia){
+	
+	footer{
+		display:none;
+	}
+}
+
+
+
